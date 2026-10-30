@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — Explore Markets</title>
+  <meta name="description" content="Discover data-driven export opportunities for Indonesian agroindustry products across 47 global markets with AI-powered recommendations.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- =================== SIDEBAR =================== -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">Expor-E</div>
+          <div class="brand-tag">3E Digital Trade</div>
+        </div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" data-user-initial>D</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" data-user-name>Dewi</div>
+          <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-section">Main</div>
+      <a href="dashboard.html" class="sidebar-link">
+        <span class="ic">📊</span><span class="lbl">Dashboard</span>
+      </a>
+      <a href="readiness.html" class="sidebar-link">
+        <span class="ic">📈</span><span class="lbl">My Readiness</span>
+      </a>
+      <a href="education.html" class="sidebar-link">
+        <span class="ic">🎓</span><span class="lbl">Education</span>
+      </a>
+      <a href="markets.html" class="sidebar-link active">
+        <span class="ic">🌍</span><span class="lbl">Explore Markets</span>
+      </a>
+      <a href="ecosystem.html" class="sidebar-link">
+        <span class="ic">🤝</span><span class="lbl">Ecosystem</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="my-export.html" class="sidebar-link">
+        <span class="ic">📦</span><span class="lbl">My Export</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="sustainability.html" class="sidebar-link">
+        <span class="ic">🌱</span><span class="lbl">Sustainability</span>
+      </a>
+      <a href="my-business.html" class="sidebar-link">
+        <span class="ic">🏢</span><span class="lbl">My Business</span>
+      </a>
+
+      <div class="sidebar-footer">
+        <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
+          <span class="ic">🚪</span><span class="lbl">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+    <!-- =================== MAIN =================== -->
+    <main class="app-main">
+      <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+        <div>
+          <h1>Explore Global Markets</h1>
+          <div class="sub">Discover data-driven opportunities for Arabica Coffee across 47 countries.</div>
+        </div>
+        <div class="app-header-actions">
+          <button class="bell-btn" aria-label="Notifications"><span>🔔</span><span class="dot"></span></button>
+        </div>
+      </header>
+
+      <!-- Search -->
+      <div class="input-icon mb-16">
+        <span class="ic">🔍</span>
+        <input class="form-control" type="text" placeholder="Search markets, commodities, buyers..." oninput="ExporE.searchMarkets(this.value)">
+      </div>
+
+      <!-- Filter chips -->
+      <div class="flex gap-12 mb-24" style="flex-wrap: wrap;">
+        <button class="chip active" data-filter-btn="all" onclick="ExporE.filterMarkets('all')">All Markets</button>
+        <button class="chip" data-filter-btn="agriculture" onclick="ExporE.filterMarkets('agriculture')">Agriculture</button>
+        <button class="chip" data-filter-btn="food" onclick="ExporE.filterMarkets('food')">Food &amp; Beverage</button>
+        <button class="chip" data-filter-btn="textile" onclick="ExporE.filterMarkets('textile')">Textile &amp; Fashion</button>
+        <button class="chip" data-filter-btn="handicraft" onclick="ExporE.filterMarkets('handicraft')">Handicraft</button>
+        <button class="chip" data-filter-btn="other" onclick="ExporE.filterMarkets('other')">Other</button>
+      </div>
+
+      <!-- Main grid: content + right sidebar -->
+      <div class="grid" style="grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start;">
+
+        <!-- ===== MAIN COLUMN ===== -->
+        <section>
+          <h2 class="fs-24 mb-8">Featured Markets</h2>
+          <p class="text-muted mb-24">Curated high-demand destinations for Indonesian agroindustry products.</p>
+
+          <div class="grid grid-2">
+
+            <!-- Japan -->
+            <article class="market-card" data-market-card data-category="food" data-search="japan organic coffee specialty arabica tokyo food beverage asia">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇯🇵<span class="country-code">JP</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">Japan</div>
+                <div class="market-card-cat">Organic Coffee · Food &amp; Beverage</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$2.4B</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+8.6%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-japan')">View Details →</button>
+              </div>
+            </article>
+
+            <!-- India -->
+            <article class="market-card" data-market-card data-category="agriculture" data-search="india palm oil mumbai agriculture edible oil asia">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇮🇳<span class="country-code">IN</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">India</div>
+                <div class="market-card-cat">Palm Oil · Agriculture</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$1.8B</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+6.3%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-india')">View Details →</button>
+              </div>
+            </article>
+
+            <!-- Netherlands -->
+            <article class="market-card" data-market-card data-category="food" data-search="netherlands coconut sugar amsterdam organic sweetener food europe eu">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96c5017?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇳🇱<span class="country-code">NL</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">Netherlands</div>
+                <div class="market-card-cat">Coconut Sugar · Food &amp; Beverage</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$980M</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+5.7%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-netherlands')">View Details →</button>
+              </div>
+            </article>
+
+            <!-- Germany -->
+            <article class="market-card" data-market-card data-category="food" data-search="germany robusta coffee berlin espresso food beverage europe eu">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇩🇪<span class="country-code">DE</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">Germany</div>
+                <div class="market-card-cat">Robusta Coffee · Food &amp; Beverage</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$1.2B</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+4.9%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-germany')">View Details →</button>
+              </div>
+            </article>
+
+            <!-- United States -->
+            <article class="market-card" data-market-card data-category="handicraft" data-search="united states usa handicraft artisan handmade craft americas">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇺🇸<span class="country-code">US</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">United States</div>
+                <div class="market-card-cat">Handicraft · Artisan Goods</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$720M</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+7.2%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-usa')">View Details →</button>
+              </div>
+            </article>
+
+            <!-- United Kingdom -->
+            <article class="market-card" data-market-card data-category="textile" data-search="united kingdom uk organic textiles london fashion sustainable apparel europe">
+              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac9ad?auto=format&fit=crop&w=600&q=80');">
+                <div class="market-card-flag">🇬🇧<span class="country-code">UK</span></div>
+              </div>
+              <div class="market-card-body">
+                <div class="market-card-title">United Kingdom</div>
+                <div class="market-card-cat">Organic Textiles · Fashion</div>
+                <div class="market-card-stats">
+                  <div class="market-card-stat">
+                    <div class="num">$640M</div>
+                    <div class="lbl">Import Value</div>
+                  </div>
+                  <div class="market-card-stat">
+                    <div class="num market-card-trend">+6.1%</div>
+                    <div class="lbl">YoY Trend</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-uk')">View Details →</button>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ===== RIGHT SIDEBAR ===== -->
+        <aside>
+
+          <!-- Popular Markets -->
+          <div class="card card-pad mb-24">
+            <h3 class="mb-16">Popular Markets</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onclick="ExporE.openModal('market-japan')">
+                <span class="fs-14"><strong>1.</strong> Japan 🇯🇵</span>
+                <span class="badge badge-success">94%</span>
+              </div>
+              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onclick="ExporE.openModal('market-germany')">
+                <span class="fs-14"><strong>2.</strong> Germany 🇩🇪</span>
+                <span class="badge badge-success">88%</span>
+              </div>
+              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onclick="ExporE.openModal('market-netherlands')">
+                <span class="fs-14"><strong>3.</strong> Netherlands 🇳🇱</span>
+                <span class="badge badge-info">85%</span>
+              </div>
+              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onclick="ExporE.openModal('market-usa')">
+                <span class="fs-14"><strong>4.</strong> USA 🇺🇸</span>
+                <span class="badge badge-info">82%</span>
+              </div>
+              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; transition: all 0.2s;" onclick="ExporE.openModal('market-uk')">
+                <span class="fs-14"><strong>5.</strong> UK 🇬🇧</span>
+                <span class="badge badge-info">78%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Market Finder -->
+          <div class="ai-panel mb-24">
+            <div class="ai-icon">🤖</div>
+            <div class="ai-title">AI Market Finder</div>
+            <div class="ai-sub">Explore with AI — get personalized market recommendations based on your product profile.</div>
+            <button class="btn btn-white btn-block mt-16" onclick="ExporE.aiMarketFinder()">Find My Best Markets →</button>
+            <div id="ai-result" class="ai-result hidden"></div>
+          </div>
+
+          <!-- Global Trade News -->
+          <div class="card card-pad">
+            <h3 class="mb-16">Global Trade News</h3>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <div class="fw-700 fs-14">EU CBAM Update: Full implementation from Jan 2026</div>
+                <div class="fs-12 text-muted mt-8">2 hours ago · EU Commission</div>
+              </div>
+              <div class="divider" style="margin: 0;"></div>
+              <div>
+                <div class="fw-700 fs-14">Japan introduces new SPS regulation for organic coffee imports</div>
+                <div class="fs-12 text-muted mt-8">1 day ago · MHLW Japan</div>
+              </div>
+              <div class="divider" style="margin: 0;"></div>
+              <div>
+                <div class="fw-700 fs-14">India revises import tariffs on crude palm oil</div>
+                <div class="fs-12 text-muted mt-8">3 days ago · Ministry of Commerce India</div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- =================== MARKET MODALS =================== -->
+
+  <!-- Japan Modal -->
+  <div class="modal-overlay" id="market-japan">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇯🇵 Japan · Tokyo</div>
+          <div class="modal-subtitle">Organic Coffee — Specialty Arabica import market</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-japan')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$2.4B</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+8.6%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Tokyo · Osaka</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">Under GSP scheme for eligible Indonesian agro products</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">JAS Organic</span>
+            <span class="chip">HACCP</span>
+            <span class="chip">ISO 22000</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">MHLW (Ministry of Health, Labour and Welfare) conducts mandatory food safety inspections at port of entry. Imported coffee requires MHLW notification and labeling compliance under JAS Law.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Tokyo Specialty Coffee Co.</div>
+              <div class="fs-12 text-muted">Premium single-origin importer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">UCC Ueshima Coffee Co.</div>
+              <div class="fs-12 text-muted">Japan's largest coffee importer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Key Coffee Inc.</div>
+              <div class="fs-12 text-muted">Specialty &amp; commercial roasting</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Apply for JAS Organic certification via a registered Japanese certification agency.</li>
+          <li class="fs-13">Prepare Japanese-language product label and packaging samples.</li>
+          <li class="fs-13">Schedule buyer introductions through JETRO Indonesia office.</li>
+          <li class="fs-13">Confirm logistics partner for direct shipping to Port of Tokyo or Yokohama.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-japan')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Japan saved to your market watchlist.', 'success'); ExporE.closeModal('market-japan');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- India Modal -->
+  <div class="modal-overlay" id="market-india">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇮🇳 India · Mumbai</div>
+          <div class="modal-subtitle">Palm Oil — world's largest importer of edible oils</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-india')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$1.8B</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+6.3%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Mumbai · Chennai</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-warning">Variable Tariff</span>
+            <span class="fs-14">Crude palm oil: 0% under Tariff Rate Quota; Refined: ~17.5%</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">FSSAI Registration</span>
+            <span class="chip">ISO 22000</span>
+            <span class="chip">RSPO Sustainable</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">FSSAI (Food Safety and Standards Authority of India) mandates pre-shipment inspection and laboratory testing for edible oils at designated Indian ports.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Mumbai Foods Ltd.</div>
+              <div class="fs-12 text-muted">Edible oil distributor &amp; refinery</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Adani Wilmar Ltd.</div>
+              <div class="fs-12 text-muted">FMCG edible oil major</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Emami Agrotech Ltd.</div>
+              <div class="fs-12 text-muted">Palm oil refining &amp; packaging</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Register with FSSAI for an importer license and obtain RSPO certification.</li>
+          <li class="fs-13">Confirm HS Code 1511.10 tariff classification with customs broker.</li>
+          <li class="fs-13">Negotiate crude vs. refined palm oil shipments based on TRQ availability.</li>
+          <li class="fs-13">Partner with a logistics provider for Mundra or Nhava Sheva port handling.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-india')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('India saved to your market watchlist.', 'success'); ExporE.closeModal('market-india');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Netherlands Modal -->
+  <div class="modal-overlay" id="market-netherlands">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇳🇱 Netherlands · Amsterdam</div>
+          <div class="modal-subtitle">Coconut Sugar — EU organic food gateway</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-netherlands')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$980M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+5.7%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Amsterdam · Rotterdam</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">EU GSP+ preference for Indonesian origin</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">EU Organic (Reg. 2018/848)</span>
+            <span class="chip">ISO 22000</span>
+            <span class="chip">Fair Trade EU</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">EU Border Rejection System (RASFF) applies. Shipments require pre-export health certificate and may face document checks at Port of Rotterdam.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Amsterdam Organics B.V.</div>
+              <div class="fs-12 text-muted">Organic sweetener distributor</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Tastea Natural Foods</div>
+              <div class="fs-12 text-muted">Plant-based food brand</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Rotterdam Bio Trading</div>
+              <div class="fs-12 text-muted">Bulk organic commodities</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Obtain EU Organic certification via an EU-accredited control body.</li>
+          <li class="fs-13">Issue EUR.1 movement certificate to claim GSP+ preferential tariff.</li>
+          <li class="fs-13">Register with RASSF portal and prepare pre-export health certificate.</li>
+          <li class="fs-13">Schedule meeting with Netherlands Food Partnership for buyer matching.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-netherlands')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Netherlands saved to your market watchlist.', 'success'); ExporE.closeModal('market-netherlands');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Germany Modal -->
+  <div class="modal-overlay" id="market-germany">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇩🇪 Germany · Berlin</div>
+          <div class="modal-subtitle">Robusta Coffee — largest EU coffee market</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-germany')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$1.2B</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+4.9%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Berlin · Hamburg</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">Raw coffee (HS 0901) enters EU duty-free</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">EU Organic</span>
+            <span class="chip">HACCP</span>
+            <span class="chip">Rainforest Alliance</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">German Federal Office of Consumer Protection and Food Safety (BVL) coordinates entry checks; the EU CBAM (Carbon Border Adjustment Mechanism) applies to certain product categories from 2026.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Berlin Coffee Roasters GmbH</div>
+              <div class="fs-12 text-muted">Specialty roasting house</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Tchibo GmbH</div>
+              <div class="fs-12 text-muted">Major German coffee retailer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Dalla Corte GmbH</div>
+              <div class="fs-12 text-muted">Premium espresso importer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Verify HS Code 0901.22 (Robusta, raw) classification for duty-free entry.</li>
+          <li class="fs-13">Prepare CBAM emissions documentation starting 2026.</li>
+          <li class="fs-13">Issue EUR.1 certificate and pre-shipment inspection report.</li>
+          <li class="fs-13">Connect with Hamburg coffee exchange for bulk contracts.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-germany')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Germany saved to your market watchlist.', 'success'); ExporE.closeModal('market-germany');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- USA Modal -->
+  <div class="modal-overlay" id="market-usa">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇺🇸 United States · Los Angeles</div>
+          <div class="modal-subtitle">Handicraft — artisan goods &amp; cultural products</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-usa')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$720M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+7.2%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">LA · NYC · Seattle</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">Low Tariff</span>
+            <span class="fs-14">Most handicraft HS codes 0–5% under GSP</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">FDA Registration</span>
+            <span class="chip">FCC Compliance</span>
+            <span class="chip">Fair Trade USA</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">CBP (Customs and Border Protection) and FDA conduct risk-based inspections. Wooden handicrafts require ISPM-15 fumigation certification.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Global Artisan Network</div>
+              <div class="fs-12 text-muted">Ethical sourcing marketplace</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">West Elm Buyers Office</div>
+              <div class="fs-12 text-muted">Home &amp; lifestyle retail chain</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">NOVICA United States</div>
+              <div class="fs-12 text-muted">Online artisan platform</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Register with FDA for facility number if product touches food/cosmetics.</li>
+          <li class="fs-13">Obtain ISPM-15 fumigation certificate for wooden products.</li>
+          <li class="fs-13">File Electronic Export Information (EEI) via ACE/AES portal.</li>
+          <li class="fs-13">Engage a US-licensed customs broker for ISF (10+2) filing.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-usa')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('United States saved to your market watchlist.', 'success'); ExporE.closeModal('market-usa');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UK Modal -->
+  <div class="modal-overlay" id="market-uk">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🇬🇧 United Kingdom · London</div>
+          <div class="modal-subtitle">Organic Textiles — sustainable apparel market</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-uk')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$640M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+6.1%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">London · Manchester</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-warning">4–12% Tariff</span>
+            <span class="fs-14">UK Global Tariff varies by fabric composition</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">GOTS Organic Textile</span>
+            <span class="chip">OEKO-TEX Standard 100</span>
+            <span class="chip">Fair Trade UK</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">UK Trading Standards enforces textile labeling under Textile Products (Labelling and Fibre Composition) Regulations 2012. REACH compliance applies for chemical content.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">People Tree London</div>
+              <div class="fs-12 text-muted">Sustainable fashion pioneer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">M&amp;S Sustainable Sourcing</div>
+              <div class="fs-12 text-muted">Plan A sustainable apparel program</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">London Textile Exchange</div>
+              <div class="fs-12 text-muted">Organic fabric importer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Obtain GOTS certification via an approved UK-recognised certification body.</li>
+          <li class="fs-13">Prepare fibre composition labels in English for each product.</li>
+          <li class="fs-13">Issue UK Certificate of Origin via local chamber of commerce.</li>
+          <li class="fs-13">Confirm REACH compliance for dyes and chemical finishes used.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-uk')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('United Kingdom saved to your market watchlist.', 'success'); ExporE.closeModal('market-uk');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== SCRIPTS =================== -->
+  <script src="script.js"></script>
+  <script>
+    ExporE.requireAuth(['umkm']);
+    ExporE.pageInit('markets');
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — My Export</title>
+  <meta name="description" content="Track every export shipment in real time — from Tanjung Perak to global ports. Monitor cargo status, documents, and buyer activity in one place.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">Expor-E</div>
+          <div class="brand-tag">3E Digital Trade Framework</div>
+        </div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" data-user-initial>D</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" data-user-name>Dewi</div>
+          <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-section">Main Menu</div>
+      <a href="dashboard.html" class="sidebar-link">
+        <span class="ic">📊</span><span class="lbl">Dashboard</span>
+      </a>
+      <a href="readiness.html" class="sidebar-link">
+        <span class="ic">📋</span><span class="lbl">My Readiness</span>
+      </a>
+      <a href="education.html" class="sidebar-link">
+        <span class="ic">🎓</span><span class="lbl">Education</span>
+      </a>
+      <a href="markets.html" class="sidebar-link">
+        <span class="ic">🌍</span><span class="lbl">Explore Markets</span>
+      </a>
+      <a href="ecosystem.html" class="sidebar-link">
+        <span class="ic">🤝</span><span class="lbl">Ecosystem</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="my-export.html" class="sidebar-link active">
+        <span class="ic">📦</span><span class="lbl">My Export</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="sustainability.html" class="sidebar-link">
+        <span class="ic">🌱</span><span class="lbl">Sustainability</span>
+      </a>
+      <a href="my-business.html" class="sidebar-link">
+        <span class="ic">🏢</span><span class="lbl">My Business</span>
+      </a>
+
+      <div class="sidebar-footer">
+        <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
+          <span class="ic">🚪</span><span class="lbl">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+    <!-- ============ MAIN ============ -->
+    <main class="app-main">
+      <!-- HEADER -->
+      <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+        <div>
+          <h1>My Export</h1>
+          <div class="sub">From local potential to global impact — track every shipment in real time.</div>
+        </div>
+        <div class="app-header-actions">
+          <button class="bell-btn" aria-label="Notifications">
+            <span>🔔</span><span class="dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- HERO BANNER -->
+      <div class="card card-emerald card-pad-lg mb-24">
+        <h2>From Local Potential to Global Impact</h2>
+        <p style="color: rgba(255,255,255,0.88); margin-top: 10px; font-size: 15px; max-width: 760px; line-height: 1.6;">
+          Monitor your export shipments, track cargo in real time, and analyze your performance across markets.
+        </p>
+        <div class="flex gap-12 mt-24" style="flex-wrap: wrap;">
+          <span class="badge badge-emerald" style="background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.3);">🚢 5 In Transit</span>
+          <span class="badge badge-emerald" style="background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.3);">🌍 4 Markets</span>
+          <span class="badge badge-emerald" style="background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.3);">⭐ 4.8 Buyer Rating</span>
+        </div>
+      </div>
+
+      <!-- KPI GRID -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon blue">📦</div>
+          <div class="kpi-num">12</div>
+          <div class="kpi-lbl">Total Shipments</div>
+          <div class="kpi-trend up">↗ +3 this month</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon gold">🛒</div>
+          <div class="kpi-num">5</div>
+          <div class="kpi-lbl">Total Orders</div>
+          <div class="kpi-trend up">↗ 2 pending</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon green">📄</div>
+          <div class="kpi-num">6</div>
+          <div class="kpi-lbl">Documents</div>
+          <div class="kpi-trend up">↗ 4 ready</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon green">📈</div>
+          <div class="kpi-num">78%</div>
+          <div class="kpi-lbl">Performance</div>
+          <div class="kpi-trend up">↗ +5% YoY</div>
+        </div>
+      </div>
+
+      <!-- MAIN + RIGHT SIDEBAR -->
+      <div class="grid grid-2">
+        <!-- LEFT MAIN COLUMN -->
+        <div class="flex-col gap-24">
+
+          <!-- RECENT SHIPMENTS -->
+          <div class="card card-pad">
+            <h3>Recent Shipments</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              All your export shipments with current status and tracking access.
+            </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Shipment ID</th>
+                    <th>Product</th>
+                    <th>Destination</th>
+                    <th>Buyer</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="shipments-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TRACKING SHIPMENT -->
+          <div class="card card-pad-lg">
+            <h3>Tracking Shipment</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Click 'Track' on any shipment above to see real-time route and timeline.
+            </p>
+            <div id="tracking-panel">
+              <div class="empty-state">
+                <div class="ic">🚢</div>
+                <h3>Select a shipment to track</h3>
+                <p>Choose any shipment above and its real-time route map and tracking timeline will appear here.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PERFORMANCE OVERVIEW -->
+          <div class="card card-pad">
+            <h3>Performance Overview</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Your export performance across key metrics.
+            </p>
+            <div class="grid grid-3 mb-16">
+              <div class="kpi-card">
+                <div class="kpi-icon green">💰</div>
+                <div class="kpi-num" data-perf-value="totalValue">$245,680</div>
+                <div class="kpi-lbl">Total Export Value</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon blue">⏱️</div>
+                <div class="kpi-num"><span data-perf-value="onTime">83</span>%</div>
+                <div class="kpi-lbl">On-Time Delivery</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon gold">⭐</div>
+                <div class="kpi-num"><span data-perf-value="satisfaction">4.8</span>/5</div>
+                <div class="kpi-lbl">Customer Satisfaction</div>
+              </div>
+            </div>
+            <div class="progress-row">
+              <span class="lbl">On-Time Delivery Performance</span>
+              <span class="val">83%</span>
+            </div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 83%;"></div>
+            </div>
+            <p class="text-muted" style="font-size: 12px; margin-top: 8px;">
+              Industry benchmark: 78% · Your performance is above benchmark by 5 points.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT SIDEBAR -->
+        <div class="flex-col gap-24">
+
+          <!-- ACTIVE SHIPMENTS -->
+          <div class="card card-pad">
+            <h3>Active Shipments</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Live shipments currently in transit to global markets.
+            </p>
+
+            <div class="flex-col gap-16">
+              <div>
+                <div class="progress-row">
+                  <span class="lbl">EXP-001 · Japan</span>
+                  <span class="val">65%</span>
+                </div>
+                <div class="progress progress-sm">
+                  <div class="progress-bar" style="width: 65%;"></div>
+                </div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 6px;">
+                  In Transit · Tokyo Specialty Co.
+                </div>
+              </div>
+
+              <div>
+                <div class="progress-row">
+                  <span class="lbl">EXP-003 · Netherlands</span>
+                  <span class="val">40%</span>
+                </div>
+                <div class="progress progress-sm">
+                  <div class="progress-bar info" style="width: 40%;"></div>
+                </div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 6px;">
+                  In Transit · Amsterdam Organics
+                </div>
+              </div>
+
+              <div>
+                <div class="progress-row">
+                  <span class="lbl">EXP-004 · India</span>
+                  <span class="val">25%</span>
+                </div>
+                <div class="progress progress-sm">
+                  <div class="progress-bar danger" style="width: 25%;"></div>
+                </div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 6px;">
+                  Delayed · Mumbai Foods Ltd
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QUICK ACTIONS -->
+          <div class="card card-pad">
+            <h3>Quick Actions</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Jump to your most-used export tools.
+            </p>
+            <div class="flex-col gap-12">
+              <a href="my-business.html" class="btn btn-primary btn-block">📦 New Shipment</a>
+              <button class="btn btn-ghost btn-block" onclick="ExporE.showToast('Documents generator opening soon.', 'info')">📄 Generate Documents</button>
+              <button class="btn btn-ghost btn-block" onclick="ExporE.showToast('Export report is being prepared.', 'info')">📊 Export Report</button>
+              <button class="btn btn-ghost btn-block" onclick="ExporE.showToast('Connecting you with a logistics partner.', 'info')">🤝 Contact Logistics</button>
+            </div>
+          </div>
+
+          <!-- BUYER MESSAGES -->
+          <div class="card card-pad">
+            <h3>Buyer Messages</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Recent messages from your international buyers.
+            </p>
+            <div class="flex-col gap-12">
+              <div class="next-step-card" style="cursor: default;">
+                <div class="next-step-num">🇯🇵</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Tokyo Specialty Co.</div>
+                  <div class="next-step-sub">"When can we expect delivery?"</div>
+                </div>
+                <div class="next-step-arrow">→</div>
+              </div>
+              <div class="next-step-card" style="cursor: default;">
+                <div class="next-step-num">🇩🇪</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Berlin Coffee Roasters</div>
+                  <div class="next-step-sub">"Quality excellent — repeat order?"</div>
+                </div>
+                <div class="next-step-arrow">→</div>
+              </div>
+              <div class="next-step-card" style="cursor: default;">
+                <div class="next-step-num">🇳🇱</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Amsterdam Organics</div>
+                  <div class="next-step-sub">"Customs docs received, thank you."</div>
+                </div>
+                <div class="next-step-arrow">→</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    ExporE.requireAuth(['umkm']);
+    ExporE.pageInit('my-export');
+    ExporE.trackShipment('EXP-001');
+  </script>
+</body>
+</html>

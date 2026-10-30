@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expor-E — Export Readiness</title>
+<meta name="description" content="Assess your export readiness across product quality, documentation, certification, market knowledge and digital readiness — and get a personalized improvement plan.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============== SIDEBAR ============== -->
+  <aside class="app-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">E</div>
+      <div>
+        <div class="brand-name">Expor-E</div>
+        <div class="brand-tag">3E Digital Trade</div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" data-user-initial>D</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" data-user-name>Dewi</div>
+        <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+      </div>
+    </div>
+
+    <div class="sidebar-nav-section">Main Menu</div>
+    <a href="dashboard.html" class="sidebar-link">
+      <span class="ic">🏠</span>
+      <span class="lbl">Dashboard</span>
+    </a>
+    <a href="readiness.html" class="sidebar-link active">
+      <span class="ic">📊</span>
+      <span class="lbl">My Readiness</span>
+    </a>
+    <a href="readiness.html" class="sidebar-sublink active" data-sublink="assessment" onclick="event.preventDefault(); switchReadinessTab('assessment');">Assessment</a>
+    <a href="readiness.html#plan" class="sidebar-sublink" data-sublink="plan" onclick="event.preventDefault(); switchReadinessTab('plan');">Improvement Plan</a>
+    <a href="education.html" class="sidebar-link">
+      <span class="ic">📚</span>
+      <span class="lbl">Education</span>
+    </a>
+    <a href="markets.html" class="sidebar-link">
+      <span class="ic">🌍</span>
+      <span class="lbl">Explore Markets</span>
+    </a>
+    <a href="ecosystem.html" class="sidebar-link">
+      <span class="ic">🤝</span>
+      <span class="lbl">Ecosystem</span>
+      <span class="pill active-tag">Active</span>
+    </a>
+    <a href="my-export.html" class="sidebar-link">
+      <span class="ic">📦</span>
+      <span class="lbl">My Export</span>
+      <span class="pill active-tag">Active</span>
+    </a>
+    <a href="sustainability.html" class="sidebar-link">
+      <span class="ic">🌱</span>
+      <span class="lbl">Sustainability</span>
+    </a>
+    <a href="my-business.html" class="sidebar-link">
+      <span class="ic">🏢</span>
+      <span class="lbl">My Business</span>
+    </a>
+
+    <div class="sidebar-footer">
+      <button class="sidebar-link" onclick="ExporE.logout()" style="width:100%">
+        <span class="ic">🚪</span>
+        <span class="lbl">Logout</span>
+      </button>
+    </div>
+  </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+  <!-- ============== MAIN ============== -->
+  <main class="app-main">
+
+    <!-- App Header -->
+    <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div>
+        <h1>Export Readiness Assessment</h1>
+        <p class="sub">Understand where you stand and what to improve next.</p>
+      </div>
+      <div class="app-header-actions">
+        <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 1 new notification.', 'info')">🔔<span class="dot"></span></button>
+        <div class="sidebar-avatar" data-user-initial>D</div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <div data-tab-group="readiness">
+      <div class="tabs mb-24">
+        <button class="tab-btn active" data-tab="assessment" onclick="switchReadinessTab('assessment')">Assessment</button>
+        <button class="tab-btn" data-tab="plan" onclick="switchReadinessTab('plan')">Improvement Plan</button>
+      </div>
+
+      <!-- ============== TAB: ASSESSMENT ============== -->
+      <div class="tab-content active" data-tab-content="assessment">
+        <div class="grid grid-2" style="align-items:start;">
+
+          <!-- LEFT: Donut + Breakdown + Detailed Table -->
+          <div class="flex flex-col gap-24">
+
+            <div class="card card-pad">
+              <div class="text-center mb-24">
+                <div class="donut donut-lg" id="readiness-donut" style="--p:64;">
+                  <div class="donut-inner">
+                    <div class="donut-num">64<span class="pct">%</span></div>
+                    <div class="donut-lbl">Export Ready</div>
+                  </div>
+                </div>
+                <p id="readiness-score-label" class="fw-600 mt-16" style="color:var(--emerald-dark);">64% Export Readiness (Good Progress)</p>
+              </div>
+
+              <h3 class="mb-16">Readiness Breakdown</h3>
+
+              <div data-readiness-breakdown="product">
+                <div class="progress-row">
+                  <span class="lbl">Product Readiness</span>
+                  <span class="val">82%</span>
+                </div>
+                <div class="progress mb-16"><div class="progress-bar" style="width:82%"></div></div>
+              </div>
+
+              <div data-readiness-breakdown="documentation">
+                <div class="progress-row">
+                  <span class="lbl">Documentation</span>
+                  <span class="val">55%</span>
+                </div>
+                <div class="progress mb-16"><div class="progress-bar" style="width:55%"></div></div>
+              </div>
+
+              <div data-readiness-breakdown="certification">
+                <div class="progress-row">
+                  <span class="lbl">Certification</span>
+                  <span class="val">48%</span>
+                </div>
+                <div class="progress mb-16"><div class="progress-bar" style="width:48%"></div></div>
+              </div>
+
+              <div data-readiness-breakdown="market">
+                <div class="progress-row">
+                  <span class="lbl">Market Readiness</span>
+                  <span class="val">70%</span>
+                </div>
+                <div class="progress mb-16"><div class="progress-bar" style="width:70%"></div></div>
+              </div>
+
+              <div data-readiness-breakdown="digital">
+                <div class="progress-row">
+                  <span class="lbl">Digital Readiness</span>
+                  <span class="val">65%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+              </div>
+            </div>
+
+            <!-- Detailed Table -->
+            <div class="card">
+              <div class="card-pad-sm" style="padding:20px 24px 12px;">
+                <h3>Detailed Assessment</h3>
+                <p class="text-muted fs-13" style="margin-top:4px;">Granular view across 7 export-readiness dimensions.</p>
+              </div>
+              <div class="table-wrap" style="border:none; box-shadow:none;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Area</th>
+                      <th>Your Score</th>
+                      <th>Status</th>
+                      <th>Recommendation</th>
+                    </tr>
+                  </thead>
+                  <tbody id="readiness-detailed-table"></tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="flex flex-col gap-24">
+
+            <!-- Mint celebration card -->
+            <div class="card card-mint card-pad">
+              <div class="flex gap-16 items-center" style="align-items:flex-start;">
+                <div style="font-size:36px; line-height:1;">🎉</div>
+                <div>
+                  <h3 style="margin-bottom:6px;">You're on the right track!</h3>
+                  <p class="fs-14" style="color:var(--emerald-dark);">You've completed <strong>64%</strong> of your export readiness. With HACCP and proper documentation, you'll unlock premium markets like Japan and Germany.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Priorities -->
+            <div class="card card-pad">
+              <h3 class="mb-16">3 Priorities to Improve Your Readiness</h3>
+
+              <div class="next-step-card" style="cursor:default; margin-bottom:12px;">
+                <div class="next-step-num" style="background:linear-gradient(135deg, var(--danger), #E07364);">🔴</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Complete HACCP requirement</div>
+                  <div class="next-step-sub">Critical for food export markets</div>
+                </div>
+                <span class="badge badge-danger">Critical</span>
+              </div>
+
+              <div class="next-step-card" style="cursor:default; margin-bottom:12px;">
+                <div class="next-step-num" style="background:linear-gradient(135deg, var(--warning), #F0B860);">🟡</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Learn SPS requirements</div>
+                  <div class="next-step-sub">Sanitary & Phytosanitary Standards · 15 min module</div>
+                </div>
+                <span class="badge badge-warning">15 min</span>
+              </div>
+
+              <div class="next-step-card" style="cursor:default;">
+                <div class="next-step-num" style="background:linear-gradient(135deg, var(--warning), #F0B860);">🟡</div>
+                <div class="next-step-info">
+                  <div class="next-step-title">Prepare Export Documentation</div>
+                  <div class="next-step-sub">Commercial Invoice, Packing List, Certificate of Origin (COO)</div>
+                </div>
+                <span class="badge badge-warning">Templates</span>
+              </div>
+            </div>
+
+            <!-- Need help -->
+            <div class="card card-pad">
+              <h3 class="mb-8">Need help to improve?</h3>
+              <p class="text-muted fs-14 mb-16">Get personalized guidance from export experts and learning resources.</p>
+              <div class="flex gap-12" style="flex-wrap:wrap;">
+                <a href="education.html" class="btn btn-primary">Go to Education →</a>
+                <button class="btn btn-outline" onclick="ExporE.openModal('expert-modal')">Talk to Expert</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============== TAB: IMPROVEMENT PLAN ============== -->
+      <div class="tab-content" data-tab-content="plan">
+        <div class="card card-pad">
+          <div class="flex justify-between items-center mb-24" style="flex-wrap:wrap; gap:12px;">
+            <div>
+              <h3>Your 4-Week Improvement Plan</h3>
+              <p class="text-muted fs-13" style="margin-top:4px;">A clear, week-by-week roadmap to lift your readiness from 64% → 80%+.</p>
+            </div>
+            <span class="badge badge-success">Overall progress 25%</span>
+          </div>
+
+          <div class="progress progress-lg mb-32"><div class="progress-bar" style="width:25%"></div></div>
+
+          <div class="grid grid-2" style="gap:20px;">
+
+            <!-- Week 1 -->
+            <div class="card card-pad" style="border:1px solid var(--border);">
+              <div class="flex justify-between items-center mb-16">
+                <div class="flex gap-12 items-center">
+                  <div class="next-step-num">1</div>
+                  <div>
+                    <div class="fw-700">Week 1</div>
+                    <div class="text-muted fs-12">HACCP & Compliance Foundations</div>
+                  </div>
+                </div>
+                <span class="badge badge-warning">In Progress</span>
+              </div>
+              <div class="progress mb-16"><div class="progress-bar warning" style="width:50%"></div></div>
+              <div class="form-check">
+                <input type="checkbox" checked>
+                <div>
+                  <div class="form-check-label">HACCP gap analysis</div>
+                  <div class="form-check-sub">Identify missing control points</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" checked>
+                <div>
+                  <div class="form-check-label">Start HACCP fundamentals module</div>
+                  <div class="form-check-sub">Education · 2h</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Schedule HACCP auditor visit</div>
+                  <div class="form-check-sub">Local certification body</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="card card-pad" style="border:1px solid var(--border);">
+              <div class="flex justify-between items-center mb-16">
+                <div class="flex gap-12 items-center">
+                  <div class="next-step-num">2</div>
+                  <div>
+                    <div class="fw-700">Week 2</div>
+                    <div class="text-muted fs-12">Documentation & SPS</div>
+                  </div>
+                </div>
+                <span class="badge badge-muted">Not Started</span>
+              </div>
+              <div class="progress mb-16"><div class="progress-bar" style="width:0%"></div></div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Download export document templates</div>
+                  <div class="form-check-sub">Commercial Invoice, Packing List, COO</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Complete SPS requirements module</div>
+                  <div class="form-check-sub">Education · 1h 45m</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Draft first Commercial Invoice sample</div>
+                  <div class="form-check-sub">Use real product data</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="card card-pad" style="border:1px solid var(--border);">
+              <div class="flex justify-between items-center mb-16">
+                <div class="flex gap-12 items-center">
+                  <div class="next-step-num">3</div>
+                  <div>
+                    <div class="fw-700">Week 3</div>
+                    <div class="text-muted fs-12">Market & Buyer Outreach</div>
+                  </div>
+                </div>
+                <span class="badge badge-muted">Not Started</span>
+              </div>
+              <div class="progress mb-16"><div class="progress-bar" style="width:0%"></div></div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Deep-dive Japan market research</div>
+                  <div class="form-check-sub">Consumer trends, pricing, SPS rules</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Shortlist 5 potential buyers</div>
+                  <div class="form-check-sub">Use Ecosystem partner directory</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Send first outreach email</div>
+                  <div class="form-check-sub">Include product sample offer</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="card card-pad" style="border:1px solid var(--border);">
+              <div class="flex justify-between items-center mb-16">
+                <div class="flex gap-12 items-center">
+                  <div class="next-step-num">4</div>
+                  <div>
+                    <div class="fw-700">Week 4</div>
+                    <div class="text-muted fs-12">Certification & Logistics</div>
+                  </div>
+                </div>
+                <span class="badge badge-muted">Not Started</span>
+              </div>
+              <div class="progress mb-16"><div class="progress-bar" style="width:0%"></div></div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Submit HACCP certification application</div>
+                  <div class="form-check-sub">With all supporting documents</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Sign logistics partner for Japan route</div>
+                  <div class="form-check-sub">Freight forwarder with coffee experience</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox">
+                <div>
+                  <div class="form-check-label">Prepare first export shipment plan</div>
+                  <div class="form-check-sub">Timeline, costs, Incoterms</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="notice-banner mt-24">
+            <span class="ic">📅</span>
+            <span>Estimated completion: <strong>4 weeks</strong>. Re-assess at the end of Week 4 to measure your progress.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- ============== EXPERT MODAL ============== -->
+<div class="modal-overlay" id="expert-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Talk to an Export Expert</div>
+        <div class="modal-subtitle">Schedule a free 30-minute consultation with a certified export advisor.</div>
+      </div>
+      <button class="modal-close" onclick="ExporE.closeModal('expert-modal')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Your Name <span class="req">*</span></label>
+        <input class="form-control" type="text" placeholder="Dewi" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Business Name <span class="req">*</span></label>
+        <input class="form-control" type="text" placeholder="Sari Kopi Nusantara" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Commodity</label>
+        <select class="form-control">
+          <option>Arabica Coffee</option>
+          <option>Robusta Coffee</option>
+          <option>Coconut Sugar</option>
+          <option>Palm Oil</option>
+          <option>Pepper (Black)</option>
+          <option>Green Tea</option>
+          <option>Handicraft</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Question <span class="req">*</span></label>
+        <textarea class="form-control" placeholder="e.g. What documents do I need to ship Arabica Coffee to Japan?" required></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="ExporE.closeModal('expert-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="ExporE.showToast('Expert call scheduled! We will contact you within 24 hours.', 'success'); ExporE.closeModal('expert-modal');">Schedule Call</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  ExporE.requireAuth(['umkm']);
+
+  // Helper: switch readiness tab + update sub-link active state + sync URL hash
+  function switchReadinessTab(tab) {
+    ExporE.switchTab('readiness', tab);
+    document.querySelectorAll('[data-sublink]').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-sublink') === tab);
+    });
+    if (tab === 'plan') {
+      history.replaceState(null, '', '#plan');
+    } else {
+      history.replaceState(null, '', window.location.pathname);
+    }
+  }
+  window.switchReadinessTab = switchReadinessTab;
+
+  // Backup listener: if hash changes via browser back/forward, switch tab too
+  window.addEventListener('hashchange', function() {
+    var tab = window.location.hash === '#plan' ? 'plan' : 'assessment';
+    ExporE.switchTab('readiness', tab);
+    document.querySelectorAll('[data-sublink]').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-sublink') === tab);
+    });
+  });
+
+  // Deep-link: open "Improvement Plan" tab if hash is #plan on initial load
+  if (window.location.hash === '#plan') {
+    ExporE.switchTab('readiness', 'plan');
+    document.querySelectorAll('[data-sublink]').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-sublink') === 'plan');
+    });
+  }
+  ExporE.pageInit('readiness');
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — Sustainability &amp; ESG</title>
+  <meta name="description" content="Track your environmental, social, and governance readiness for premium export markets like EU, Japan, and UK.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- =================== SIDEBAR =================== -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">Expor-E</div>
+          <div class="brand-tag">3E Digital Trade</div>
+        </div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" data-user-initial>D</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" data-user-name>Dewi</div>
+          <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-section">Main</div>
+      <a href="dashboard.html" class="sidebar-link">
+        <span class="ic">📊</span><span class="lbl">Dashboard</span>
+      </a>
+      <a href="readiness.html" class="sidebar-link">
+        <span class="ic">📈</span><span class="lbl">My Readiness</span>
+      </a>
+      <a href="education.html" class="sidebar-link">
+        <span class="ic">🎓</span><span class="lbl">Education</span>
+      </a>
+      <a href="markets.html" class="sidebar-link">
+        <span class="ic">🌍</span><span class="lbl">Explore Markets</span>
+      </a>
+      <a href="ecosystem.html" class="sidebar-link">
+        <span class="ic">🤝</span><span class="lbl">Ecosystem</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="my-export.html" class="sidebar-link">
+        <span class="ic">📦</span><span class="lbl">My Export</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="sustainability.html" class="sidebar-link active">
+        <span class="ic">🌱</span><span class="lbl">Sustainability</span>
+      </a>
+      <a href="my-business.html" class="sidebar-link">
+        <span class="ic">🏢</span><span class="lbl">My Business</span>
+      </a>
+
+      <div class="sidebar-footer">
+        <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
+          <span class="ic">🚪</span><span class="lbl">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+    <!-- =================== MAIN =================== -->
+    <main class="app-main">
+      <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+        <div>
+          <h1>Sustainability &amp; ESG Profile</h1>
+          <div class="sub">Track your environmental, social, and governance readiness for premium markets.</div>
+        </div>
+        <div class="app-header-actions">
+          <button class="bell-btn" aria-label="Notifications"><span>🔔</span><span class="dot"></span></button>
+        </div>
+      </header>
+
+      <!-- Notice banner -->
+      <div class="notice-banner mb-24">
+        <span class="ic">💡</span>
+        <span><strong>Tip:</strong> Click any checklist item to cycle its status. Your score updates instantly.</span>
+      </div>
+
+      <!-- Main grid: content + right sidebar -->
+      <div class="grid" style="grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start;">
+
+        <!-- ===== MAIN COLUMN ===== -->
+        <section>
+
+          <!-- Sustainability Score Card -->
+          <div class="card card-pad-lg mb-24">
+            <div class="flex items-center justify-between mb-16">
+              <div>
+                <h2 class="fs-20">Sustainability Score</h2>
+                <p class="fs-13 text-muted mt-8">Based on 5 key sustainability indicators and your ESG documentation progress.</p>
+              </div>
+              <span class="badge badge-success" id="sustain-tier">Good Progress</span>
+            </div>
+            <div class="donut donut-lg" id="sustain-donut" style="--p: 68;">
+              <div class="donut-inner">
+                <div class="donut-num">68<span class="pct">%</span></div>
+                <div class="donut-lbl">Sustainability Score</div>
+              </div>
+            </div>
+            <div id="sustain-score-text" class="fs-18 fw-700 text-emerald text-center mt-16">68% Sustainability Score</div>
+          </div>
+
+          <!-- Sustainability Progress -->
+          <div class="card card-pad mb-24">
+            <h3 class="mb-8">Your Sustainability Progress</h3>
+            <p class="fs-13 text-muted mb-16">Click items to update status — your score will recalculate automatically.</p>
+
+            <div class="sustain-item completed" data-sustain-item="s1" onclick="ExporE.toggleSustain('s1')">
+              <div class="sustain-check">✓</div>
+              <div class="sustain-info">
+                <div class="sustain-title">Use of sustainable farming practices</div>
+                <div class="sustain-sub">Eco-friendly cultivation methods</div>
+              </div>
+              <span class="sustain-status completed">completed</span>
+            </div>
+
+            <div class="sustain-item completed" data-sustain-item="s2" onclick="ExporE.toggleSustain('s2')">
+              <div class="sustain-check">✓</div>
+              <div class="sustain-info">
+                <div class="sustain-title">Traceability of raw materials</div>
+                <div class="sustain-sub">Farm-to-batch tracking system</div>
+              </div>
+              <span class="sustain-status completed">completed</span>
+            </div>
+
+            <div class="sustain-item in-progress" data-sustain-item="s3" onclick="ExporE.toggleSustain('s3')">
+              <div class="sustain-check">◐</div>
+              <div class="sustain-info">
+                <div class="sustain-title">Environmental certification (Fair Trade / Rainforest Alliance)</div>
+                <div class="sustain-sub">Third-party verified sustainability</div>
+              </div>
+              <span class="sustain-status in-progress">in progress</span>
+            </div>
+
+            <div class="sustain-item in-progress" data-sustain-item="s4" onclick="ExporE.toggleSustain('s4')">
+              <div class="sustain-check">◐</div>
+              <div class="sustain-info">
+                <div class="sustain-title">Supplier code of conduct</div>
+                <div class="sustain-sub">Defined ethical sourcing standards</div>
+              </div>
+              <span class="sustain-status in-progress">in progress</span>
+            </div>
+
+            <div class="sustain-item not-started" data-sustain-item="s5" onclick="ExporE.toggleSustain('s5')">
+              <div class="sustain-check">✓</div>
+              <div class="sustain-info">
+                <div class="sustain-title">ESG reporting framework</div>
+                <div class="sustain-sub">Annual environmental &amp; social disclosure</div>
+              </div>
+              <span class="sustain-status not-started">not started</span>
+            </div>
+          </div>
+
+          <!-- Compliance & Certifications -->
+          <div class="card card-pad">
+            <h3 class="mb-8">Compliance &amp; Certifications</h3>
+            <p class="fs-13 text-muted mb-16">Track sustainability-relevant certifications for premium market access.</p>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Certification / Framework</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="cell-strong">CBAM (EU Carbon Border Adjustment Mechanism)</td>
+                    <td><span class="badge badge-muted">Not Started</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('CBAM Guide opening soon.', 'success')">Learn More</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">Rainforest Alliance</td>
+                    <td><span class="badge badge-warning">In Progress</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Rainforest Alliance application tracker opened.', 'success')">Learn More</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">Fair Trade USA</td>
+                    <td><span class="badge badge-muted">Not Started</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Fair Trade USA guide opening soon.', 'success')">Learn More</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">ISO 14001 (Environmental Management)</td>
+                    <td><span class="badge badge-info">Considering</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('ISO 14001 readiness check started.', 'success')">Learn More</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">B Corp Certification</td>
+                    <td><span class="badge badge-gold">Future Goal</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('B Corp roadmap saved to resources.', 'success')">Learn More</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===== RIGHT SIDEBAR ===== -->
+        <aside>
+
+          <!-- Key Indicators -->
+          <div class="card card-pad mb-24">
+            <h3 class="mb-16">Key Indicators</h3>
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+
+              <div data-sustain-indicator="0">
+                <div class="progress-row">
+                  <span class="lbl">Raw Material Traceability</span>
+                  <span class="val ind-score">80%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div data-sustain-indicator="1">
+                <div class="progress-row">
+                  <span class="lbl">Environmental Certification</span>
+                  <span class="val ind-score">60%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar warning" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <div data-sustain-indicator="2">
+                <div class="progress-row">
+                  <span class="lbl">Supplier Transparency</span>
+                  <span class="val ind-score">70%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+              </div>
+
+              <div data-sustain-indicator="3">
+                <div class="progress-row">
+                  <span class="lbl">ESG Documentation</span>
+                  <span class="val ind-score">50%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar warning" style="width: 50%;"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Why ESG matters -->
+          <div class="card card-mint card-pad mb-24">
+            <div class="fs-28 mb-8">🌍</div>
+            <h4 class="fs-16 mb-8">Why ESG matters</h4>
+            <p class="fs-13">Premium markets like EU, Japan, and UK increasingly require ESG documentation and traceability. Higher scores unlock better buyer terms and pricing.</p>
+          </div>
+
+          <!-- Quick Wins -->
+          <div class="card card-pad mb-24">
+            <h3 class="mb-16">Quick Wins</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="flex items-center gap-12" style="padding: 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.showToast('ESG template downloaded.', 'success')">
+                <span class="fs-20">📄</span>
+                <div>
+                  <div class="fw-700 fs-13">Complete ESG reporting template</div>
+                  <div class="fs-12 text-muted">15 min</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-12" style="padding: 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.showToast('Rainforest Alliance application started.', 'success')">
+                <span class="fs-20">🌿</span>
+                <div>
+                  <div class="fw-700 fs-13">Apply for Rainforest Alliance cert</div>
+                  <div class="fs-12 text-muted">~45 min · 4 weeks processing</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-12" style="padding: 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.showToast('Transparency dashboard provisioned.', 'success')">
+                <span class="fs-20">📊</span>
+                <div>
+                  <div class="fw-700 fs-13">Set up supplier transparency dashboard</div>
+                  <div class="fs-12 text-muted">~60 min setup</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resources -->
+          <div class="card card-pad">
+            <h3 class="mb-16">Resources</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <a href="#" class="flex items-center justify-between fs-13" onclick="ExporE.showToast('CBAM Guide 2026 opening soon.', 'success'); return false;">
+                <span>📘 CBAM Guide 2026</span>
+                <span class="text-emerald">→</span>
+              </a>
+              <div class="divider" style="margin: 0;"></div>
+              <a href="#" class="flex items-center justify-between fs-13" onclick="ExporE.showToast('ESG Reporting Template downloaded.', 'success'); return false;">
+                <span>📑 ESG Reporting Template</span>
+                <span class="text-emerald">→</span>
+              </a>
+              <div class="divider" style="margin: 0;"></div>
+              <a href="#" class="flex items-center justify-between fs-13" onclick="ExporE.showToast('Sustainable Sourcing Handbook downloaded.', 'success'); return false;">
+                <span>📗 Sustainable Sourcing Handbook</span>
+                <span class="text-emerald">→</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- =================== SCRIPTS =================== -->
+  <script src="script.js"></script>
+  <script>
+    ExporE.requireAuth(['umkm']);
+    ExporE.pageInit('sustainability');
+  </script>
+</body>
+</html>

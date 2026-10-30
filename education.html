@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expor-E — Education</title>
+<meta name="description" content="Master export standards and skills with guided microlearning paths tailored to Indonesian agroindustry — Pilar 1: Education.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============== SIDEBAR ============== -->
+  <aside class="app-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">E</div>
+      <div>
+        <div class="brand-name">Expor-E</div>
+        <div class="brand-tag">3E Digital Trade</div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" data-user-initial>D</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" data-user-name>Dewi</div>
+        <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+      </div>
+    </div>
+
+    <div class="sidebar-nav-section">Main Menu</div>
+    <a href="dashboard.html" class="sidebar-link">
+      <span class="ic">🏠</span>
+      <span class="lbl">Dashboard</span>
+    </a>
+    <a href="readiness.html" class="sidebar-link">
+      <span class="ic">📊</span>
+      <span class="lbl">My Readiness</span>
+    </a>
+    <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+    <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+    <a href="education.html" class="sidebar-link active">
+      <span class="ic">📚</span>
+      <span class="lbl">Education</span>
+    </a>
+    <a href="markets.html" class="sidebar-link">
+      <span class="ic">🌍</span>
+      <span class="lbl">Explore Markets</span>
+    </a>
+    <a href="ecosystem.html" class="sidebar-link">
+      <span class="ic">🤝</span>
+      <span class="lbl">Ecosystem</span>
+      <span class="pill active-tag">Active</span>
+    </a>
+    <a href="my-export.html" class="sidebar-link">
+      <span class="ic">📦</span>
+      <span class="lbl">My Export</span>
+      <span class="pill active-tag">Active</span>
+    </a>
+    <a href="sustainability.html" class="sidebar-link">
+      <span class="ic">🌱</span>
+      <span class="lbl">Sustainability</span>
+    </a>
+    <a href="my-business.html" class="sidebar-link">
+      <span class="ic">🏢</span>
+      <span class="lbl">My Business</span>
+    </a>
+
+    <div class="sidebar-footer">
+      <button class="sidebar-link" onclick="ExporE.logout()" style="width:100%">
+        <span class="ic">🚪</span>
+        <span class="lbl">Logout</span>
+      </button>
+    </div>
+  </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+  <!-- ============== MAIN ============== -->
+  <main class="app-main">
+
+    <!-- App Header -->
+    <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div>
+        <h1>Education</h1>
+        <p class="sub">Pilar 1 of the 3E Framework — Learn, Improve, Grow Together.</p>
+      </div>
+      <div class="app-header-actions">
+        <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 2 new notifications.', 'info')">🔔<span class="dot"></span></button>
+        <div class="sidebar-avatar" data-user-initial>D</div>
+      </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="card card-emerald card-pad-lg mb-24" style="position:relative; overflow:hidden;">
+      <div style="position:absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);"></div>
+      <div style="position:absolute; right:24px; bottom:18px; font-size:96px; opacity:0.18;">☕</div>
+      <div style="position:relative; z-index:2; max-width:680px;">
+        <span class="badge badge-light" style="background:rgba(255,255,255,0.18); color:#fff; border:1px solid rgba(255,255,255,0.3);">Pilar 1 · Education</span>
+        <h1 class="text-white mt-16" style="font-size:32px; line-height:1.15;">Learn, Improve, Grow Together</h1>
+        <p class="text-white mt-8" style="color:rgba(255,255,255,0.88); font-size:15px;">Master export standards and skills with guided microlearning paths tailored to Indonesian agroindustry.</p>
+      </div>
+    </div>
+
+    <!-- Your Learning Path -->
+    <div class="card card-pad mb-24">
+      <div class="flex justify-between items-center mb-24" style="flex-wrap:wrap; gap:12px;">
+        <div>
+          <h3>Your Learning Path</h3>
+          <p class="text-muted fs-13" style="margin-top:4px;"><span data-edu-completed>2</span> of 6 modules completed</p>
+        </div>
+        <span class="badge badge-success">On track</span>
+      </div>
+      <div class="stepper" data-edu-path></div>
+    </div>
+
+    <!-- Main + Right -->
+    <div class="grid grid-2" style="align-items:start;">
+
+      <!-- =============== LEFT =============== -->
+      <div class="flex flex-col gap-24">
+
+        <!-- Recommended for You -->
+        <div class="card card-pad">
+          <h3 class="mb-16">Recommended for You</h3>
+          <div class="grid grid-2" style="gap:18px;">
+
+            <!-- Module 1: HS Code -->
+            <div class="module-card">
+              <div class="module-banner" style="background-image:url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80');">
+                <span class="duration">⏱ 2h 30m</span>
+              </div>
+              <div class="module-body">
+                <div class="module-tag">Trade Basics</div>
+                <div class="module-title">Understanding HS Code</div>
+                <div class="module-desc">Learn the Harmonized System coding used globally to classify traded products.</div>
+                <div class="module-foot">
+                  <div class="module-progress">
+                    <div class="progress progress-sm"><div class="progress-bar" style="width:0%"></div></div>
+                  </div>
+                  <button class="btn btn-sm btn-primary" onclick="ExporE.openModal('module-hs')">Start Module →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 2: SPS -->
+            <div class="module-card">
+              <div class="module-banner" style="background-image:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80');">
+                <span class="duration">⏱ 1h 45m</span>
+              </div>
+              <div class="module-body">
+                <div class="module-tag">Compliance</div>
+                <div class="module-title">SPS Requirements for Food Products</div>
+                <div class="module-desc">Sanitary and Phytosanitary measures for exporting food products to major markets.</div>
+                <div class="module-foot">
+                  <div class="module-progress">
+                    <div class="progress progress-sm"><div class="progress-bar" style="width:0%"></div></div>
+                  </div>
+                  <button class="btn btn-sm btn-primary" onclick="ExporE.openModal('module-sps')">Start Module →</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Continue Learning -->
+        <div class="card card-pad">
+          <div class="flex justify-between items-center mb-16" style="flex-wrap:wrap; gap:12px;">
+            <div>
+              <h3>Continue Learning: Import Basics</h3>
+              <p class="text-muted fs-13" style="margin-top:4px;">4 of 5 lessons completed</p>
+            </div>
+            <span class="badge badge-info">In Progress</span>
+          </div>
+          <div class="progress progress-lg mb-24"><div class="progress-bar" style="width:80%"></div></div>
+          <div data-edu-lessons></div>
+        </div>
+
+        <!-- Your Progress -->
+        <div class="card card-pad">
+          <h3 class="mb-16">Your Progress</h3>
+          <div class="flex items-center justify-between mb-16" style="flex-wrap:wrap; gap:12px;">
+            <div>
+              <div style="font-size:36px; font-weight:800; color:var(--emerald-dark);"><span data-edu-progress>33%</span></div>
+              <div class="text-muted fs-13">Overall learning progress</div>
+            </div>
+            <div class="text-right">
+              <div style="font-size:24px; font-weight:800; color:var(--emerald);"><span data-edu-completed>2</span>/6</div>
+              <div class="text-muted fs-13">modules completed</div>
+            </div>
+          </div>
+          <div data-edu-progress-bar>
+            <div class="progress progress-lg"><div class="progress-bar" style="width:33%"></div></div>
+          </div>
+          <div class="notice-banner mt-24">
+            <span class="ic">🎯</span>
+            <span>Complete the <strong>Customs</strong> module next to unlock the Logistics learning path.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- =============== RIGHT =============== -->
+      <div class="flex flex-col gap-24">
+
+        <!-- Upcoming Schedule -->
+        <div class="card card-pad">
+          <h3 class="mb-16">Upcoming Schedule</h3>
+          <div class="tracking-timeline">
+            <div class="tracking-event active">
+              <div class="time">📅 Oct 15 · 10:00</div>
+              <div class="title">Webinar: Japan Coffee Market Insights</div>
+              <div class="place">Live · Online</div>
+            </div>
+            <div class="tracking-event">
+              <div class="time">🎓 Oct 18 · 14:00</div>
+              <div class="title">Live Class: Mastering Incoterms 2020</div>
+              <div class="place">Interactive workshop</div>
+            </div>
+            <div class="tracking-event">
+              <div class="time">📊 Oct 22 · 09:00</div>
+              <div class="title">Case Study: Successful Arabica Export</div>
+              <div class="place">Self-paced reading</div>
+            </div>
+            <div class="tracking-event">
+              <div class="time">✏️ Oct 25 · All day</div>
+              <div class="title">Quiz: Export Documentation</div>
+              <div class="place">15 questions · 30 min</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Streak -->
+        <div class="card card-mint card-pad">
+          <div class="flex items-center gap-16">
+            <div style="font-size:36px; line-height:1;">🔥</div>
+            <div>
+              <div class="fw-700 fs-18" style="color:var(--emerald-dark);">7 days streak!</div>
+              <div class="fs-13" style="color:var(--emerald-dark);">Keep learning daily.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Modules -->
+        <div class="card card-pad">
+          <h3 class="mb-16">Popular Modules</h3>
+
+          <div class="next-step-card" style="margin-bottom:10px;" onclick="ExporE.showToast('Module details coming soon.', 'info')">
+            <div class="next-step-num">📷</div>
+            <div class="next-step-info">
+              <div class="next-step-title">Digital Catalog 101</div>
+              <div class="next-step-sub">45 min · Digital Readiness</div>
+            </div>
+            <div class="next-step-arrow">→</div>
+          </div>
+
+          <div class="next-step-card" style="margin-bottom:10px;" onclick="ExporE.showToast('Module details coming soon.', 'info')">
+            <div class="next-step-num">🌿</div>
+            <div class="next-step-info">
+              <div class="next-step-title">CBAM & ESG Reporting</div>
+              <div class="next-step-sub">1h 20m · Sustainability</div>
+            </div>
+            <div class="next-step-arrow">→</div>
+          </div>
+
+          <div class="next-step-card" style="margin-bottom:10px;" onclick="ExporE.showToast('Module details coming soon.', 'info')">
+            <div class="next-step-num">🤝</div>
+            <div class="next-step-info">
+              <div class="next-step-title">Buyer Negotiation Skills</div>
+              <div class="next-step-sub">2h · Communication</div>
+            </div>
+            <div class="next-step-arrow">→</div>
+          </div>
+
+          <div class="next-step-card" onclick="ExporE.showToast('Module details coming soon.', 'info')">
+            <div class="next-step-num">💳</div>
+            <div class="next-step-info">
+              <div class="next-step-title">Export Payment Methods</div>
+              <div class="next-step-sub">1h 10m · Finance</div>
+            </div>
+            <div class="next-step-arrow">→</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- ============== MODAL: HS CODE MODULE ============== -->
+<div class="modal-overlay" id="module-hs">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Understanding HS Code</div>
+        <div class="modal-subtitle">Trade Basics · 2h 30m · Module overview & quick quiz</div>
+      </div>
+      <button class="modal-close" onclick="ExporE.closeModal('module-hs')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Section 1 -->
+      <h4 class="mb-8">What is an HS Code?</h4>
+      <p class="text-muted fs-14 mb-16">The Harmonized System (HS) is an internationally standardized system of names and numbers to classify traded products. Developed by the World Customs Organization (WCO), it's used by more than 200 countries to classify over 98% of global merchandise trade.</p>
+
+      <!-- Section 2 -->
+      <h4 class="mb-8">Structure of an HS Code (6 digits)</h4>
+      <div class="card card-pad-sm mb-16" style="background:var(--mint-bg); border:1px dashed var(--emerald);">
+        <div class="fs-20 fw-700 text-emerald" style="font-family:monospace;">0901.21</div>
+        <div class="text-muted fs-13 mt-8">
+          <strong>09</strong> = Chapter (Coffee, tea, maté and spices)<br>
+          <strong>0901</strong> = Heading (Coffee, whether or not roasted or decaffeinated)<br>
+          <strong>0901.21</strong> = Subheading (Coffee, roasted, not decaffeinated)
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <h4 class="mb-8">Example: Arabica Coffee Export</h4>
+      <p class="text-muted fs-14 mb-16">For specialty Arabica Coffee exported from Indonesia to Japan, the correct HS Code is <strong>0901.21</strong>. Some countries add 2 or 4 more digits for tariff statistical purposes (e.g. <strong>0901.21.00.00</strong> in Japan).</p>
+
+      <!-- Tips -->
+      <div class="notice-banner mb-24">
+        <span class="ic">💡</span>
+        <span><strong>Tips:</strong> Always verify the HS Code with your destination country's customs tariff schedule — small classification differences can change tariffs by 5–15%.</span>
+      </div>
+
+      <!-- Quiz -->
+      <h4 class="mb-16">Quick Quiz (3 questions)</h4>
+
+      <div class="form-check">
+        <input type="radio" name="q1" value="a">
+        <div>
+          <div class="form-check-label">1. How many digits are in the base international HS Code?</div>
+          <div class="form-check-sub">A. 4 · B. 6 · C. 8 · D. 10</div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="q1" value="b">
+        <div>
+          <div class="form-check-label">✓ B. 6</div>
+          <div class="form-check-sub">The WCO HS is a 6-digit base code.</div>
+        </div>
+      </div>
+
+      <div class="form-check mt-16">
+        <input type="radio" name="q2" value="a">
+        <div>
+          <div class="form-check-label">2. Which chapter covers Coffee, Tea and Spices?</div>
+          <div class="form-check-sub">A. 09 · B. 17 · C. 22 · D. 04</div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="q2" value="b">
+        <div>
+          <div class="form-check-label">✓ A. 09</div>
+          <div class="form-check-sub">Chapter 09 covers coffee, tea, maté and spices.</div>
+        </div>
+      </div>
+
+      <div class="form-check mt-16">
+        <input type="radio" name="q3" value="a">
+        <div>
+          <div class="form-check-label">3. What is the HS Code for roasted, non-decaffeinated coffee?</div>
+          <div class="form-check-sub">A. 0901.21 · B. 0901.22 · C. 2101.11 · D. 0902.10</div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="q3" value="b">
+        <div>
+          <div class="form-check-label">✓ A. 0901.21</div>
+          <div class="form-check-sub">0901.21 = roasted, not decaffeinated coffee.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="ExporE.closeModal('module-hs')">Cancel</button>
+      <button class="btn btn-primary" onclick="ExporE.completeModule('hs'); ExporE.closeModal('module-hs');">Submit Quiz & Complete Module</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== MODAL: SPS MODULE ============== -->
+<div class="modal-overlay" id="module-sps">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">SPS Requirements for Food Products</div>
+        <div class="modal-subtitle">Compliance · 1h 45m · Module overview & quick quiz</div>
+      </div>
+      <button class="modal-close" onclick="ExporE.closeModal('module-sps')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Section 1 -->
+      <h4 class="mb-8">What is SPS?</h4>
+      <p class="text-muted fs-14 mb-16">Sanitary and Phytosanitary (SPS) measures are the laws, regulations, standards and procedures that governments use to protect human, animal and plant life from pests, diseases and food safety risks in international trade.</p>
+
+      <!-- Section 2 -->
+      <h4 class="mb-8">The WTO SPS Agreement</h4>
+      <p class="text-muted fs-14 mb-16">The <strong>WTO Agreement on the Application of Sanitary and Phytosanitary Measures</strong> (1995) sets out the basic rules for food safety and animal/plant health standards. It allows countries to set their own SPS standards but they must be science-based, applied only to the extent necessary, and not arbitrarily discriminatory.</p>
+
+      <!-- Section 3 -->
+      <h4 class="mb-8">Example: Arabica Coffee to Japan</h4>
+      <div class="card card-pad-sm mb-16" style="background:var(--mint-bg); border:1px dashed var(--emerald);">
+        <div class="text-muted fs-13">
+          <strong>Japan SPS requirements for green/roasted coffee:</strong>
+          <ul style="margin-top:8px; padding-left:20px; list-style:disc;">
+            <li>Phytosanitary Certificate (issued by Indonesian quarantine authority)</li>
+            <li>Maximum residue limits (MRLs) on pesticides — checked against Japan's Positive List</li>
+            <li>Aflatoxin testing (for some categories) — max 10 ppb</li>
+            <li>Food Sanitation Act compliance labelling in Japanese</li>
+            <li>Manufacturing/HACCP-equivalent process documentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Checklist -->
+      <div class="notice-banner mb-24">
+        <span class="ic">✅</span>
+        <span><strong>Pre-export checklist:</strong> Phytosanitary cert · MRL lab test · Aflatoxin test · Japan-language label · HACCP docs.</span>
+      </div>
+
+      <!-- Quiz -->
+      <h4 class="mb-16">Quick Quiz (2 questions)</h4>
+
+      <div class="form-check">
+        <input type="radio" name="s1" value="a">
+        <div>
+          <div class="form-check-label">1. Which WTO agreement covers SPS measures?</div>
+          <div class="form-check-sub">A. GATT · B. SPS Agreement · C. TBT Agreement · D. TRIPS</div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="s1" value="b">
+        <div>
+          <div class="form-check-label">✓ B. SPS Agreement</div>
+          <div class="form-check-sub">The WTO SPS Agreement (1995) governs food safety and plant/animal health standards.</div>
+        </div>
+      </div>
+
+      <div class="form-check mt-16">
+        <input type="radio" name="s2" value="a">
+        <div>
+          <div class="form-check-label">2. Which document is mandatory when exporting Arabica Coffee to Japan?</div>
+          <div class="form-check-sub">A. Phytosanitary Certificate · B. ISO 9001 · C. Halal Cert · D. Patent</div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="s2" value="b">
+        <div>
+          <div class="form-check-label">✓ A. Phytosanitary Certificate</div>
+          <div class="form-check-sub">Issued by the Indonesian quarantine authority — required for plant-based exports to Japan.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="ExporE.closeModal('module-sps')">Cancel</button>
+      <button class="btn btn-primary" onclick="ExporE.completeModule('sps'); ExporE.closeModal('module-sps');">Submit Quiz & Complete Module</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  ExporE.requireAuth(['umkm']);
+  ExporE.pageInit('education');
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — Login & Register</title>
+  <meta name="description" content="Log in or create your Expor-E account. Join 1,200+ Indonesian agroindustry SMEs going global with education, market intelligence, and ecosystem connections.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="auth-page">
+
+    <!-- ============= LEFT VISUAL ============= -->
+    <aside class="auth-visual">
+      <div class="auth-visual-inner">
+        <a href="index.html" class="brand">
+          <div class="brand-logo">E</div>
+          <div>
+            <div class="brand-name" style="color:var(--white);">Expor-E</div>
+            <div class="brand-tag" style="color:rgba(255,255,255,0.7);">3E Framework</div>
+          </div>
+        </a>
+        <div class="auth-quote">
+          Better Data,<br><span class="accent">Bigger Opportunities.</span>
+        </div>
+        <p style="margin-top:24px;color:rgba(255,255,255,0.82);font-size:15px;max-width:440px;line-height:1.65;">
+          Expor-E follows a <strong style="color:var(--white);">Readiness-Pull</strong> philosophy — we measure your export readiness first, then pull you through education, exploration, and ecosystem connections that match where you actually are today.
+        </p>
+        <div style="margin-top:32px;display:flex;gap:28px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:26px;font-weight:800;color:var(--white);">1,200+</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.72);">UMKM onboarded</div>
+          </div>
+          <div>
+            <div style="font-size:26px;font-weight:800;color:var(--white);">47</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.72);">Countries reached</div>
+          </div>
+          <div>
+            <div style="font-size:26px;font-weight:800;color:var(--white);">$4.2M</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.72);">Export facilitated</div>
+          </div>
+        </div>
+      </div>
+      <div class="auth-visual-foot">
+        Join 1,200+ Indonesian agroindustry SMEs going global with Expor-E.
+      </div>
+    </aside>
+
+    <!-- ============= RIGHT FORM SIDE ============= -->
+    <section class="auth-form-side">
+      <div class="container-inner">
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth-tab="login">Log In</button>
+          <button class="auth-tab" data-auth-tab="register">Register</button>
+        </div>
+
+        <!-- LOGIN PANEL -->
+        <div class="auth-panel" data-auth-panel="login">
+          <h1 class="auth-title">Welcome back</h1>
+          <p class="auth-sub">Log in to continue your export journey.</p>
+
+          <!-- Role picker -->
+          <label class="form-label">I am a</label>
+          <div class="role-picker" id="login-role-picker">
+            <div class="role-card active" data-role="umkm">
+              <div class="ic">🌱</div>
+              <div class="lbl">UMKM / Exporter</div>
+              <div class="sub">Agroindustry SME</div>
+            </div>
+            <div class="role-card" data-role="admin">
+              <div class="ic">🏛️</div>
+              <div class="lbl">Ecosystem Partner</div>
+              <div class="sub">Bank, Logistics, Admin</div>
+            </div>
+          </div>
+
+          <form id="login-form" onsubmit="return false;">
+            <div class="form-group">
+              <label class="form-label" for="login-email">Email <span class="req">*</span></label>
+              <div class="input-icon">
+                <span class="ic">✉</span>
+                <input class="form-control" type="email" id="login-email" placeholder="you@business.id" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password <span class="req">*</span></label>
+              <div class="input-icon">
+                <span class="ic">🔒</span>
+                <input class="form-control" type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="login-submit" onclick="handleLogin(event)">Log In</button>
+          </form>
+
+          <div class="divider-text">or</div>
+
+          <button class="demo-btn" onclick="ExporE.demoLogin('umkm'); window.location.href='dashboard.html';">
+            <span class="ic">⚡</span>
+            <span class="info">
+              One-Click Demo Login (UMKM — Dewi)
+              <div class="small">Sari Kopi Nusantara · Arabica Coffee</div>
+            </span>
+            <span>→</span>
+          </button>
+          <button class="demo-btn" onclick="ExporE.demoLogin('admin'); window.location.href='admin.html';">
+            <span class="ic">⚡</span>
+            <span class="info">
+              One-Click Demo Login (Admin — Budi)
+              <div class="small">Budi Ekosistem · Ecosystem Partner / Verifikator</div>
+            </span>
+            <span>→</span>
+          </button>
+
+          <p class="text-center" style="margin-top:18px;">
+            <a href="#" class="text-muted fs-13" onclick="ExporE.showToast('Password reset link sent (demo).', 'info'); return false;">Forgot password?</a>
+          </p>
+        </div>
+
+        <!-- REGISTER PANEL -->
+        <div class="auth-panel hidden" data-auth-panel="register">
+          <h1 class="auth-title">Create your account</h1>
+          <p class="auth-sub">Start your export readiness journey in minutes.</p>
+
+          <!-- Role picker -->
+          <label class="form-label">I am a</label>
+          <div class="role-picker" id="register-role-picker">
+            <div class="role-card active" data-role="umkm">
+              <div class="ic">🌱</div>
+              <div class="lbl">UMKM / Exporter</div>
+              <div class="sub">Agroindustry SME</div>
+            </div>
+            <div class="role-card" data-role="admin">
+              <div class="ic">🏛️</div>
+              <div class="lbl">Ecosystem Partner</div>
+              <div class="sub">Bank, Logistics, Admin</div>
+            </div>
+          </div>
+
+          <form id="register-form" onsubmit="return false;">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name <span class="req">*</span></label>
+              <input class="form-control" type="text" id="reg-name" placeholder="e.g. Dewi Lestari" autocomplete="name" required>
+            </div>
+            <div class="form-group" id="reg-business-group">
+              <label class="form-label" for="reg-business">Business Name <span class="req">*</span></label>
+              <input class="form-control" type="text" id="reg-business" placeholder="e.g. Sari Kopi Nusantara" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email <span class="req">*</span></label>
+              <div class="input-icon">
+                <span class="ic">✉</span>
+                <input class="form-control" type="email" id="reg-email" placeholder="you@business.id" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password <span class="req">*</span></label>
+              <div class="input-icon">
+                <span class="ic">🔒</span>
+                <input class="form-control" type="password" id="reg-password" placeholder="Min. 6 characters" autocomplete="new-password" required minlength="6">
+              </div>
+              <div class="form-hint">Use at least 6 characters with a mix of letters and numbers.</div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="register-submit" onclick="handleRegister(event)">Create Account</button>
+          </form>
+
+          <div class="divider-text">or</div>
+
+          <button class="demo-btn" onclick="ExporE.demoLogin('umkm'); window.location.href='onboarding.html';">
+            <span class="ic">⚡</span>
+            <span class="info">
+              Skip & explore as demo UMKM
+              <div class="small">Pre-filled onboarding · Sari Kopi Nusantara</div>
+            </span>
+            <span>→</span>
+          </button>
+
+          <p class="text-center text-muted fs-12" style="margin-top:18px;">
+            By creating an account, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    /* ---------- AUTH PAGE LOGIC ---------- */
+    let activeAuthRole = { login: 'umkm', register: 'umkm' };
+    let activeAuthTab = 'login';
+
+    function switchAuthTab(tab) {
+      activeAuthTab = tab;
+      document.querySelectorAll('.auth-tab').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-auth-tab') === tab);
+      });
+      document.querySelectorAll('.auth-panel').forEach(p => {
+        const t = p.getAttribute('data-auth-panel');
+        if (t === tab) { p.classList.remove('hidden'); }
+        else { p.classList.add('hidden'); }
+      });
+    }
+
+    document.querySelectorAll('.auth-tab').forEach(btn => {
+      btn.addEventListener('click', () => switchAuthTab(btn.getAttribute('data-auth-tab')));
+    });
+
+    /* Role picker selection within each panel */
+    function wireRolePicker(panelSelector, tabKey) {
+      const picker = document.querySelector(panelSelector);
+      if (!picker) return;
+      picker.querySelectorAll('.role-card').forEach(card => {
+        card.addEventListener('click', () => {
+          picker.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          activeAuthRole[tabKey] = card.getAttribute('data-role');
+          // Toggle business-name field visibility (UMKM only)
+          const bizGroup = document.getElementById('reg-business-group');
+          if (bizGroup) bizGroup.style.display = (tabKey === 'register' && card.getAttribute('data-role') === 'umkm') ? '' : 'none';
+        });
+      });
+    }
+    wireRolePicker('#login-role-picker', 'login');
+    wireRolePicker('#register-role-picker', 'register');
+
+    /* Login submit */
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const role = activeAuthRole.login;
+      if (!email || !password) {
+        ExporE.showToast('Please fill in email and password.', 'warning');
+        return;
+      }
+      const user = ExporE.login(email, password, role);
+      if (user) {
+        ExporE.showToast('Welcome back, ' + user.name + '!', 'success');
+        setTimeout(() => {
+          window.location.href = role === 'admin' ? 'admin.html' : 'dashboard.html';
+        }, 700);
+      } else {
+        ExporE.showToast('Invalid credentials. Try the demo login below.', 'error');
+      }
+    }
+
+    /* Register submit */
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const businessName = document.getElementById('reg-business').value.trim();
+      const role = activeAuthRole.register;
+      if (!name || !email || !password) {
+        ExporE.showToast('Please complete all required fields.', 'warning');
+        return;
+      }
+      if (password.length < 6) {
+        ExporE.showToast('Password must be at least 6 characters.', 'warning');
+        return;
+      }
+      const result = ExporE.register(name, email, password, role, businessName);
+      if (result && result.error) {
+        ExporE.showToast(result.error, 'error');
+        return;
+      }
+      ExporE.showToast('Account created! Welcome, ' + name + '.', 'success');
+      setTimeout(() => {
+        if (role === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'onboarding.html';
+        }
+      }, 900);
+    }
+
+    /* Auto-detect ?mode=register in URL */
+    (function detectMode() {
+      const params = new URLSearchParams(window.location.search);
+      const mode = params.get('mode');
+      if (mode === 'register') {
+        switchAuthTab('register');
+      } else {
+        switchAuthTab('login');
+      }
+    })();
+
+    /* Set initial business-name field visibility */
+    const initBizGroup = document.getElementById('reg-business-group');
+    if (initBizGroup) initBizGroup.style.display = '';
+  </script>
+</body>
+</html>

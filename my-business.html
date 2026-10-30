@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — My Business</title>
+  <meta name="description" content="Manage your export shipments, orders, trade documents, and business performance in one place. Create new shipments and track every detail.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">Expor-E</div>
+          <div class="brand-tag">3E Digital Trade Framework</div>
+        </div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" data-user-initial>D</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" data-user-name>Dewi</div>
+          <div class="sidebar-user-role" data-user-role>UMKM / Exporter</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-section">Main Menu</div>
+      <a href="dashboard.html" class="sidebar-link">
+        <span class="ic">📊</span><span class="lbl">Dashboard</span>
+      </a>
+      <a href="readiness.html" class="sidebar-link">
+        <span class="ic">📋</span><span class="lbl">My Readiness</span>
+      </a>
+      <a href="education.html" class="sidebar-link">
+        <span class="ic">🎓</span><span class="lbl">Education</span>
+      </a>
+      <a href="markets.html" class="sidebar-link">
+        <span class="ic">🌍</span><span class="lbl">Explore Markets</span>
+      </a>
+      <a href="ecosystem.html" class="sidebar-link">
+        <span class="ic">🤝</span><span class="lbl">Ecosystem</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="my-export.html" class="sidebar-link">
+        <span class="ic">📦</span><span class="lbl">My Export</span>
+        <span class="pill active-tag">Active</span>
+      </a>
+      <a href="sustainability.html" class="sidebar-link">
+        <span class="ic">🌱</span><span class="lbl">Sustainability</span>
+      </a>
+      <a href="my-business.html" class="sidebar-link active">
+        <span class="ic">🏢</span><span class="lbl">My Business</span>
+      </a>
+
+      <div class="sidebar-footer">
+        <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
+          <span class="ic">🚪</span><span class="lbl">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+    <!-- ============ MAIN ============ -->
+    <main class="app-main">
+      <!-- HEADER -->
+      <header class="app-header">
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+        <div>
+          <h1>My Business</h1>
+          <div class="sub">Manage your shipments, orders, documents, and performance in one place.</div>
+        </div>
+        <div class="app-header-actions">
+          <button class="bell-btn" aria-label="Notifications">
+            <span>🔔</span><span class="dot"></span>
+          </button>
+          <button class="btn btn-primary" onclick="ExporE.openModal('new-shipment-modal')">
+            + New Shipment
+          </button>
+        </div>
+      </header>
+
+      <!-- KPI GRID -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon blue">📦</div>
+          <div class="kpi-num">12</div>
+          <div class="kpi-lbl">Total Shipments</div>
+          <div class="kpi-trend up">↗ +3 this month</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon gold">🚚</div>
+          <div class="kpi-num">5</div>
+          <div class="kpi-lbl">In Transit</div>
+          <div class="kpi-trend up">↗ Live now</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon green">✅</div>
+          <div class="kpi-num">6</div>
+          <div class="kpi-lbl">Delivered</div>
+          <div class="kpi-trend up">↗ 100% on-time</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon red">⚠️</div>
+          <div class="kpi-num">1</div>
+          <div class="kpi-lbl">Delayed</div>
+          <div class="kpi-trend down">↘ Needs attention</div>
+        </div>
+      </div>
+
+      <!-- TABS + CONTENT -->
+      <div data-tab-group="business">
+        <!-- TAB BUTTONS -->
+        <div class="mb-24">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="shipments" onclick="ExporE.switchTab('business', 'shipments')">Shipments</button>
+            <button class="tab-btn" data-tab="orders" onclick="ExporE.switchTab('business', 'orders')">Orders</button>
+            <button class="tab-btn" data-tab="documents" onclick="ExporE.switchTab('business', 'documents')">Documents</button>
+            <button class="tab-btn" data-tab="performance" onclick="ExporE.switchTab('business', 'performance')">Performance</button>
+          </div>
+        </div>
+
+        <!-- TAB: SHIPMENTS -->
+        <div class="tab-content active" data-tab-content="shipments">
+          <div class="card card-pad">
+            <h3>All Shipments</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Every export shipment you've created — including new ones added from the form above.
+            </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Shipment ID</th>
+                    <th>Product</th>
+                    <th>Destination</th>
+                    <th>Buyer</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="business-shipments-tbody"></tbody>
+              </table>
+            </div>
+            <div class="notice-banner mt-24">
+              <span class="ic">💡</span>
+              <span>Need to add a new shipment? Click <strong>+ New Shipment</strong> in the header to open the form.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: ORDERS -->
+        <div class="tab-content" data-tab-content="orders">
+          <div class="card card-pad">
+            <h3>Buyer Orders</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              All orders received from international buyers, with fulfillment status.
+            </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Buyer</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="cell-strong">ORD-001</td>
+                    <td>Arabica Coffee</td>
+                    <td>500 kg</td>
+                    <td class="cell-muted">Tokyo Specialty Co.</td>
+                    <td>$24,000</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Order ORD-001 details opened.', 'info')">View Details</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">ORD-002</td>
+                    <td>Robusta Coffee</td>
+                    <td>1.2 Ton</td>
+                    <td class="cell-muted">Berlin Coffee Roasters</td>
+                    <td>$18,500</td>
+                    <td><span class="badge badge-info">Confirmed</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Order ORD-002 details opened.', 'info')">View Details</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">ORD-003</td>
+                    <td>Coconut Sugar</td>
+                    <td>800 kg</td>
+                    <td class="cell-muted">Amsterdam Organics</td>
+                    <td>$9,200</td>
+                    <td><span class="badge badge-info">Shipped</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Order ORD-003 details opened.', 'info')">View Details</button></td>
+                  </tr>
+                  <tr>
+                    <td class="cell-strong">ORD-004</td>
+                    <td>Palm Oil</td>
+                    <td>5 Ton</td>
+                    <td class="cell-muted">Mumbai Foods Ltd</td>
+                    <td>$71,000</td>
+                    <td><span class="badge badge-success">Delivered</span></td>
+                    <td><button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Order ORD-004 details opened.', 'info')">View Details</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: DOCUMENTS -->
+        <div class="tab-content" data-tab-content="documents">
+          <div class="card card-pad">
+            <h3>Trade Documents</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Required export documents for your active shipments.
+            </p>
+
+            <div class="notice-banner mb-24">
+              <span class="ic">💡</span>
+              <span>Documents must be ready before shipment pickup. Incomplete docs may cause customs delays.</span>
+            </div>
+
+            <div class="grid grid-3">
+              <div class="card card-pad-sm">
+                <div class="card-icon emerald" style="width: 48px; height: 48px; font-size: 22px;">📄</div>
+                <h4 style="margin-top: 14px;">Commercial Invoice</h4>
+                <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Required for all exports</p>
+                <div class="mt-16 mb-16">
+                  <span class="badge badge-success">✓ Ready</span>
+                </div>
+                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Commercial Invoice downloaded.', 'success')">⬇ Download</button>
+              </div>
+
+              <div class="card card-pad-sm">
+                <div class="card-icon gold" style="width: 48px; height: 48px; font-size: 22px;">📦</div>
+                <h4 style="margin-top: 14px;">Packing List</h4>
+                <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Itemized cargo details</p>
+                <div class="mt-16 mb-16">
+                  <span class="badge badge-success">✓ Ready</span>
+                </div>
+                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Packing List downloaded.', 'success')">⬇ Download</button>
+              </div>
+
+              <div class="card card-pad-sm">
+                <div class="card-icon" style="width: 48px; height: 48px; font-size: 22px;">🏛️</div>
+                <h4 style="margin-top: 14px;">Certificate of Origin</h4>
+                <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Issued by Chamber of Commerce</p>
+                <div class="mt-16 mb-16">
+                  <span class="badge badge-warning">⏳ Pending</span>
+                </div>
+                <button class="btn btn-primary btn-sm btn-block" onclick="ExporE.showToast('COO request submitted to Chamber of Commerce.', 'success')">Request COO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: PERFORMANCE -->
+        <div class="tab-content" data-tab-content="performance">
+          <div class="card card-pad mb-24">
+            <h3>Performance KPIs</h3>
+            <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+              Key export performance indicators over the last 12 months.
+            </p>
+            <div class="grid grid-3">
+              <div class="kpi-card">
+                <div class="kpi-icon green">💰</div>
+                <div class="kpi-num" data-perf-value="totalValue">$245,680</div>
+                <div class="kpi-lbl">Total Export Value</div>
+                <div class="kpi-trend up">↗ +18% YoY</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon blue">⏱️</div>
+                <div class="kpi-num"><span data-perf-value="onTime">83</span>%</div>
+                <div class="kpi-lbl">On-Time Delivery</div>
+                <div class="kpi-trend up">↗ Above benchmark</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon gold">⭐</div>
+                <div class="kpi-num"><span data-perf-value="satisfaction">4.8</span>/5</div>
+                <div class="kpi-lbl">Customer Satisfaction</div>
+                <div class="kpi-trend up">↗ 24 reviews</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Performance Trend -->
+            <div class="card card-pad">
+              <h3>Performance Trend</h3>
+              <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+                Monthly export value over the last 6 months.
+              </p>
+              <div style="display: flex; align-items: flex-end; gap: 12px; height: 220px; padding-top: 16px;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 55%; background: linear-gradient(180deg, #4FBA82, #147A50); border-radius: 8px 8px 0 0;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted);">May</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 68%; background: linear-gradient(180deg, #4FBA82, #147A50); border-radius: 8px 8px 0 0;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted);">Jun</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 60%; background: linear-gradient(180deg, #4FBA82, #147A50); border-radius: 8px 8px 0 0;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted);">Jul</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 78%; background: linear-gradient(180deg, #4FBA82, #147A50); border-radius: 8px 8px 0 0;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted);">Aug</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 88%; background: linear-gradient(180deg, #4FBA82, #147A50); border-radius: 8px 8px 0 0;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted);">Sep</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;">
+                  <div style="width: 100%; flex: 1; display: flex; align-items: flex-end;">
+                    <div style="width: 100%; height: 95%; background: linear-gradient(180deg, #B8F0CC, #147A50); border-radius: 8px 8px 0 0; box-shadow: 0 4px 12px rgba(20,122,80,0.25);"></div>
+                  </div>
+                  <div style="font-size: 12px; color: var(--emerald-dark); font-weight: 700;">Oct</div>
+                </div>
+              </div>
+              <div class="progress-row mt-24">
+                <span class="lbl">Trend Direction</span>
+                <span class="val">↗ +18% YoY</span>
+              </div>
+            </div>
+
+            <!-- Top Destinations -->
+            <div class="card card-pad">
+              <h3>Top Destinations</h3>
+              <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
+                Your highest-value export markets.
+              </p>
+              <div class="flex-col gap-16">
+                <div>
+                  <div class="progress-row">
+                    <span class="lbl">🇮🇳 India — Mumbai Foods</span>
+                    <span class="val">$142,000</span>
+                  </div>
+                  <div class="progress"><div class="progress-bar gold" style="width: 92%;"></div></div>
+                  <div class="text-muted" style="font-size: 12px; margin-top: 6px;">5 shipments · Palm Oil</div>
+                </div>
+                <div>
+                  <div class="progress-row">
+                    <span class="lbl">🇯🇵 Japan — Tokyo Specialty</span>
+                    <span class="val">$48,200</span>
+                  </div>
+                  <div class="progress"><div class="progress-bar" style="width: 60%;"></div></div>
+                  <div class="text-muted" style="font-size: 12px; margin-top: 6px;">4 shipments · Arabica Coffee</div>
+                </div>
+                <div>
+                  <div class="progress-row">
+                    <span class="lbl">🇩🇪 Germany — Berlin Roasters</span>
+                    <span class="val">$36,500</span>
+                  </div>
+                  <div class="progress"><div class="progress-bar info" style="width: 45%;"></div></div>
+                  <div class="text-muted" style="font-size: 12px; margin-top: 6px;">2 shipments · Robusta Coffee</div>
+                </div>
+                <div>
+                  <div class="progress-row">
+                    <span class="lbl">🇳🇱 Netherlands — Amsterdam</span>
+                    <span class="val">$18,900</span>
+                  </div>
+                  <div class="progress"><div class="progress-bar info" style="width: 25%;"></div></div>
+                  <div class="text-muted" style="font-size: 12px; margin-top: 6px;">1 shipment · Coconut Sugar</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ NEW SHIPMENT MODAL ============ -->
+  <div class="modal-overlay" id="new-shipment-modal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Create New Shipment</div>
+          <div class="modal-subtitle">Add a new export shipment to your business records.</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('new-shipment-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="new-shipment-form" onsubmit="submitNewShipment(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="ns-product">Product <span class="req">*</span></label>
+              <select class="form-control" id="ns-product" required>
+                <option value="">Select product…</option>
+                <option value="Arabica Coffee">Arabica Coffee</option>
+                <option value="Robusta Coffee">Robusta Coffee</option>
+                <option value="Coconut Sugar">Coconut Sugar</option>
+                <option value="Palm Oil">Palm Oil</option>
+                <option value="Pepper">Pepper</option>
+                <option value="Green Tea">Green Tea</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ns-destination">Destination Country <span class="req">*</span></label>
+              <select class="form-control" id="ns-destination" required>
+                <option value="">Select country…</option>
+                <option value="Japan">Japan</option>
+                <option value="Germany">Germany</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="USA">USA</option>
+                <option value="India">India</option>
+                <option value="UK">UK</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ns-buyer">Buyer Name <span class="req">*</span></label>
+            <input type="text" class="form-control" id="ns-buyer" placeholder="e.g. Tokyo Specialty Co." required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="ns-quantity">Quantity <span class="req">*</span></label>
+              <input type="text" class="form-control" id="ns-quantity" placeholder="e.g. 500 kg" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ns-value">Value in USD <span class="req">*</span></label>
+              <input type="number" class="form-control" id="ns-value" placeholder="e.g. 24000" min="0" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ns-date">Expected Shipping Date <span class="req">*</span></label>
+            <input type="date" class="form-control" id="ns-date" required>
+          </div>
+
+          <div class="notice-banner">
+            <span class="ic">ℹ️</span>
+            <span>New shipments start with status <strong>"Picked Up"</strong> and progress automatically as logistics updates come in.</span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" onclick="ExporE.closeModal('new-shipment-modal')">Cancel</button>
+        <button type="submit" form="new-shipment-form" class="btn btn-primary">Create Shipment</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    ExporE.requireAuth(['umkm']);
+    ExporE.pageInit('my-business');
+
+    // Post-process: renderShipments outputs a Track button in the 7th column,
+    // but for the Business shipments table the spec wants the Shipment Date there.
+    (function replaceActionWithDate() {
+      const tbody = document.getElementById('business-shipments-tbody');
+      if (!tbody) return;
+      const rows = tbody.querySelectorAll('tr');
+      rows.forEach(function(row) {
+        const cells = row.querySelectorAll('td');
+        if (cells.length < 7) return;
+        const shipId = cells[0].textContent.trim();
+        const ship = ExporE.state.shipments.find(function(s) { return s.id === shipId; });
+        if (!ship || !ship.date) return;
+        const d = new Date(ship.date);
+        if (isNaN(d.getTime())) {
+          cells[6].innerHTML = '<span class="cell-muted">' + ship.date + '</span>';
+        } else {
+          const formatted = d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+          cells[6].innerHTML = '<span class="cell-muted">' + formatted + '</span>';
+        }
+      });
+    })();
+
+    function submitNewShipment(e) {
+      if (e) e.preventDefault();
+      const product = document.getElementById('ns-product').value;
+      const destination = document.getElementById('ns-destination').value;
+      const buyer = document.getElementById('ns-buyer').value.trim();
+      const value = document.getElementById('ns-value').value;
+      const quantity = document.getElementById('ns-quantity').value.trim();
+
+      if (!product || !destination || !buyer || !value) {
+        ExporE.showToast('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      ExporE.addShipment({
+        product: product,
+        destination: destination,
+        buyer: buyer + (quantity ? ' (' + quantity + ')' : ''),
+        value: parseInt(value, 10)
+      });
+
+      ExporE.closeModal('new-shipment-modal');
+
+      // Reset form for next time
+      document.getElementById('new-shipment-form').reset();
+
+      ExporE.showToast('New shipment created and added to your records!', 'success');
+
+      // Reload to re-render the shipments table with the new entry
+      setTimeout(function() { window.location.reload(); }, 1100);
+    }
+  </script>
+</body>
+</html>

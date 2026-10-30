@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expor-E — From Local Potential to Global Market</title>
+  <meta name="description" content="Expor-E empowers Indonesian agroindustry SMEs — coffee, palm oil, coconut sugar, pepper, tea, and handicraft — with education, market intelligence, and trusted ecosystem connections to reach global buyers.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">Expor-E</div>
+          <div class="brand-tag">3E Framework</div>
+        </div>
+      </a>
+      <button class="mobile-nav-toggle" onclick="ExporE.toggleNav()" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="nav-menu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#framework">3E Framework</a>
+        <a class="nav-link" href="#why">About</a>
+        <a class="nav-link" href="#footer">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en" onclick="ExporE.switchLang('en')">EN</button>
+          <button class="lang-btn" data-lang="id" onclick="ExporE.switchLang('id')">ID</button>
+        </div>
+        <a href="auth.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="auth.html?mode=register" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" onclick="ExporE.closeNav()"></div>
+
+  <!-- ============= HERO ============= -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Local Products, Global Impact</span>
+        <h1>From Local Potential to <span class="accent">Global Market.</span></h1>
+        <p class="hero-sub">Expor-E empowers Indonesian agroindustry SMEs — coffee, palm oil, coconut sugar, pepper, tea, and handicraft — with education, market intelligence, and trusted ecosystem connections to reach global buyers.</p>
+        <div class="hero-actions">
+          <a href="auth.html" class="btn btn-white btn-lg">Check Export Readiness</a>
+          <a href="markets.html" class="btn btn-light btn-lg">Explore Markets</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">1,200+</div>
+            <div class="hero-stat-label">UMKM onboarded</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">47</div>
+            <div class="hero-stat-label">Countries reached</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">$4.2M</div>
+            <div class="hero-stat-label">Export facilitated</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card-stack">
+        <div class="hero-float-card f1">
+          <div class="ic">🌱</div>
+          <div class="num">2 Ton/month</div>
+          <div class="lbl">Production capacity</div>
+        </div>
+        <div class="hero-float-card f2">
+          <div class="ic">📈</div>
+          <div class="num">+8.6%</div>
+          <div class="lbl">Japan coffee demand</div>
+        </div>
+        <div class="hero-float-card f3">
+          <div class="ic">✓</div>
+          <div class="num">64%</div>
+          <div class="lbl">Your readiness score</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 3E FRAMEWORK ============= -->
+  <section class="section" id="framework">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Framework</span>
+        <h2>The <span class="accent">3E Digital Trade</span> Framework</h2>
+        <p>A holistic, Readiness-Pull approach that measures your export readiness first, then guides you through education, exploration, and ecosystem connections.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card-feature">
+          <div class="card-icon">🎓</div>
+          <div class="card-num">01</div>
+          <h3>Education</h3>
+          <p class="text-muted" style="margin-top:8px;">Learn export standards (HS Code, SPS, Halal, HACCP, ISO 22000) and trade skills through guided microlearning paths tailored to your commodity.</p>
+          <a href="education.html" class="btn btn-outline btn-sm" style="margin-top:20px;">Start Learning →</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-icon emerald">🌍</div>
+          <div class="card-num">02</div>
+          <h3>Exploration</h3>
+          <p class="text-muted" style="margin-top:8px;">Discover global market opportunities with data-driven insights — RCA, import value, tariff and non-tariff barriers, and buyer preferences.</p>
+          <a href="markets.html" class="btn btn-outline btn-sm" style="margin-top:20px;">Explore Markets →</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-icon gold">🤝</div>
+          <div class="card-num">03</div>
+          <h3>Ecosystem</h3>
+          <p class="text-muted" style="margin-top:8px;">Connect with trusted partners — trade finance with digital credit scoring, logistics providers, certifiers, and global buyers ready to source from you.</p>
+          <a href="ecosystem.html" class="btn btn-outline btn-sm" style="margin-top:20px;">Meet Partners →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WHY EXPOR-E ============= -->
+  <section class="section" id="why" style="background: var(--mint-bg);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Expor-E</span>
+        <h2>Because Indonesian Agro-Products Deserve a <span class="accent">Global Stage</span></h2>
+        <p>From highland Arabica to smallholder coconut sugar — Indonesian agroindustry has world-class potential. Expor-E gives SMEs the data, the learning, the partners, and the sustainability backbone to compete and win.</p>
+      </div>
+      <div class="grid grid-4" id="features">
+        <div class="card card-pad">
+          <div class="card-icon" style="margin-bottom:14px;">📊</div>
+          <h3 style="font-size:17px;">Data-Driven Insights</h3>
+          <p class="text-muted" style="margin-top:6px;font-size:13px;">RCA analysis, market sizing, and tariff intelligence at your fingertips.</p>
+        </div>
+        <div class="card card-pad">
+          <div class="card-icon emerald" style="margin-bottom:14px;">🎓</div>
+          <h3 style="font-size:17px;">Guided Export Learning</h3>
+          <p class="text-muted" style="margin-top:6px;font-size:13px;">Step-by-step curriculum from import basics to export documentation.</p>
+        </div>
+        <div class="card card-pad">
+          <div class="card-icon gold" style="margin-bottom:14px;">🤝</div>
+          <h3 style="font-size:17px;">Trusted Partners</h3>
+          <p class="text-muted" style="margin-top:6px;font-size:13px;">Verified banks, logistics providers, certifiers, and buyers in one platform.</p>
+        </div>
+        <div class="card card-pad">
+          <div class="card-icon" style="margin-bottom:14px;">🌱</div>
+          <h3 style="font-size:17px;">Sustainability Support</h3>
+          <p class="text-muted" style="margin-top:6px;font-size:13px;">CBAM readiness, ESG documentation, and traceability for premium markets.</p>
+        </div>
+      </div>
+
+      <!-- Commodity Strength -->
+      <div style="margin-top:56px;">
+        <div class="text-center" style="margin-bottom:32px;">
+          <span class="eyebrow">Commodity Strength</span>
+          <h2 style="font-size:28px;font-weight:800;margin-top:8px;">Indonesia's <span class="accent" style="color:var(--emerald);font-family:var(--font-serif);font-style:italic;">Agro-Trade</span> at a Glance</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon-box">☕</div>
+            <div class="stat-num">$4.8B</div>
+            <div class="stat-lbl">Coffee export 2024</div>
+            <div class="stat-trend">↑ 6.2% YoY</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-box">🌴</div>
+            <div class="stat-num">$28.4B</div>
+            <div class="stat-lbl">Palm oil export 2024</div>
+            <div class="stat-trend">↑ 3.1% YoY</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-box">🌶️</div>
+            <div class="stat-num">$240M</div>
+            <div class="stat-lbl">Pepper export 2024</div>
+            <div class="stat-trend">↑ 4.5% YoY</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-box">🥥</div>
+            <div class="stat-num">$180M</div>
+            <div class="stat-lbl">Coconut sugar export</div>
+            <div class="stat-trend">↑ 12.8% YoY</div>
+          </div>
+        </div>
+
+        <!-- Global reach flags -->
+        <div class="card card-mint card-pad" style="margin-top:24px;text-align:center;">
+          <p class="text-muted" style="font-size:13px;margin-bottom:14px;">Active export reach across premium and growth markets</p>
+          <div style="font-size:36px;letter-spacing:14px;">
+            🇯🇵 🇺🇸 🇩🇪 🇳🇱 🇮🇳 🇬🇧 🇨🇳 🇮🇹
+          </div>
+          <p class="text-muted" style="font-size:12px;margin-top:14px;">Japan · United States · Germany · Netherlands · India · United Kingdom · China · Italy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= QUICK READINESS CHECK ============= -->
+  <section class="section" id="quick-check">
+    <div class="container container-narrow">
+      <div class="section-head">
+        <span class="eyebrow">Quick Check</span>
+        <h2>How <span class="accent">Export-Ready</span> Are You?</h2>
+        <p>Get a glimpse of your export readiness in 30 seconds. Pick the option that best describes your business today.</p>
+      </div>
+
+      <div class="card card-pad-lg">
+        <div class="form-row" style="grid-template-columns: 1fr 1fr;">
+          <!-- Q1 Commodity -->
+          <div class="form-group">
+            <label class="form-label">1. Your primary commodity</label>
+            <div class="flex-col gap-8" data-question="commodity">
+              <label class="form-check"><input type="radio" name="q-commodity" value="coffee"><span><span class="form-check-label">Coffee</span><span class="form-check-sub">Arabica / Robusta</span></span></label>
+              <label class="form-check"><input type="radio" name="q-commodity" value="sugar"><span><span class="form-check-label">Coconut Sugar</span><span class="form-check-sub">Gula Aren</span></span></label>
+              <label class="form-check"><input type="radio" name="q-commodity" value="pepper"><span><span class="form-check-label">Pepper</span><span class="form-check-sub">Black / White</span></span></label>
+              <label class="form-check"><input type="radio" name="q-commodity" value="palmoil"><span><span class="form-check-label">Palm Oil</span><span class="form-check-sub">CPO / RBD</span></span></label>
+            </div>
+          </div>
+
+          <!-- Q2 Years in business -->
+          <div class="form-group">
+            <label class="form-label">2. Years in business</label>
+            <div class="flex-col gap-8" data-question="years">
+              <label class="form-check"><input type="radio" name="q-years" value="lt1"><span><span class="form-check-label">&lt; 1 year</span><span class="form-check-sub">Just starting out</span></span></label>
+              <label class="form-check"><input type="radio" name="q-years" value="1to3"><span><span class="form-check-label">1 – 3 years</span><span class="form-check-sub">Building operations</span></span></label>
+              <label class="form-check"><input type="radio" name="q-years" value="gt3"><span><span class="form-check-label">&gt; 3 years</span><span class="form-check-sub">Established</span></span></label>
+            </div>
+          </div>
+
+          <!-- Q3 Certifications -->
+          <div class="form-group">
+            <label class="form-label">3. Certifications held</label>
+            <div class="flex-col gap-8" data-question="certs">
+              <label class="form-check"><input type="radio" name="q-certs" value="none"><span><span class="form-check-label">None yet</span><span class="form-check-sub">No formal certification</span></span></label>
+              <label class="form-check"><input type="radio" name="q-certs" value="1to2"><span><span class="form-check-label">1 – 2 certs</span><span class="form-check-sub">e.g. Halal, HACCP</span></span></label>
+              <label class="form-check"><input type="radio" name="q-certs" value="3plus"><span><span class="form-check-label">3+ certs</span><span class="form-check-sub">Halal + HACCP + ISO / Organic</span></span></label>
+            </div>
+          </div>
+
+          <!-- Q4 Target market -->
+          <div class="form-group">
+            <label class="form-label">4. Target market</label>
+            <div class="flex-col gap-8" data-question="market">
+              <label class="form-check"><input type="radio" name="q-market" value="domestic"><span><span class="form-check-label">Domestic only</span><span class="form-check-sub">Selling locally</span></span></label>
+              <label class="form-check"><input type="radio" name="q-market" value="asean"><span><span class="form-check-label">ASEAN</span><span class="form-check-sub">Regional export</span></span></label>
+              <label class="form-check"><input type="radio" name="q-market" value="global"><span><span class="form-check-label">Global</span><span class="form-check-sub">EU, Japan, US, etc.</span></span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview result -->
+        <div class="card card-mint card-pad" style="margin-top:24px;">
+          <div class="progress-row">
+            <span class="lbl">Estimated readiness score</span>
+            <span class="val" id="quick-score">0%</span>
+          </div>
+          <div class="progress progress-lg" id="quick-progress">
+            <div class="progress-bar" style="width:0%"></div>
+          </div>
+          <p class="text-muted" style="font-size:13px;margin-top:12px;" id="quick-message">Select an option from each question above to see your estimated readiness score.</p>
+          <div style="margin-top:20px;">
+            <a href="auth.html?mode=register" class="btn btn-primary btn-lg">Get Full Assessment →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-logo">E</div>
+            <div class="brand-name">Expor-E</div>
+          </div>
+          <p>The 3E Digital Trade Framework for Indonesian agroindustry SMEs. Better data, bigger opportunities — from local potential to global market.</p>
+          <div class="footer-social" style="margin-top:18px;">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Twitter">x</a>
+            <a href="#" aria-label="YouTube">yt</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="auth.html?mode=register">Pricing</a></li>
+            <li><a href="#framework">Use Cases</a></li>
+            <li><a href="markets.html">Success Stories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="education.html">Documentation</a></li>
+            <li><a href="#why">Blog</a></li>
+            <li><a href="education.html">Guides</a></li>
+            <li><a href="#quick-check">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why">About</a></li>
+            <li><a href="#why">Careers</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="#footer">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Expor-E. Empowering Indonesian Agroindustry.</p>
+        <p>Better Data, Bigger Opportunities.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ---------- Quick-check interactive scoring ---------- */
+    (function () {
+      const scoreEl = document.getElementById('quick-score');
+      const barEl = document.querySelector('#quick-progress .progress-bar');
+      const msgEl = document.getElementById('quick-message');
+
+      function calcScore() {
+        const commodity = document.querySelector('input[name="q-commodity"]:checked');
+        const years = document.querySelector('input[name="q-years"]:checked');
+        const certs = document.querySelector('input[name="q-certs"]:checked');
+        const market = document.querySelector('input[name="q-market"]:checked');
+
+        let score = 25; // base
+        if (commodity) score += 10;
+        if (years) {
+          if (years.value === 'lt1') score += 5;
+          else if (years.value === '1to3') score += 12;
+          else if (years.value === 'gt3') score += 20;
+        }
+        if (certs) {
+          if (certs.value === 'none') score += 5;
+          else if (certs.value === '1to2') score += 15;
+          else if (certs.value === '3plus') score += 25;
+        }
+        if (market) {
+          if (market.value === 'domestic') score += 5;
+          else if (market.value === 'asean') score += 15;
+          else if (market.value === 'global') score += 25;
+        }
+        if (score > 100) score = 100;
+        return { score, commodity, years, certs, market };
+      }
+
+      function render() {
+        const { score, commodity, years, certs, market } = calcScore();
+        scoreEl.textContent = score + '%';
+        barEl.style.width = score + '%';
+        barEl.classList.remove('warning', 'danger', 'gold', 'info');
+        if (score < 40) barEl.classList.add('danger');
+        else if (score < 70) barEl.classList.add('warning');
+        else if (score < 85) barEl.classList.add('info');
+        else barEl.classList.add('gold');
+
+        const answered = [commodity, years, certs, market].filter(Boolean).length;
+        if (answered === 0) {
+          msgEl.textContent = 'Select an option from each question above to see your estimated readiness score.';
+        } else if (answered < 4) {
+          msgEl.textContent = `Good progress — ${answered}/4 answered. Keep going for a complete estimate.`;
+        } else {
+          let label = 'Getting Started';
+          if (score >= 85) label = 'Export Ready 🚀';
+          else if (score >= 70) label = 'Good Progress 💪';
+          else if (score >= 50) label = 'Building Up 🌱';
+          msgEl.textContent = `Your estimated readiness: ${score}% — ${label}. Sign up for the full assessment with detailed recommendations.`;
+          if (typeof ExporE !== 'undefined' && ExporE.showToast) {
+            ExporE.showToast('Quick check complete! Score: ' + score + '%', 'success');
+          }
+        }
+      }
+
+      document.querySelectorAll('input[type="radio"]').forEach(r => {
+        r.addEventListener('change', render);
+        // visual selected state
+        r.addEventListener('change', () => {
+          r.closest('[data-question]').querySelectorAll('.form-check').forEach(fc => fc.classList.remove('checked'));
+          r.closest('.form-check').classList.add('checked');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
