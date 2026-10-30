@@ -1351,3 +1351,30 @@ table.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     font-size: 0.82rem;
   }
 }
+
+/* --- PERBAIKAN NAVBAR MOBILE AGAR TIDAK TERPOTONG --- */
+@media (max-width: 768px) {
+  /* 1. Sembunyikan switch bahasa (EN/ID) khusus di layar HP agar hemat tempat */
+  .topbar .lang-switch {
+    display: none !important;
+  }
+
+  /* 2. Atur padding topbar agar lebih rapat di HP */
+  .topbar {
+    padding: 0 10px !important;
+    gap: 4px !important;
+  }
+
+  /* 3. Perkecil sedikit ukuran tombol Log in dan Get Started */
+  .nav-actions .btn {
+    padding: 5px 8px !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. Pastikan logo dan teks Expor-E aman satu baris */
+  .brand {
+    font-size: 1rem !important;
+    gap: 6px !important;
+  }
+}
