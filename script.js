@@ -747,7 +747,7 @@ function renderDashboard() {
   if (headerEl) {
     const hour = new Date().getHours();
     const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
-    headerEl.textContent = `${greeting}, ${state.currentUser.name} 👋  |  Your business is ${score}% export-ready`;
+    headerEl.textContent = `${greeting}, ${state.currentUser.name}   |  Your business is ${score}% export-ready`;
   }
 }
 
@@ -809,6 +809,19 @@ function renderEducation() {
         ${p.num < 6 ? `<div class="step-line ${p.status === 'done' ? 'done' : ''}"></div>` : ''}
       </div>
     `).join('');
+    // Add current step indicator below stepper (visible on mobile)
+    const activeStep = state.education.path.find(p => p.status === 'active');
+    const nextStep = activeStep || state.education.path.find(p => p.status === 'pending');
+    if (nextStep) {
+      // Remove any existing label first
+      const existing = pathContainer.parentNode.querySelector('.stepper-current-label');
+      if (existing) existing.remove();
+      const label = document.createElement('div');
+      label.className = 'stepper-current-label';
+      label.innerHTML = `<span class="ic">📌</span>Current: <strong>${nextStep.name}</strong> (Step ${nextStep.num} of ${state.education.path.length})`;
+      // Insert AFTER the stepper (as sibling, not child) so it doesn't break flex layout
+      pathContainer.parentNode.insertBefore(label, pathContainer.nextSibling);
+    }
   }
   // Render lessons
   const lessonsContainer = document.querySelector('[data-edu-lessons]');

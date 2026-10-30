@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expor-E — Admin Dashboard</title>
-  <meta name="description" content="Ecosystem partner dashboard for Expor-E — verify certifications, approve financing, manage logistics, and oversee 1,248 UMKMs nationwide.">
+  <meta name="description"
+    content="Ecosystem partner dashboard for Expor-E — verify certifications, approve financing, manage logistics, and oversee 1,248 UMKMs nationwide.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="app-shell">
     <!-- ============ SIDEBAR ============ -->
@@ -29,30 +32,30 @@
 
       <div class="sidebar-nav-section">Main</div>
       <a href="admin.html" class="sidebar-link active">
-        <span class="ic">📊</span><span class="lbl">Admin Dashboard</span>
+        </span><span class="lbl">Admin Dashboard</span>
       </a>
 
       <div class="sidebar-nav-section">Verifications</div>
       <a href="#certifications" class="sidebar-link">
-        <span class="ic">✅</span><span class="lbl">Verifications</span>
+        </span><span class="lbl">Verifications</span>
       </a>
       <a href="#certifications" class="sidebar-sublink">Certifications</a>
       <a href="#financing" class="sidebar-sublink">Financing Requests</a>
 
       <div class="sidebar-nav-section">Operations</div>
       <a href="#logistics" class="sidebar-link">
-        <span class="ic">🚚</span><span class="lbl">Logistics Control</span>
+        </span><span class="lbl">Logistics Control</span>
       </a>
       <a href="#registry" class="sidebar-link">
-        <span class="ic">🏢</span><span class="lbl">UMKM Registry</span>
+        </span><span class="lbl">UMKM Registry</span>
       </a>
       <a href="#reports" class="sidebar-link">
-        <span class="ic">📈</span><span class="lbl">Reports</span>
+        </span><span class="lbl">Reports</span>
       </a>
 
       <div class="sidebar-footer">
         <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          <span class="ic">🚪</span><span class="lbl">Logout</span>
+          </span><span class="lbl">Logout</span>
         </a>
       </div>
     </aside>
@@ -61,25 +64,33 @@
     <main class="app-main">
       <!-- HEADER -->
       <header class="app-header">
-      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+        <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
         <div>
           <h1>Welcome back, <span data-user-name>Budi</span></h1>
-          <div class="sub">You're managing verifications, financing approvals, and logistics status for 1,248 UMKMs nationwide.</div>
+          <div class="sub">You're managing verifications, financing approvals, and logistics status for 1,248 UMKMs
+            nationwide.</div>
         </div>
         <div class="app-header-actions">
           <button class="bell-btn" aria-label="Notifications">
             <span>🔔</span><span class="dot"></span>
           </button>
-          <div class="sidebar-avatar" data-user-initial style="width: 42px; height: 42px; box-shadow: var(--shadow-sm);">B</div>
+          <div class="sidebar-avatar" data-user-initial
+            style="width: 42px; height: 42px; box-shadow: var(--shadow-sm);">B</div>
         </div>
       </header>
 
       <!-- NOTICE BANNER -->
       <div class="notice-banner mb-24">
         <span class="ic">🌐</span>
-        <span>Live overview of national agroindustry export readiness — approve certifications, financing, and update shipment statuses.</span>
+        <span>Live overview of national agroindustry export readiness — approve certifications, financing, and update
+          shipment statuses.</span>
       </div>
 
       <!-- ADMIN STAT CARDS -->
@@ -130,7 +141,7 @@
             <div class="flex-col gap-16">
               <div>
                 <div class="progress-row">
-                  <span class="lbl">☕ Coffee (Arabica + Robusta)</span>
+                  <span class="lbl">Coffee (Arabica + Robusta)</span>
                   <span class="val">68%</span>
                 </div>
                 <div class="progress progress-lg">
@@ -140,7 +151,7 @@
               </div>
               <div>
                 <div class="progress-row">
-                  <span class="lbl">🥥 Palm Oil</span>
+                  <span class="lbl">Palm Oil</span>
                   <span class="val">72%</span>
                 </div>
                 <div class="progress progress-lg">
@@ -150,17 +161,18 @@
               </div>
               <div>
                 <div class="progress-row">
-                  <span class="lbl">🍬 Coconut Sugar</span>
+                  <span class="lbl">Coconut Sugar</span>
                   <span class="val">54%</span>
                 </div>
                 <div class="progress progress-lg">
                   <div class="progress-bar warning" style="width: 54%;"></div>
                 </div>
-                <div class="text-muted" style="font-size: 12px; margin-top: 6px;">186 UMKMs · Top market: Netherlands</div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 6px;">186 UMKMs · Top market: Netherlands
+                </div>
               </div>
               <div>
                 <div class="progress-row">
-                  <span class="lbl">🌶️ Pepper</span>
+                  <span class="lbl">Pepper</span>
                   <span class="val">48%</span>
                 </div>
                 <div class="progress progress-lg">
@@ -252,10 +264,13 @@
           </div>
           <div class="flex gap-12 items-center">
             <div class="input-icon">
-              <span class="ic">🔍</span>
-              <input class="form-control" type="text" placeholder="Search UMKM..." style="width: 200px; padding: 8px 12px 8px 36px; font-size: 13px;" oninput="filterUmkmRegistry(this.value)">
+              <span class="ic"></span>
+              <input class="form-control" type="text" placeholder="Search UMKM..."
+                style="width: 200px; padding: 8px 12px 8px 36px; font-size: 13px;"
+                oninput="filterUmkmRegistry(this.value)">
             </div>
-            <button class="btn btn-primary btn-sm" onclick="ExporE.showToast('Export registry as CSV (demo).', 'success');">⬇ Export</button>
+            <button class="btn btn-primary btn-sm"
+              onclick="ExporE.showToast('Export registry as CSV (demo).', 'success');">⬇ Export</button>
           </div>
         </div>
         <div class="table-wrap">
@@ -272,14 +287,79 @@
               </tr>
             </thead>
             <tbody>
-              <tr data-umkm-row><td class="cell-strong">Sari Kopi Nusantara</td><td>☕ Arabica Coffee</td><td class="cell-muted">Aceh Gayo</td><td><strong class="text-emerald">64%</strong></td><td><span class="badge badge-success">Halal</span> <span class="badge badge-warning">HACCP</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-08-12</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Kreasi Lada Lampung</td><td>🌶️ Black Pepper</td><td class="cell-muted">Lampung</td><td><strong>58%</strong></td><td><span class="badge badge-warning">ISO 22000</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-08-20</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Gula Aren Asli</td><td>🥥 Coconut Sugar</td><td class="cell-muted">Banten</td><td><strong class="text-emerald">71%</strong></td><td><span class="badge badge-success">Organic</span> <span class="badge badge-warning">Fair Trade</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-09-03</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Teh Hijau Wonosobo</td><td>🍵 Green Tea</td><td class="cell-muted">Central Java</td><td><strong>52%</strong></td><td><span class="badge badge-warning">Halal</span></td><td><span class="badge badge-warning">Onboarding</span></td><td class="cell-muted">2026-10-22</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Kriya Bambu Jepara</td><td>🧺 Handicraft</td><td class="cell-muted">Jepara</td><td><strong class="text-emerald">76%</strong></td><td><span class="badge badge-success">FDA</span> <span class="badge badge-success">ISO 9001</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-07-15</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Sawit Mandiri Riau</td><td>🌴 Palm Oil</td><td class="cell-muted">Riau</td><td><strong>67%</strong></td><td><span class="badge badge-success">RSPO</span> <span class="badge badge-warning">ISPO</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-06-28</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Kopi Robusta Lampung</td><td>☕ Robusta Coffee</td><td class="cell-muted">Lampung</td><td><strong>61%</strong></td><td><span class="badge badge-success">Halal</span></td><td><span class="badge badge-success">Active</span></td><td class="cell-muted">2026-09-18</td></tr>
-              <tr data-umkm-row><td class="cell-strong">Teh Hitam Wonosobo</td><td>🍵 Black Tea</td><td class="cell-muted">Central Java</td><td><strong>49%</strong></td><td><span class="badge badge-muted">None</span></td><td><span class="badge badge-warning">Onboarding</span></td><td class="cell-muted">2026-10-25</td></tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Sari Kopi Nusantara</td>
+                <td>Arabica Coffee</td>
+                <td class="cell-muted">Aceh Gayo</td>
+                <td><strong class="text-emerald">64%</strong></td>
+                <td><span class="badge badge-success">Halal</span> <span class="badge badge-warning">HACCP</span></td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-08-12</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Kreasi Lada Lampung</td>
+                <td>Black Pepper</td>
+                <td class="cell-muted">Lampung</td>
+                <td><strong>58%</strong></td>
+                <td><span class="badge badge-warning">ISO 22000</span></td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-08-20</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Gula Aren Asli</td>
+                <td>Coconut Sugar</td>
+                <td class="cell-muted">Banten</td>
+                <td><strong class="text-emerald">71%</strong></td>
+                <td><span class="badge badge-success">Organic</span> <span class="badge badge-warning">Fair Trade</span>
+                </td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-09-03</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Teh Hijau Wonosobo</td>
+                <td>Green Tea</td>
+                <td class="cell-muted">Central Java</td>
+                <td><strong>52%</strong></td>
+                <td><span class="badge badge-warning">Halal</span></td>
+                <td><span class="badge badge-warning">Onboarding</span></td>
+                <td class="cell-muted">2026-10-22</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Kriya Bambu Jepara</td>
+                <td> Handicraft</td>
+                <td class="cell-muted">Jepara</td>
+                <td><strong class="text-emerald">76%</strong></td>
+                <td><span class="badge badge-success">FDA</span> <span class="badge badge-success">ISO 9001</span></td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-07-15</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Sawit Mandiri Riau</td>
+                <td>Palm Oil</td>
+                <td class="cell-muted">Riau</td>
+                <td><strong>67%</strong></td>
+                <td><span class="badge badge-success">RSPO</span> <span class="badge badge-warning">ISPO</span></td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-06-28</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Kopi Robusta Lampung</td>
+                <td>Robusta Coffee</td>
+                <td class="cell-muted">Lampung</td>
+                <td><strong>61%</strong></td>
+                <td><span class="badge badge-success">Halal</span></td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="cell-muted">2026-09-18</td>
+              </tr>
+              <tr data-umkm-row>
+                <td class="cell-strong">Teh Hitam Wonosobo</td>
+                <td>Black Tea</td>
+                <td class="cell-muted">Central Java</td>
+                <td><strong>49%</strong></td>
+                <td><span class="badge badge-muted">None</span></td>
+                <td><span class="badge badge-warning">Onboarding</span></td>
+                <td class="cell-muted">2026-10-25</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -300,31 +380,32 @@
               <option>Last quarter</option>
               <option>This year</option>
             </select>
-            <button class="btn btn-primary btn-sm" onclick="ExporE.showToast('Report generated & downloaded (demo).', 'success');">⬇ Generate Report</button>
+            <button class="btn btn-primary btn-sm"
+              onclick="ExporE.showToast('Report generated & downloaded (demo).', 'success');">⬇ Generate Report</button>
           </div>
         </div>
 
         <div class="kpi-grid mb-24">
           <div class="kpi-card">
-            <div class="kpi-icon green">💰</div>
+            
             <div class="kpi-num">$4.2M</div>
             <div class="kpi-lbl">Total Export Facilitated</div>
             <div class="kpi-trend up">▲ 18% vs last month</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon blue">📦</div>
+           
             <div class="kpi-num">342</div>
             <div class="kpi-lbl">Shipments This Month</div>
             <div class="kpi-trend up">▲ 12% vs last month</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon gold">✅</div>
+            
             <div class="kpi-num">87%</div>
             <div class="kpi-lbl">Cert Approval Rate</div>
             <div class="kpi-trend up">▲ 3% vs last month</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon red">⏱️</div>
+          
             <div class="kpi-num">2.3d</div>
             <div class="kpi-lbl">Avg Processing Time</div>
             <div class="kpi-trend up">▼ 0.5d faster</div>
@@ -334,28 +415,46 @@
         <h4 class="mb-16">Top Export Commodities (This Quarter)</h4>
         <div class="grid grid-2 mb-24">
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">☕ Coffee (Arabica + Robusta)</span><span class="text-emerald fw-700">$1.8M · 412 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 92%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Coffee (Arabica + Robusta)</span><span
+                class="text-emerald fw-700">$1.8M · 412 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 92%;"></div>
+            </div>
           </div>
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">🌴 Palm Oil</span><span class="text-emerald fw-700">$1.2M · 287 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 78%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Palm Oil</span><span
+                class="text-emerald fw-700">$1.2M · 287 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 78%;"></div>
+            </div>
           </div>
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">🥥 Coconut Sugar</span><span class="text-emerald fw-700">$480K · 156 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 54%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Coconut Sugar</span><span
+                class="text-emerald fw-700">$480K · 156 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 54%;"></div>
+            </div>
           </div>
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">🌶️ Pepper</span><span class="text-emerald fw-700">$320K · 98 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 41%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Pepper</span><span
+                class="text-emerald fw-700">$320K · 98 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 41%;"></div>
+            </div>
           </div>
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">🍵 Tea</span><span class="text-emerald fw-700">$240K · 142 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 35%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Tea</span><span
+                class="text-emerald fw-700">$240K · 142 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 35%;"></div>
+            </div>
           </div>
           <div class="progress-row">
-            <div class="flex justify-between mb-8"><span class="fw-600 fs-14">🧺 Handicraft</span><span class="text-emerald fw-700">$160K · 153 UMKMs</span></div>
-            <div class="progress progress-lg"><div class="progress-bar" style="width: 28%;"></div></div>
+            <div class="flex justify-between mb-8"><span class="fw-600 fs-14"> Handicraft</span><span
+                class="text-emerald fw-700">$160K · 153 UMKMs</span></div>
+            <div class="progress progress-lg">
+              <div class="progress-bar" style="width: 28%;"></div>
+            </div>
           </div>
         </div>
 
@@ -363,14 +462,50 @@
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Country</th><th>Shipments</th><th>Total Value</th><th>Avg Readiness</th><th>Growth</th></tr>
+              <tr>
+                <th>Country</th>
+                <th>Shipments</th>
+                <th>Total Value</th>
+                <th>Avg Readiness</th>
+                <th>Growth</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td class="cell-strong">🇯🇵 Japan</td><td>87</td><td>$1.4M</td><td><strong class="text-emerald">72%</strong></td><td><span class="badge badge-success">+8.6%</span></td></tr>
-              <tr><td class="cell-strong">🇩🇪 Germany</td><td>64</td><td>$980K</td><td><strong>68%</strong></td><td><span class="badge badge-success">+4.9%</span></td></tr>
-              <tr><td class="cell-strong">🇮🇳 India</td><td>52</td><td>$720K</td><td><strong>65%</strong></td><td><span class="badge badge-success">+6.3%</span></td></tr>
-              <tr><td class="cell-strong">🇳🇱 Netherlands</td><td>48</td><td>$560K</td><td><strong class="text-emerald">71%</strong></td><td><span class="badge badge-success">+5.7%</span></td></tr>
-              <tr><td class="cell-strong">🇺🇸 United States</td><td>41</td><td>$340K</td><td><strong>63%</strong></td><td><span class="badge badge-success">+7.2%</span></td></tr>
+              <tr>
+                <td class="cell-strong">🇯🇵 Japan</td>
+                <td>87</td>
+                <td>$1.4M</td>
+                <td><strong class="text-emerald">72%</strong></td>
+                <td><span class="badge badge-success">+8.6%</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">🇩🇪 Germany</td>
+                <td>64</td>
+                <td>$980K</td>
+                <td><strong>68%</strong></td>
+                <td><span class="badge badge-success">+4.9%</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">🇮🇳 India</td>
+                <td>52</td>
+                <td>$720K</td>
+                <td><strong>65%</strong></td>
+                <td><span class="badge badge-success">+6.3%</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">🇳🇱 Netherlands</td>
+                <td>48</td>
+                <td>$560K</td>
+                <td><strong class="text-emerald">71%</strong></td>
+                <td><span class="badge badge-success">+5.7%</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">🇺🇸 United States</td>
+                <td>41</td>
+                <td>$340K</td>
+                <td><strong>63%</strong></td>
+                <td><span class="badge badge-success">+7.2%</span></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -419,25 +554,25 @@
         </p>
         <div class="grid grid-2">
           <div class="kpi-card">
-            <div class="kpi-icon green">✅</div>
+            
             <div class="kpi-num">87%</div>
             <div class="kpi-lbl">Approval Rate</div>
             <div class="kpi-trend up">↗ +4% MoM</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon blue">⏱️</div>
+            
             <div class="kpi-num">2.3 <span style="font-size: 14px;">days</span></div>
             <div class="kpi-lbl">Avg Processing Time</div>
             <div class="kpi-trend up">↗ -0.5 days</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon gold">💰</div>
+            
             <div class="kpi-num">$4.2M</div>
             <div class="kpi-lbl">Total Facilitated</div>
             <div class="kpi-trend up">↗ +22% QoQ</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-icon green">👥</div>
+           
             <div class="kpi-num">24</div>
             <div class="kpi-lbl">Active Verifiers</div>
             <div class="kpi-trend up">↗ +3 onboarded</div>
@@ -455,7 +590,7 @@
     // UMKM Registry search filter
     function filterUmkmRegistry(query) {
       var q = query.toLowerCase().trim();
-      document.querySelectorAll('[data-umkm-row]').forEach(function(row) {
+      document.querySelectorAll('[data-umkm-row]').forEach(function (row) {
         var text = row.textContent.toLowerCase();
         row.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
       });
@@ -463,8 +598,8 @@
     window.filterUmkmRegistry = filterUmkmRegistry;
 
     // Smooth-scroll for sidebar anchor links (#certifications, #financing, #logistics, #registry, #reports)
-    document.querySelectorAll('.sidebar-link[href^="#"], .sidebar-sublink[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    document.querySelectorAll('.sidebar-link[href^="#"], .sidebar-sublink[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
         var href = this.getAttribute('href');
         if (href && href.length > 1) {
           var target = document.querySelector(href);
@@ -474,11 +609,12 @@
             // Briefly highlight the target card
             target.style.transition = 'box-shadow 0.4s';
             target.style.boxShadow = '0 0 0 3px var(--emerald), var(--shadow-lg)';
-            setTimeout(function() { target.style.boxShadow = ''; }, 1200);
+            setTimeout(function () { target.style.boxShadow = ''; }, 1200);
           }
         }
       });
     });
   </script>
 </body>
+
 </html>
