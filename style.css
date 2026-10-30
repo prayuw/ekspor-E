@@ -1319,3 +1319,35 @@ table.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .shadow { box-shadow: var(--shadow); }
 .cursor-pointer { cursor: pointer; }
 .overflow-hidden { overflow: hidden; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem; /* Sesuaikan ukuran font agar pas di HP */
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap; /* Mencegah teks terpotong ke bawah */
+  flex-shrink: 0;      /* Mencegah logo ikut menyusut jika ruang padat */
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 12px; /* Kurangi padding kiri-kanan topbar di HP */
+    gap: 8px;        /* Atur jarak antar elemen navbar */
+  }
+
+  .brand {
+    font-size: 1.1rem; /* Sedikit perkecil ukuran font khusus mobile */
+  }
+
+  /* Jika tombol Log In / Get Started terlalu memakan tempat di HP */
+  .topbar .user-actions {
+    gap: 6px;
+  }
+  
+  .btn, .topbar a.btn {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+  }
+}
