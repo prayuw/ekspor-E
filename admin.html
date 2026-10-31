@@ -47,7 +47,7 @@
         </span><span class="lbl">Logistics Control</span>
       </a>
       <a href="#registry" class="sidebar-link">
-        </span><span class="lbl">UMKM Registry</span>
+        </span><span class="lbl">MSMEs Registry</span>
       </a>
       <a href="#reports" class="sidebar-link">
         </span><span class="lbl">Reports</span>
@@ -189,13 +189,13 @@
       <div class="card card-pad mb-24" id="certifications">
         <h3>Certification Verification Queue</h3>
         <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
-          Review and approve/reject UMKM certification submissions.
+          Review and approve/reject MSMEs certification submissions.
         </p>
         <div class="table-wrap">
           <table class="data-table">
             <thead>
               <tr>
-                <th>UMKM</th>
+                <th>MSMEs</th>
                 <th>Certification Type</th>
                 <th>Submission Date</th>
                 <th>Action</th>
@@ -218,7 +218,7 @@
             <table class="data-table">
               <thead>
                 <tr>
-                  <th>UMKM</th>
+                  <th>MSMEs</th>
                   <th>Amount</th>
                   <th>Purpose</th>
                   <th>Credit Score</th>
@@ -234,7 +234,7 @@
         <div class="card card-pad" id="logistics">
           <h3>Logistics Status Control</h3>
           <p class="text-muted" style="font-size: 13px; margin-top: 4px; margin-bottom: 16px;">
-            Update shipment statuses — changes instantly reflect on UMKM dashboards.
+            Update shipment statuses — changes instantly reflect on MSMEs dashboards.
           </p>
           <div class="table-wrap">
             <table class="data-table">
@@ -253,11 +253,11 @@
         </div>
       </div>
 
-      <!-- UMKM REGISTRY -->
+      <!-- MSMEs REGISTRY -->
       <div class="card card-pad mb-24" id="registry">
         <div class="flex justify-between items-center mb-16" style="flex-wrap:wrap; gap:12px;">
           <div>
-            <h3>UMKM Registry</h3>
+            <h3>MSMEs Registry</h3>
             <p class="text-muted" style="font-size: 13px; margin-top: 4px;">
               All registered agroindustry MSMEs on the Expor-E platform.
             </p>
@@ -265,19 +265,19 @@
           <div class="flex gap-12 items-center">
             <div class="input-icon">
               <span class="ic"></span>
-              <input class="form-control" type="text" placeholder="Search UMKM..."
+              <input class="form-control" type="text" placeholder="Search MSMEs..."
                 style="width: 200px; padding: 8px 12px 8px 36px; font-size: 13px;"
-                oninput="filterUmkmRegistry(this.value)">
+                oninput="filterMSMEsmRegistry(this.value)">
             </div>
             <button class="btn btn-primary btn-sm"
               onclick="ExporE.showToast('Export registry as CSV (demo).', 'success');">⬇ Export</button>
           </div>
         </div>
         <div class="table-wrap">
-          <table class="data-table" id="umkm-registry-table">
+          <table class="data-table" id="MSMEs-registry-table">
             <thead>
               <tr>
-                <th>UMKM Name</th>
+                <th>MSMEs Name</th>
                 <th>Commodity</th>
                 <th>Region</th>
                 <th>Readiness</th>
@@ -287,7 +287,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Sari Kopi Nusantara</td>
                 <td>Arabica Coffee</td>
                 <td class="cell-muted">Aceh Gayo</td>
@@ -296,7 +296,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-08-12</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Kreasi Lada Lampung</td>
                 <td>Black Pepper</td>
                 <td class="cell-muted">Lampung</td>
@@ -305,7 +305,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-08-20</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Gula Aren Asli</td>
                 <td>Coconut Sugar</td>
                 <td class="cell-muted">Banten</td>
@@ -315,7 +315,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-09-03</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Teh Hijau Wonosobo</td>
                 <td>Green Tea</td>
                 <td class="cell-muted">Central Java</td>
@@ -324,7 +324,7 @@
                 <td><span class="badge badge-warning">Onboarding</span></td>
                 <td class="cell-muted">2026-10-22</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Kriya Bambu Jepara</td>
                 <td> Handicraft</td>
                 <td class="cell-muted">Jepara</td>
@@ -333,7 +333,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-07-15</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Sawit Mandiri Riau</td>
                 <td>Palm Oil</td>
                 <td class="cell-muted">Riau</td>
@@ -342,7 +342,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-06-28</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Kopi Robusta Lampung</td>
                 <td>Robusta Coffee</td>
                 <td class="cell-muted">Lampung</td>
@@ -351,7 +351,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td class="cell-muted">2026-09-18</td>
               </tr>
-              <tr data-umkm-row>
+              <tr data-MSMEs-row>
                 <td class="cell-strong">Teh Hitam Wonosobo</td>
                 <td>Black Tea</td>
                 <td class="cell-muted">Central Java</td>
@@ -521,7 +521,7 @@
           <div class="tracking-event done">
             <div class="time">Today · 09:42</div>
             <div class="title">Certification Halal approved for Sari Kopi Nusantara</div>
-            <div class="place">Verification queue · Auto-notified UMKM</div>
+            <div class="place">Verification queue · Auto-notified MSMEs</div>
           </div>
           <div class="tracking-event done">
             <div class="time">Today · 08:15</div>
@@ -535,8 +535,8 @@
           </div>
           <div class="tracking-event done">
             <div class="time">Yesterday · 14:05</div>
-            <div class="title">New UMKM registered: Teh Hijau Wonosobo</div>
-            <div class="place">UMKM Registry · Green Tea commodity</div>
+            <div class="title">New MSMEs registered: Teh Hijau Wonosobo</div>
+            <div class="place">MSMEs Registry · Green Tea commodity</div>
           </div>
           <div class="tracking-event active">
             <div class="time">2 days ago · 11:30</div>
@@ -587,15 +587,15 @@
     ExporE.requireAuth(['admin']);
     ExporE.pageInit('admin');
 
-    // UMKM Registry search filter
-    function filterUmkmRegistry(query) {
+    // MSMEs Registry search filter
+    function filterMSMEsRegistry(query) {
       var q = query.toLowerCase().trim();
-      document.querySelectorAll('[data-umkm-row]').forEach(function (row) {
+      document.querySelectorAll('[data-MSMEs-row]').forEach(function (row) {
         var text = row.textContent.toLowerCase();
         row.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
       });
     }
-    window.filterUmkmRegistry = filterUmkmRegistry;
+    window.filterMSMEsRegistry = filterMSMEsRegistry;
 
     // Smooth-scroll for sidebar anchor links (#certifications, #financing, #logistics, #registry, #reports)
     document.querySelectorAll('.sidebar-link[href^="#"], .sidebar-sublink[href^="#"]').forEach(function (link) {

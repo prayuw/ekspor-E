@@ -12,10 +12,10 @@ const DEMO_USER = {
   name: 'Dewi',
   email: 'dewi@sarikopinusantara.id',
   password: 'demo123',
-  role: 'umkm',
+  role: 'MSMEs',
   business: {
     name: 'Sari Kopi Nusantara',
-    type: 'UMKM',
+    type: 'MSMEs',
     capacity: '2 Ton/month',
     exportExperience: 'None',
     commodity: 'Arabica Coffee',
@@ -42,7 +42,7 @@ function defaultState() {
       step: 1,
       completed: false,
       businessName: 'Sari Kopi Nusantara',
-      businessType: 'UMKM',
+      businessType: 'MSMEs',
       capacity: '2 Ton/month',
       exportExperience: 'None',
       commodity: 'Arabica Coffee',
@@ -122,18 +122,18 @@ function defaultState() {
       performance: 78
     },
     certifications: [
-      { id: 'c1', umkm: 'Sari Kopi Nusantara', type: 'HACCP', status: 'pending', date: '2026-10-20' },
-      { id: 'c2', umkm: 'Sari Kopi Nusantara', type: 'Halal', status: 'approved', date: '2026-10-10' },
-      { id: 'c3', umkm: 'Kreasi Lada Lampung', type: 'ISO 22000', status: 'pending', date: '2026-10-24' },
-      { id: 'c4', umkm: 'Gula Aren Asli', type: 'Organic', status: 'pending', date: '2026-10-25' }
+      { id: 'c1', MSMEs: 'Sari Kopi Nusantara', type: 'HACCP', status: 'pending', date: '2026-10-20' },
+      { id: 'c2', MSMEs: 'Sari Kopi Nusantara', type: 'Halal', status: 'approved', date: '2026-10-10' },
+      { id: 'c3', MSMEs: 'Kreasi Lada Lampung', type: 'ISO 22000', status: 'pending', date: '2026-10-24' },
+      { id: 'c4', MSMEs: 'Gula Aren Asli', type: 'Organic', status: 'pending', date: '2026-10-25' }
     ],
     financing: [
-      { id: 'f1', umkm: 'Sari Kopi Nusantara', amount: 75000, purpose: 'Export Working Capital', status: 'pending', score: 720 },
-      { id: 'f2', umkm: 'Teh Hijau Wonosobo', amount: 45000, purpose: 'Packaging Upgrade', status: 'pending', score: 680 },
-      { id: 'f3', umkm: 'Kriya Bambu Jepara', amount: 30000, purpose: 'Logistics Coverage', status: 'approved', score: 750 }
+      { id: 'f1', MSMEs: 'Sari Kopi Nusantara', amount: 75000, purpose: 'Export Working Capital', status: 'pending', score: 720 },
+      { id: 'f2', MSMEs: 'Teh Hijau Wonosobo', amount: 45000, purpose: 'Packaging Upgrade', status: 'pending', score: 680 },
+      { id: 'f3', MSMEs: 'Kriya Bambu Jepara', amount: 30000, purpose: 'Logistics Coverage', status: 'approved', score: 750 }
     ],
     adminStats: {
-      totalUmkms: 1248,
+      totalMSMEs: 1248,
       pendingCerts: 18,
       pendingFinance: 7,
       activeShipments: 64
@@ -223,8 +223,8 @@ function register(name, email, password, role, businessName) {
 }
 
 function demoLogin(role) {
-  if (role === 'umkm') {
-    state.currentUser = { id: DEMO_USER.id, name: DEMO_USER.name, role: 'umkm', email: DEMO_USER.email, business: DEMO_USER.business };
+  if (role === 'MSMEs') {
+    state.currentUser = { id: DEMO_USER.id, name: DEMO_USER.name, role: 'MSMEs', email: DEMO_USER.email, business: DEMO_USER.business };
   } else {
     state.currentUser = { id: DEMO_ADMIN.id, name: DEMO_ADMIN.name, role: 'admin', email: DEMO_ADMIN.email };
   }
@@ -588,7 +588,7 @@ function approveCert(certId) {
   if (!cert) return;
   cert.status = 'approved';
   saveState(state);
-  showToast(`Certification ${cert.type} for ${cert.umkm} approved.`, 'success');
+  showToast(`Certification ${cert.type} for ${cert.MSMEs} approved.`, 'success');
   setTimeout(() => location.reload(), 1000);
 }
 
@@ -606,7 +606,7 @@ function approveFinance(financeId) {
   if (!fin) return;
   fin.status = 'approved';
   saveState(state);
-  showToast(`Financing $${fin.amount.toLocaleString()} for ${fin.umkm} approved.`, 'success');
+  showToast(`Financing $${fin.amount.toLocaleString()} for ${fin.MSMEs} approved.`, 'success');
   setTimeout(() => location.reload(), 1000);
 }
 
@@ -735,12 +735,12 @@ function renderUserInfo() {
   document.querySelectorAll('[data-user-initial]').forEach(el => el.textContent = state.currentUser.name.charAt(0).toUpperCase());
   document.querySelectorAll('[data-business-name]').forEach(el => el.textContent = state.currentUser.business?.name || state.currentUser.name + "'s Business");
   document.querySelectorAll('[data-user-role]').forEach(el => {
-    el.textContent = state.currentUser.role === 'admin' ? 'Ecosystem Partner' : 'UMKM / Exporter';
+    el.textContent = state.currentUser.role === 'admin' ? 'Ecosystem Partner' : 'MSMEs / Exporter';
   });
 }
 
 function renderDashboard() {
-  if (!state.currentUser || state.currentUser.role !== 'umkm') return;
+  if (!state.currentUser || state.currentUser.role !== 'MSMEs') return;
   const score = state.readiness.score;
   document.querySelectorAll('[data-readiness-score]').forEach(el => el.textContent = score + '%');
   const headerEl = document.querySelector('[data-dashboard-header]');
@@ -891,7 +891,7 @@ function renderAdmin() {
       ` : `<span class="badge ${badge}">${c.status}</span>`;
       return `
         <tr>
-          <td class="cell-strong">${c.umkm}</td>
+          <td class="cell-strong">${c.MSMEs}</td>
           <td>${c.type}</td>
           <td class="cell-muted">${c.date}</td>
           <td>${actions}</td>
@@ -913,7 +913,7 @@ function renderAdmin() {
       const scoreColor = f.score >= 720 ? 'text-emerald' : f.score >= 680 ? '' : 'text-muted';
       return `
         <tr>
-          <td class="cell-strong">${f.umkm}</td>
+          <td class="cell-strong">${f.MSMEs}</td>
           <td>$${f.amount.toLocaleString()}</td>
           <td class="cell-muted">${f.purpose}</td>
           <td><strong class="${scoreColor}">${f.score}</strong></td>
