@@ -30,7 +30,7 @@
         <div style="margin-top:32px;display:flex;gap:28px;flex-wrap:wrap;">
           <div>
             <div style="font-size:26px;font-weight:800;color:var(--white);">1,200+</div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.72);">UMKM onboarded</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.72);">MSMEs onboarded</div>
           </div>
           <div>
             <div style="font-size:26px;font-weight:800;color:var(--white);">47</div>
@@ -65,9 +65,9 @@
           <!-- Role picker -->
           <label class="form-label">I am a</label>
           <div class="role-picker" id="login-role-picker">
-            <div class="role-card active" data-role="umkm">
+            <div class="role-card active" data-role="MSMEs">
               <div class="ic">🌱</div>
-              <div class="lbl">UMKM / Exporter</div>
+              <div class="lbl">MSMEs / Exporter</div>
               <div class="sub">Agroindustry MSMEs</div>
             </div>
             <div class="role-card" data-role="admin">
@@ -97,10 +97,10 @@
 
           <div class="divider-text">or</div>
 
-          <button class="demo-btn" onclick="ExporE.demoLogin('umkm'); window.location.href='dashboard.html';">
+          <button class="demo-btn" onclick="ExporE.demoLogin('MSMEs'); window.location.href='dashboard.html';">
             
             <span class="info">
-              One-Click Demo Login (UMKM — Dewi)
+              One-Click Demo Login (MSMEs — Dewi)
               <div class="small">Sari Kopi Nusantara · Arabica Coffee</div>
             </span>
             <span>→</span>
@@ -127,9 +127,9 @@
           <!-- Role picker -->
           <label class="form-label">I am a</label>
           <div class="role-picker" id="register-role-picker">
-            <div class="role-card active" data-role="umkm">
+            <div class="role-card active" data-role="MSMEs">
               <div class="ic">🌱</div>
-              <div class="lbl">UMKM / Exporter</div>
+              <div class="lbl">MSMEs / Exporter</div>
               <div class="sub">Agroindustry MSMEs</div>
             </div>
             <div class="role-card" data-role="admin">
@@ -168,10 +168,10 @@
 
           <div class="divider-text">or</div>
 
-          <button class="demo-btn" onclick="ExporE.demoLogin('umkm'); window.location.href='onboarding.html';">
+          <button class="demo-btn" onclick="ExporE.demoLogin('MSMEs'); window.location.href='onboarding.html';">
             
             <span class="info">
-              Skip & explore as demo UMKM
+              Skip & explore as demo MSMEs
               <div class="small">Pre-filled onboarding · Sari Kopi Nusantara</div>
             </span>
             <span>→</span>
@@ -189,7 +189,7 @@
   <script src="script.js"></script>
   <script>
     /* ---------- AUTH PAGE LOGIC ---------- */
-    let activeAuthRole = { login: 'umkm', register: 'umkm' };
+    let activeAuthRole = { login: 'MSMEs', register: 'MSMEs' };
     let activeAuthTab = 'login';
 
     function switchAuthTab(tab) {
@@ -217,9 +217,9 @@
           picker.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
           card.classList.add('active');
           activeAuthRole[tabKey] = card.getAttribute('data-role');
-          // Toggle business-name field visibility (UMKM only)
+          // Toggle business-name field visibility (MSMEs only)
           const bizGroup = document.getElementById('reg-business-group');
-          if (bizGroup) bizGroup.style.display = (tabKey === 'register' && card.getAttribute('data-role') === 'umkm') ? '' : 'none';
+          if (bizGroup) bizGroup.style.display = (tabKey === 'register' && card.getAttribute('data-role') === 'MSMEs') ? '' : 'none';
         });
       });
     }
