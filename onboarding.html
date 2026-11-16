@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expor-E — Onboarding Wizard</title>
-  <meta name="description" content="Build your business profile in 5 simple steps and discover your export readiness score with Expor-E.">
+  <meta name="description" content="Build your export profile in 5 simple steps and discover your export readiness score with Expor-E.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
   <div class="onboard-page">
 
     <!-- ============= SIDEBAR ============= -->
-    <aside class="onboard-sidebar">
+    <aside class="onboard-sidebar" id="onboardSidebar">
       <a href="index.html" class="brand" style="position:relative;z-index:2;">
         <div class="brand-logo">E</div>
         <div>
@@ -24,19 +24,19 @@
       <div class="onboard-steps">
         <div class="onboard-step active" data-step="1" onclick="ExporE.onboardingGo(1); onStepChange(1);">
           <div class="onboard-step-circle">1</div>
-          <div class="onboard-step-label">Business Profile</div>
+          <div class="onboard-step-label">Product Details</div>
         </div>
         <div class="onboard-step" data-step="2" onclick="ExporE.onboardingGo(2); onStepChange(2);">
           <div class="onboard-step-circle">2</div>
-          <div class="onboard-step-label">Product Details</div>
+          <div class="onboard-step-label">Business Profile</div>
         </div>
         <div class="onboard-step" data-step="3" onclick="ExporE.onboardingGo(3); onStepChange(3);">
           <div class="onboard-step-circle">3</div>
-          <div class="onboard-step-label">Current Market</div>
+          <div class="onboard-step-label">Certifications</div>
         </div>
         <div class="onboard-step" data-step="4" onclick="ExporE.onboardingGo(4); onStepChange(4);">
           <div class="onboard-step-circle">4</div>
-          <div class="onboard-step-label">Certifications</div>
+          <div class="onboard-step-label">Current Market</div>
         </div>
         <div class="onboard-step" data-step="5" onclick="ExporE.onboardingGo(5); onStepChange(5);">
           <div class="onboard-step-circle">5</div>
@@ -49,29 +49,34 @@
       </div>
     </aside>
     <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
+
     <!-- ============= MAIN ============= -->
     <main class="onboard-main">
+
+      <button class="sidebar-toggle" onclick="ExporE.toggleSidebar()" aria-label="Open sidebar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
 
       <!-- Horizontal stepper (mirror of sidebar) -->
       <div class="onboard-stepper stepper">
         <div class="step">
           <div class="step-circle active">1</div>
-          <div class="step-label">Business Profile</div>
-        </div>
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-circle">2</div>
           <div class="step-label">Product Details</div>
         </div>
         <div class="step-line"></div>
         <div class="step">
+          <div class="step-circle">2</div>
+          <div class="step-label">Business Profile</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
           <div class="step-circle">3</div>
-          <div class="step-label">Current Market</div>
+          <div class="step-label">Certifications</div>
         </div>
         <div class="step-line"></div>
         <div class="step">
           <div class="step-circle">4</div>
-          <div class="step-label">Certifications</div>
+          <div class="step-label">Current Market</div>
         </div>
         <div class="step-line"></div>
         <div class="step">
@@ -80,8 +85,124 @@
         </div>
       </div>
 
-      <!-- =========== STEP 1: BUSINESS PROFILE =========== -->
+      <!-- =========== STEP 1: PRODUCT DETAILS =========== -->
       <div class="onboard-content active" data-step="1">
+        <h2>What do you produce?</h2>
+        <p class="lead">Select your primary commodity — we'll auto-fill the HS Code. You can add more products below.</p>
+
+        <div class="form-group">
+          <label class="form-label">Commodity Catalog <span class="req">*</span></label>
+          <div class="grid grid-3" id="ob-commodity-grid">
+            <div class="commodity-card" data-commodity="Arabica Coffee" onclick="selectCommodity('Arabica Coffee')">
+              <div class="name">Arabica Coffee</div>
+              <div class="hs" data-hs-display>HS 0901.21</div>
+            </div>
+            <div class="commodity-card" data-commodity="Robusta Coffee" onclick="selectCommodity('Robusta Coffee')">
+              <div class="name">Robusta Coffee</div>
+              <div class="hs" data-hs-display>HS 0901.22</div>
+            </div>
+            <div class="commodity-card" data-commodity="Coconut Sugar" onclick="selectCommodity('Coconut Sugar')">
+              <div class="name">Coconut Sugar</div>
+              <div class="hs" data-hs-display>HS 1702.20</div>
+            </div>
+            <div class="commodity-card" data-commodity="Palm Oil" onclick="selectCommodity('Palm Oil')">
+              <div class="name">Palm Oil</div>
+              <div class="hs" data-hs-display>HS 1511.10</div>
+            </div>
+            <div class="commodity-card" data-commodity="Pepper (Black)" onclick="selectCommodity('Pepper (Black)')">
+              <div class="name">Pepper (Black)</div>
+              <div class="hs" data-hs-display>HS 0904.11</div>
+            </div>
+            <div class="commodity-card" data-commodity="Green Tea" onclick="selectCommodity('Green Tea')">
+              <div class="name">Green Tea</div>
+              <div class="hs" data-hs-display>HS 0902.10</div>
+            </div>
+            <div class="commodity-card" data-commodity="Cocoa Beans" onclick="selectCommodity('Cocoa Beans')">
+              <div class="name">Cocoa Beans</div>
+              <div class="hs" data-hs-display>HS 1801.00</div>
+            </div>
+            <div class="commodity-card" data-commodity="Vanilla Beans" onclick="selectCommodity('Vanilla Beans')">
+              <div class="name">Vanilla Beans</div>
+              <div class="hs" data-hs-display>HS 0905.00</div>
+            </div>
+            <div class="commodity-card" data-commodity="Handicraft" onclick="selectCommodity('Handicraft')">
+              <div class="name">Handicraft</div>
+              <div class="hs" data-hs-display>HS 4601.99</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected commodity highlight -->
+        <div class="card card-mint card-pad" style="margin-top:24px;">
+          <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:12px;">
+            <div>
+              <div class="text-muted fs-12">Selected Commodity</div>
+              <div style="font-size:20px;font-weight:800;color:var(--emerald-dark);" id="selected-commodity-name">Arabica Coffee</div>
+            </div>
+            <div class="text-right">
+              <div class="text-muted fs-12">HS Code</div>
+              <div style="font-size:22px;font-weight:800;color:var(--emerald);font-family:var(--font-serif);" id="selected-hs-code">0901.21</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:24px;">
+          <label class="form-label" for="ob-value-add">Value-add specification</label>
+          <textarea class="form-control" id="ob-value-add" placeholder="Specialty grade, single origin, wet-hulled process" onchange="ExporE.onboardingSaveField('valueAdd', this.value)">Specialty grade, single origin, wet-hulled process</textarea>
+          <div class="form-hint">Describe grading, origin, processing method, or unique selling points.</div>
+        </div>
+
+        <!-- Add your own product -->
+        <div class="card card-pad" style="margin-top:24px;">
+          <div class="flex items-center justify-between mb-16" style="flex-wrap:wrap;gap:12px;">
+            <div>
+              <h3 style="font-size:17px;">Add another product</h3>
+              <p class="text-muted fs-13" style="margin-top:4px;">Add your own product if it's not in the catalog above.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="toggleAddProductForm()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Product
+            </button>
+          </div>
+
+          <div id="add-product-form" class="hidden">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ap-name">Product Name <span class="req">*</span></label>
+                <input class="form-control" type="text" id="ap-name" placeholder="e.g. Toraja Robusta Premium">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ap-hs">HS Code (optional)</label>
+                <input class="form-control" type="text" id="ap-hs" placeholder="e.g. 0901.22 — leave blank to lookup later">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ap-valueadd">Value-add specification (optional)</label>
+              <textarea class="form-control" id="ap-valueadd" placeholder="e.g. Wet-hulled, single origin, Grade 1"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="saveCustomProduct()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Save Product
+            </button>
+          </div>
+
+          <div id="custom-product-list" style="margin-top:16px;display:flex;flex-direction:column;gap:8px;"></div>
+        </div>
+
+        <div class="onboard-actions">
+          <a href="dashboard.html" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to Dashboard
+          </a>
+          <button class="btn btn-primary" onclick="ExporE.onboardingGo(2); onStepChange(2);">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- =========== STEP 2: BUSINESS PROFILE =========== -->
+      <div class="onboard-content" data-step="2">
         <h2>Let's build your business profile</h2>
         <p class="lead">Tell us about your business so we can tailor your export journey.</p>
 
@@ -100,8 +221,21 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="ob-capacity">Production Capacity <span class="req">*</span></label>
-            <input class="form-control" type="text" id="ob-capacity" value="2 Ton/month" onchange="ExporE.onboardingSaveField('capacity', this.value)">
+            <label class="form-label">Production Capacity <span class="req">*</span></label>
+            <div style="display:grid;grid-template-columns:1.4fr 0.8fr 0.8fr;gap:8px;">
+              <input class="form-control" type="number" id="ob-capacity" value="500" min="0" step="any" placeholder="e.g. 500" onchange="ExporE.onboardingSaveField('capacity', this.value)">
+              <select class="form-control" id="ob-capacity-unit" onchange="ExporE.onboardingSaveField('capacityUnit', this.value)">
+                <option value="kg" selected>kg</option>
+                <option value="ton">ton</option>
+              </select>
+              <select class="form-control" id="ob-capacity-period" onchange="ExporE.onboardingSaveField('capacityPeriod', this.value)">
+                <option value="trip" selected>/ trip</option>
+                <option value="month">/ month</option>
+                <option value="week">/ week</option>
+                <option value="day">/ day</option>
+              </select>
+            </div>
+            <div class="form-hint">Enter capacity as kg or ton per trip, month, week, or day.</div>
           </div>
         </div>
 
@@ -133,82 +267,102 @@
         </div>
 
         <div class="onboard-actions">
-          <a href="dashboard.html" class="btn btn-ghost">← Back to Dashboard</a>
-          <button class="btn btn-primary" onclick="ExporE.onboardingGo(2); onStepChange(2);">Next →</button>
+          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(1); onStepChange(1);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back
+          </button>
+          <button class="btn btn-primary" onclick="ExporE.onboardingGo(3); onStepChange(3);">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
 
-      <!-- =========== STEP 2: PRODUCT DETAILS =========== -->
-      <div class="onboard-content" data-step="2">
-        <h2>What do you produce?</h2>
-        <p class="lead">Select your primary commodity — we'll auto-fill the HS Code.</p>
+      <!-- =========== STEP 3: CERTIFICATIONS =========== -->
+      <div class="onboard-content" data-step="3">
+        <h2>What certifications do you hold?</h2>
+        <p class="lead">Select all that apply — these boost your readiness score.</p>
 
-        <div class="grid grid-3" id="ob-commodity-grid">
-          <div class="commodity-card" data-commodity="Arabica Coffee" onclick="selectCommodity('Arabica Coffee')">
-            <div class="emoji">☕</div>
-            <div class="name">Arabica Coffee</div>
-            <div class="hs" data-hs-display>HS 0901.21</div>
-          </div>
-          <div class="commodity-card" data-commodity="Robusta Coffee" onclick="selectCommodity('Robusta Coffee')">
-            <div class="emoji">☕</div>
-            <div class="name">Robusta Coffee</div>
-            <div class="hs" data-hs-display>HS 0901.22</div>
-          </div>
-          <div class="commodity-card" data-commodity="Coconut Sugar" onclick="selectCommodity('Coconut Sugar')">
-            <div class="emoji">🥥</div>
-            <div class="name">Coconut Sugar</div>
-            <div class="hs" data-hs-display>HS 1702.20</div>
-          </div>
-          <div class="commodity-card" data-commodity="Palm Oil" onclick="selectCommodity('Palm Oil')">
-            <div class="emoji">🌴</div>
-            <div class="name">Palm Oil</div>
-            <div class="hs" data-hs-display>HS 1511.10</div>
-          </div>
-          <div class="commodity-card" data-commodity="Pepper (Black)" onclick="selectCommodity('Pepper (Black)')">
-            <div class="emoji">🌶️</div>
-            <div class="name">Pepper (Black)</div>
-            <div class="hs" data-hs-display>HS 0904.11</div>
-          </div>
-          <div class="commodity-card" data-commodity="Green Tea" onclick="selectCommodity('Green Tea')">
-            <div class="emoji">🍵</div>
-            <div class="name">Green Tea</div>
-            <div class="hs" data-hs-display>HS 0902.10</div>
-          </div>
-          <div class="commodity-card" data-commodity="Handicraft" onclick="selectCommodity('Handicraft')">
-            <div class="emoji">🧺</div>
-            <div class="name">Handicraft</div>
-            <div class="hs" data-hs-display>HS 4601.99</div>
-          </div>
+        <div class="grid grid-2" id="ob-certs">
+          <label class="form-check" data-cert="Halal">
+            <input type="checkbox" value="Halal" onchange="ExporE.onboardingToggleCert('Halal'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">Halal</span>
+              <span class="form-check-sub">MUI / global Halal certification</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="HACCP">
+            <input type="checkbox" value="HACCP" onchange="ExporE.onboardingToggleCert('HACCP'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">HACCP</span>
+              <span class="form-check-sub">Hazard Analysis Critical Control Point</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="ISO 22000">
+            <input type="checkbox" value="ISO 22000" onchange="ExporE.onboardingToggleCert('ISO 22000'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">ISO 22000</span>
+              <span class="form-check-sub">Food safety management</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="Fair Trade">
+            <input type="checkbox" value="Fair Trade" onchange="ExporE.onboardingToggleCert('Fair Trade'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">Fair Trade</span>
+              <span class="form-check-sub">Ethical sourcing certification</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="Organic">
+            <input type="checkbox" value="Organic" onchange="ExporE.onboardingToggleCert('Organic'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">Organic</span>
+              <span class="form-check-sub">USDA Organic / EU Organic</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="Rainforest Alliance">
+            <input type="checkbox" value="Rainforest Alliance" onchange="ExporE.onboardingToggleCert('Rainforest Alliance'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">Rainforest Alliance</span>
+              <span class="form-check-sub">Sustainable agriculture</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="SNI">
+            <input type="checkbox" value="SNI" onchange="ExporE.onboardingToggleCert('SNI'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">SNI</span>
+              <span class="form-check-sub">Standar Nasional Indonesia</span>
+            </span>
+          </label>
+          <label class="form-check" data-cert="FDA">
+            <input type="checkbox" value="FDA" onchange="ExporE.onboardingToggleCert('FDA'); refreshCertCards();">
+            <span>
+              <span class="form-check-label">FDA</span>
+              <span class="form-check-sub">US Food & Drug registration</span>
+            </span>
+          </label>
         </div>
 
-        <!-- Selected commodity highlight -->
-        <div class="card card-mint card-pad" style="margin-top:24px;">
-          <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:12px;">
-            <div>
-              <div class="text-muted fs-12">Selected Commodity</div>
-              <div style="font-size:20px;font-weight:800;color:var(--emerald-dark);" id="selected-commodity-name">Arabica Coffee</div>
-            </div>
-            <div class="text-right">
-              <div class="text-muted fs-12">HS Code</div>
-              <div style="font-size:22px;font-weight:800;color:var(--emerald);font-family:var(--font-serif);" id="selected-hs-code">0901.21</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group" style="margin-top:24px;">
-          <label class="form-label" for="ob-value-add">Value-add specification</label>
-          <textarea class="form-control" id="ob-value-add" placeholder="Specialty grade, single origin, wet-hulled process" onchange="ExporE.onboardingSaveField('valueAdd', this.value)">Specialty grade, single origin, wet-hulled process</textarea>
-          <div class="form-hint">Describe grading, origin, processing method, or unique selling points.</div>
+        <div class="notice-banner" style="margin-top:20px;">
+          <span class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .9 1.6h6.2c.1-.6.4-1.2.9-1.6A7 7 0 0 0 12 2Z"/></svg>
+          </span>
+          <span>Each certification you hold adds <strong>+7 points</strong> to your readiness score. Need a cert? Visit the <a href="ecosystem.html" style="color:var(--emerald-dark);font-weight:600;">Ecosystem</a> page to find certifiers.</span>
         </div>
 
         <div class="onboard-actions">
-          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(1); onStepChange(1);">← Back</button>
-          <button class="btn btn-primary" onclick="ExporE.onboardingGo(3); onStepChange(3);">Next →</button>
+          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(2); onStepChange(2);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back
+          </button>
+          <button class="btn btn-primary" onclick="ExporE.onboardingGo(4); onStepChange(4);">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
 
-      <!-- =========== STEP 3: CURRENT MARKET =========== -->
-      <div class="onboard-content" data-step="3">
+      <!-- =========== STEP 4: CURRENT MARKET =========== -->
+      <div class="onboard-content" data-step="4">
         <h2>Where do you sell today?</h2>
         <p class="lead">Help us understand your current reach and dream destinations.</p>
 
@@ -243,14 +397,16 @@
           <div class="form-group">
             <label class="form-label" for="ob-target-country">Target Country <span class="req">*</span></label>
             <select class="form-control" id="ob-target-country" onchange="ExporE.onboardingSaveField('targetCountry', this.value)">
-              <option value="Japan" selected>🇯🇵 Japan</option>
-              <option value="Germany">🇩🇪 Germany</option>
-              <option value="Netherlands">🇳🇱 Netherlands</option>
-              <option value="United States">🇺🇸 United States</option>
-              <option value="India">🇮🇳 India</option>
-              <option value="United Kingdom">🇬🇧 United Kingdom</option>
-              <option value="China">🇨🇳 China</option>
-              <option value="Italy">🇮🇹 Italy</option>
+              <option value="Japan" selected>Japan</option>
+              <option value="Germany">Germany</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="United States">United States</option>
+              <option value="India">India</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="China">China</option>
+              <option value="Italy">Italy</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Malaysia">Malaysia</option>
             </select>
             <div class="form-hint">Pick the country you most want to export to next.</div>
           </div>
@@ -267,83 +423,14 @@
         </div>
 
         <div class="onboard-actions">
-          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(2); onStepChange(2);">← Back</button>
-          <button class="btn btn-primary" onclick="ExporE.onboardingGo(4); onStepChange(4);">Next →</button>
-        </div>
-      </div>
-
-      <!-- =========== STEP 4: CERTIFICATIONS =========== -->
-      <div class="onboard-content" data-step="4">
-        <h2>What certifications do you hold?</h2>
-        <p class="lead">Select all that apply — these boost your readiness score.</p>
-
-        <div class="grid grid-2" id="ob-certs">
-          <label class="form-check" data-cert="Halal">
-            <input type="checkbox" value="Halal" onchange="ExporE.onboardingToggleCert('Halal'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🕌 Halal</span>
-              <span class="form-check-sub">MUI / global Halal certification</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="HACCP">
-            <input type="checkbox" value="HACCP" onchange="ExporE.onboardingToggleCert('HACCP'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🔬 HACCP</span>
-              <span class="form-check-sub">Hazard Analysis Critical Control Point</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="ISO 22000">
-            <input type="checkbox" value="ISO 22000" onchange="ExporE.onboardingToggleCert('ISO 22000'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">📋 ISO 22000</span>
-              <span class="form-check-sub">Food safety management</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="Fair Trade">
-            <input type="checkbox" value="Fair Trade" onchange="ExporE.onboardingToggleCert('Fair Trade'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🤝 Fair Trade</span>
-              <span class="form-check-sub">Ethical sourcing certification</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="Organic">
-            <input type="checkbox" value="Organic" onchange="ExporE.onboardingToggleCert('Organic'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🌱 Organic</span>
-              <span class="form-check-sub">USDA Organic / EU Organic</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="Rainforest Alliance">
-            <input type="checkbox" value="Rainforest Alliance" onchange="ExporE.onboardingToggleCert('Rainforest Alliance'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🌳 Rainforest Alliance</span>
-              <span class="form-check-sub">Sustainable agriculture</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="SNI">
-            <input type="checkbox" value="SNI" onchange="ExporE.onboardingToggleCert('SNI'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🇮🇩 SNI</span>
-              <span class="form-check-sub">Standar Nasional Indonesia</span>
-            </span>
-          </label>
-          <label class="form-check" data-cert="FDA">
-            <input type="checkbox" value="FDA" onchange="ExporE.onboardingToggleCert('FDA'); refreshCertCards();">
-            <span>
-              <span class="form-check-label">🇺🇸 FDA</span>
-              <span class="form-check-sub">US Food & Drug registration</span>
-            </span>
-          </label>
-        </div>
-
-        <div class="notice-banner" style="margin-top:20px;">
-          <span class="ic">💡</span>
-          <span>Each certification you hold adds <strong>+7 points</strong> to your readiness score. Need a cert? Visit the <a href="ecosystem.html" style="color:var(--emerald-dark);font-weight:600;">Ecosystem</a> page to find certifiers.</span>
-        </div>
-
-        <div class="onboard-actions">
-          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(3); onStepChange(3);">← Back</button>
-          <button class="btn btn-primary" onclick="ExporE.onboardingGo(5); onStepChange(5);">Next →</button>
+          <button class="btn btn-ghost" onclick="ExporE.onboardingGo(3); onStepChange(3);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back
+          </button>
+          <button class="btn btn-primary" onclick="ExporE.onboardingGo(5); onStepChange(5);">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
 
@@ -370,7 +457,7 @@
         <!-- Donut + label -->
         <div class="card card-pad-lg text-center" style="margin-top:24px;">
           <h3 style="font-size:18px;">Your Export Readiness Score</h3>
-          <p class="text-muted fs-13" style="margin-top:4px;">Estimated from your business profile, commodity, market, and certifications.</p>
+          <p class="text-muted fs-13" style="margin-top:4px;">Estimated from your products, business profile, certifications, and target market.</p>
 
           <div style="margin:24px 0;">
             <div class="donut donut-lg" id="onboard-donut" style="--p: 0;">
@@ -384,8 +471,13 @@
           <p class="text-muted fs-13" id="ob-score-label" style="margin-top:8px;">Calculating…</p>
 
           <div class="onboard-actions" style="border:none;padding:0;margin-top:24px;">
-            <button class="btn btn-ghost" onclick="ExporE.onboardingGo(4); onStepChange(4);">← Back</button>
-            <button class="btn btn-primary btn-lg" onclick="completeOnboarding();">View Assessment Result →</button>
+            <button class="btn btn-ghost" onclick="ExporE.onboardingGo(4); onStepChange(4);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Back
+            </button>
+            <button class="btn btn-primary btn-lg" onclick="completeOnboarding();">View Assessment Result
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -432,6 +524,73 @@
       });
     }
 
+    /* ---------- ADD CUSTOM PRODUCT ---------- */
+    function toggleAddProductForm() {
+      const form = document.getElementById('add-product-form');
+      form.classList.toggle('hidden');
+      if (!form.classList.contains('hidden')) {
+        document.getElementById('ap-name').focus();
+      }
+    }
+
+    function saveCustomProduct() {
+      const name = document.getElementById('ap-name').value.trim();
+      const hs = document.getElementById('ap-hs').value.trim();
+      const valueAdd = document.getElementById('ap-valueadd').value.trim();
+      if (!name) {
+        ExporE.showToast('Please enter a product name.', 'warning');
+        return;
+      }
+      const finalHs = hs || ExporE.getHsCode(name) || '—';
+      ExporE.addOnboardingProduct(name, finalHs, valueAdd);
+      renderCustomProducts();
+      // Clear form
+      document.getElementById('ap-name').value = '';
+      document.getElementById('ap-hs').value = '';
+      document.getElementById('ap-valueadd').value = '';
+      document.getElementById('add-product-form').classList.add('hidden');
+      ExporE.showToast('Product added: ' + name + ' (HS ' + finalHs + ')', 'success');
+    }
+
+    function renderCustomProducts() {
+      const list = document.getElementById('custom-product-list');
+      if (!list) return;
+      const products = ExporE.getOnboardingProducts();
+      // Skip the first one (it's the catalog selection shown above)
+      const custom = products.slice(1);
+      if (custom.length === 0) {
+        list.innerHTML = '';
+        return;
+      }
+      list.innerHTML = custom.map((p, i) => `
+        <div class="next-step-card" style="margin-bottom:0;">
+          <div class="next-step-num">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <div class="next-step-info">
+            <div class="next-step-title">${escapeHtml(p.name)} <span class="chip" style="margin-left:6px;">HS ${escapeHtml(p.hsCode)}</span></div>
+            ${p.valueAdd ? `<div class="next-step-sub">${escapeHtml(p.valueAdd)}</div>` : ''}
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="removeCustomProduct(${i + 1})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg>
+            Remove
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function removeCustomProduct(idx) {
+      ExporE.removeOnboardingProduct(idx);
+      renderCustomProducts();
+      ExporE.showToast('Product removed.', 'info');
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
     /* Sync horizontal stepper .step parent classes (visual label color) */
     function syncStepperLabels(stepNum) {
       const steps = document.querySelectorAll('.onboard-stepper .step');
@@ -452,9 +611,9 @@
         ExporE.updateDonut('onboard-donut', score);
         const labelEl = document.getElementById('ob-score-label');
         let label = 'Getting Started';
-        if (score >= 85) label = 'Export Ready 🚀';
-        else if (score >= 70) label = 'Good Progress 💪';
-        else if (score >= 50) label = 'Building Up 🌱';
+        if (score >= 85) label = 'Export Ready';
+        else if (score >= 70) label = 'Good Progress';
+        else if (score >= 50) label = 'Building Up';
         labelEl.textContent = score + '% Export Readiness (' + label + ')';
       }
     }
@@ -462,17 +621,18 @@
     /* Render summary table from current onboarding state */
     function renderSummary() {
       const o = ExporE.state.onboarding;
+      const capacityStr = [o.capacity, o.capacityUnit, '/', o.capacityPeriod].filter(Boolean).join(' ').replace(' / ', '/');
+      const products = ExporE.getOnboardingProducts();
+      const productsStr = products.map(p => p.name + (p.hsCode && p.hsCode !== '—' ? ' (HS ' + p.hsCode + ')' : '')).join(', ');
       const rows = [
+        ['Products', productsStr || '—'],
         ['Business Name', o.businessName || '—'],
         ['Business Type', o.businessType || '—'],
-        ['Production Capacity', o.capacity || '—'],
-        ['Commodity', o.commodity || '—'],
-        ['HS Code', o.hsCode || '—'],
-        ['Value-add Specification', o.valueAdd || '—'],
+        ['Production Capacity', capacityStr || '—'],
         ['Export Experience', o.exportExperience || '—'],
+        ['Certifications', (o.certifications && o.certifications.length) ? o.certifications.join(', ') : 'None yet'],
         ['Current Market', o.currentMarket || '—'],
-        ['Target Country', o.targetCountry || '—'],
-        ['Certifications', (o.certifications && o.certifications.length) ? o.certifications.join(', ') : 'None yet']
+        ['Target Country', o.targetCountry || '—']
       ];
       const tbody = document.getElementById('ob-summary-table');
       if (tbody) {
@@ -494,27 +654,9 @@
 
     /* ---------- INITIAL RENDER ---------- */
     (function initOnboarding() {
-      // Restore state into form controls
       const o = ExporE.state.onboarding;
 
-      // Step 1 fields
-      const nameEl = document.getElementById('ob-business-name');
-      const typeEl = document.getElementById('ob-business-type');
-      const capEl = document.getElementById('ob-capacity');
-      if (nameEl && o.businessName) nameEl.value = o.businessName;
-      if (typeEl && o.businessType) typeEl.value = o.businessType;
-      if (capEl && o.capacity) capEl.value = o.capacity;
-
-      // Export experience radio
-      if (o.exportExperience) {
-        const expRadio = document.querySelector('#ob-export-exp input[value="' + o.exportExperience + '"]');
-        if (expRadio) {
-          expRadio.checked = true;
-        }
-      }
-      refreshExpCards();
-
-      // Step 2: pre-select commodity card
+      // Step 1: pre-select commodity card
       if (o.commodity) {
         const card = document.querySelector('#ob-commodity-grid .commodity-card[data-commodity="' + o.commodity + '"]');
         if (card) card.classList.add('active');
@@ -525,17 +667,28 @@
       }
       const valueAddEl = document.getElementById('ob-value-add');
       if (valueAddEl && o.valueAdd) valueAddEl.value = o.valueAdd;
+      renderCustomProducts();
 
-      // Step 3: current market + target country
-      if (o.currentMarket) {
-        const mRadio = document.querySelector('#ob-current-market input[value="' + o.currentMarket + '"]');
-        if (mRadio) mRadio.checked = true;
+      // Step 2 fields
+      const nameEl = document.getElementById('ob-business-name');
+      const typeEl = document.getElementById('ob-business-type');
+      const capEl = document.getElementById('ob-capacity');
+      const capUnitEl = document.getElementById('ob-capacity-unit');
+      const capPeriodEl = document.getElementById('ob-capacity-period');
+      if (nameEl && o.businessName) nameEl.value = o.businessName;
+      if (typeEl && o.businessType) typeEl.value = o.businessType;
+      if (capEl && o.capacity) capEl.value = o.capacity;
+      if (capUnitEl && o.capacityUnit) capUnitEl.value = o.capacityUnit;
+      if (capPeriodEl && o.capacityPeriod) capPeriodEl.value = o.capacityPeriod;
+
+      // Export experience radio
+      if (o.exportExperience) {
+        const expRadio = document.querySelector('#ob-export-exp input[value="' + o.exportExperience + '"]');
+        if (expRadio) expRadio.checked = true;
       }
-      refreshMarketCards();
-      const targetEl = document.getElementById('ob-target-country');
-      if (targetEl && o.targetCountry) targetEl.value = o.targetCountry;
+      refreshExpCards();
 
-      // Step 4: certifications — check ones already in state
+      // Step 3: certifications — check ones already in state
       if (o.certifications && o.certifications.length) {
         o.certifications.forEach(cert => {
           const cb = document.querySelector('#ob-certs input[value="' + cert + '"]');
@@ -543,6 +696,15 @@
         });
       }
       refreshCertCards();
+
+      // Step 4: current market + target country
+      if (o.currentMarket) {
+        const mRadio = document.querySelector('#ob-current-market input[value="' + o.currentMarket + '"]');
+        if (mRadio) mRadio.checked = true;
+      }
+      refreshMarketCards();
+      const targetEl = document.getElementById('ob-target-country');
+      if (targetEl && o.targetCountry) targetEl.value = o.targetCountry;
 
       // Set initial active step based on state (default: 1)
       const initialStep = ExporE.state.onboarding.step || 1;

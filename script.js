@@ -43,7 +43,9 @@ function defaultState() {
       completed: false,
       businessName: 'Sari Kopi Nusantara',
       businessType: 'MSMEs',
-      capacity: '2 Ton/month',
+      capacity: '500',
+      capacityUnit: 'kg',
+      capacityPeriod: 'trip',
       exportExperience: 'None',
       commodity: 'Arabica Coffee',
       hsCode: '0901.21',
@@ -258,7 +260,7 @@ function calcReadinessScore(onboarding) {
   if (onboarding.exportExperience === '>1 year') score += 15;
   else if (onboarding.exportExperience === '<1 year') score += 8;
   if (onboarding.targetCountry && onboarding.targetCountry !== 'Domestic') score += 10;
-  score += onboarding.certifications.length * 7;
+  score += (onboarding.certifications || []).length * 7;
   if (score > 100) score = 100;
   return score;
 }
@@ -326,12 +328,67 @@ const HS_CODES = {
   'Coconut Sugar': '1702.20',
   'Palm Oil': '1511.10',
   'Pepper (Black)': '0904.11',
+  'Pepper (White)': '0904.12',
   'Green Tea': '0902.10',
-  'Handicraft': '4601.99'
+  'Black Tea': '0902.30',
+  'Cocoa Beans': '1801.00',
+  'Cocoa Powder': '1805.00',
+  'Vanilla Beans': '0905.00',
+  'Cloves': '0907.00',
+  'Nutmeg': '0908.10',
+  'Cinnamon': '0906.10',
+  'Ginger': '0910.10',
+  'Turmeric': '0910.30',
+  'Cashew Nuts': '0801.31',
+  'Betel Nuts': '0802.90',
+  'Rattan Products': '4601.21',
+  'Handicraft': '4601.99',
+  'Batik Textile': '6204.42',
+  'Wooden Furniture': '9403.60',
+  'Coconut Oil': '1513.19'
 };
 
 function getHsCode(commodity) {
   return HS_CODES[commodity] || '—';
+}
+
+/* ---------- ONBOARDING PRODUCTS (multi-product + custom) ---------- */
+function getOnboardingProducts() {
+  // returns array of { name, hsCode, valueAdd } — defaults to single Arabica
+  if (!state.onboarding.products) {
+    state.onboarding.products = [{
+      name: state.onboarding.commodity || 'Arabica Coffee',
+      hsCode: state.onboarding.hsCode || getHsCode('Arabica Coffee'),
+      valueAdd: state.onboarding.valueAdd || 'Specialty grade, single origin, wet-hulled process'
+    }];
+    saveState(state);
+  }
+  return state.onboarding.products;
+}
+
+function addOnboardingProduct(name, hsCode, valueAdd) {
+  getOnboardingProducts();
+  state.onboarding.products.push({ name, hsCode, valueAdd: valueAdd || '' });
+  saveState(state);
+  return state.onboarding.products.length - 1;
+}
+
+function removeOnboardingProduct(idx) {
+  if (!state.onboarding.products) return;
+  state.onboarding.products.splice(idx, 1);
+  if (state.onboarding.products.length === 0) {
+    state.onboarding.products.push({ name: 'Arabica Coffee', hsCode: getHsCode('Arabica Coffee'), valueAdd: '' });
+  }
+  saveState(state);
+}
+
+function setPrimaryOnboardingProduct(idx) {
+  if (!state.onboarding.products || !state.onboarding.products[idx]) return;
+  const p = state.onboarding.products[idx];
+  state.onboarding.commodity = p.name;
+  state.onboarding.hsCode = p.hsCode;
+  state.onboarding.valueAdd = p.valueAdd || '';
+  saveState(state);
 }
 
 /* ---------- TABS ---------- */
@@ -690,7 +747,7 @@ function aiMarketFinder() {
   if (!panel) return;
   panel.innerHTML = recommendations.map(r => `
     <div class="ai-result-item">
-      <div class="flag">${r.flag}</div>
+      <div class="flag code-badge">${r.code}</div>
       <div class="info">
         <div class="name">${r.country}</div>
         <div class="match">${r.reason}</div>
@@ -705,24 +762,34 @@ function aiMarketFinder() {
 function getAIRecommendations(commodity) {
   const map = {
     'Arabica Coffee': [
-      { country: 'Japan', flag: '🇯🇵', score: 94, reason: 'High demand for specialty Arabica' },
-      { country: 'Germany', flag: '🇩🇪', score: 88, reason: 'Largest EU coffee market' },
-      { country: 'United States', flag: '🇺🇸', score: 82, reason: 'Premium single-origin trend' }
+      { country: 'Japan', code: 'JP', score: 94, reason: 'High demand for specialty Arabica' },
+      { country: 'Germany', code: 'DE', score: 88, reason: 'Largest EU coffee market' },
+      { country: 'United States', code: 'US', score: 82, reason: 'Premium single-origin trend' }
     ],
     'Robusta Coffee': [
-      { country: 'Germany', flag: '🇩🇪', score: 91, reason: 'Major Robusta importer' },
-      { country: 'Italy', flag: '🇮🇹', score: 86, reason: 'Espresso blend demand' },
-      { country: 'Vietnam Trade Hub', flag: '🇻🇳', score: 78, reason: 'Regional processing hub' }
+      { country: 'Germany', code: 'DE', score: 91, reason: 'Major Robusta importer' },
+      { country: 'Italy', code: 'IT', score: 86, reason: 'Espresso blend demand' },
+      { country: 'Vietnam', code: 'VN', score: 78, reason: 'Regional processing hub' }
     ],
     'Coconut Sugar': [
-      { country: 'Netherlands', flag: '🇳🇱', score: 92, reason: 'EU organic food gateway' },
-      { country: 'United States', flag: '🇺🇸', score: 85, reason: 'Healthy sweetener trend' },
-      { country: 'Japan', flag: '🇯🇵', score: 79, reason: 'Natural food demand' }
+      { country: 'Netherlands', code: 'NL', score: 92, reason: 'EU organic food gateway' },
+      { country: 'United States', code: 'US', score: 85, reason: 'Healthy sweetener trend' },
+      { country: 'Japan', code: 'JP', score: 79, reason: 'Natural food demand' }
     ],
     'Palm Oil': [
-      { country: 'India', flag: '🇮🇳', score: 95, reason: 'World\'s largest importer' },
-      { country: 'China', flag: '🇨🇳', score: 88, reason: 'Food industry demand' },
-      { country: 'Netherlands', flag: '🇳🇱', score: 74, reason: 'EU refining hub' }
+      { country: 'India', code: 'IN', score: 95, reason: "World's largest importer" },
+      { country: 'China', code: 'CN', score: 88, reason: 'Food industry demand' },
+      { country: 'Netherlands', code: 'NL', score: 74, reason: 'EU refining hub' }
+    ],
+    'Cocoa Beans': [
+      { country: 'United States', code: 'US', score: 92, reason: 'Strong cocoa processing market' },
+      { country: 'Netherlands', code: 'NL', score: 89, reason: 'Europe cocoa import hub' },
+      { country: 'Germany', code: 'DE', score: 81, reason: 'Chocolate manufacturing' }
+    ],
+    'Pepper (Black)': [
+      { country: 'United States', code: 'US', score: 90, reason: 'Top spice importer' },
+      { country: 'Germany', code: 'DE', score: 84, reason: 'Food processing demand' },
+      { country: 'Singapore', code: 'SG', score: 78, reason: 'Regional spice trade hub' }
     ]
   };
   return map[commodity] || map['Arabica Coffee'];
@@ -804,7 +871,7 @@ function renderEducation() {
   if (pathContainer) {
     pathContainer.innerHTML = state.education.path.map(p => `
       <div class="step ${p.status === 'done' ? 'done' : p.status === 'active' ? 'active' : ''}">
-        <div class="step-circle ${p.status === 'done' ? 'done' : p.status === 'active' ? 'active' : ''}">${p.status === 'done' ? '✓' : p.num}</div>
+        <div class="step-circle ${p.status === 'done' ? 'done' : p.status === 'active' ? 'active' : ''}">${p.status === 'done' ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : p.num}</div>
         <div class="step-label">${p.name}</div>
         ${p.num < 6 ? `<div class="step-line ${p.status === 'done' ? 'done' : ''}"></div>` : ''}
       </div>
@@ -818,7 +885,7 @@ function renderEducation() {
       if (existing) existing.remove();
       const label = document.createElement('div');
       label.className = 'stepper-current-label';
-      label.innerHTML = `<span class="ic">📌</span>Current: <strong>${nextStep.name}</strong> (Step ${nextStep.num} of ${state.education.path.length})`;
+      label.innerHTML = `Current module: <strong>${nextStep.name}</strong> (Step ${nextStep.num} of ${state.education.path.length})`;
       // Insert AFTER the stepper (as sibling, not child) so it doesn't break flex layout
       pathContainer.parentNode.insertBefore(label, pathContainer.nextSibling);
     }
@@ -828,7 +895,7 @@ function renderEducation() {
   if (lessonsContainer) {
     lessonsContainer.innerHTML = state.education.lessons.map(l => `
       <div class="lesson-row ${l.status === 'done' ? 'done' : ''}">
-        <div class="lesson-icon">${l.status === 'done' ? '✓' : '📖'}</div>
+        <div class="lesson-icon">${l.status === 'done' ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'}</div>
         <div class="lesson-info">
           <div class="lesson-title">${l.title}</div>
           <div class="lesson-sub">${l.duration}</div>
@@ -1042,6 +1109,7 @@ window.ExporE = {
   state, saveState, loadState,
   login, register, demoLogin, logout, requireAuth,
   onboardingGo, onboardingSaveField, onboardingToggleCert, onboardingComplete, getHsCode,
+  getOnboardingProducts, addOnboardingProduct, removeOnboardingProduct, setPrimaryOnboardingProduct,
   switchTab, openModal, closeModal,
   updateDonut, updateProgress,
   toggleSustain, renderSustainability,

@@ -79,7 +79,7 @@
         </div>
         <div class="app-header-actions">
           <button class="bell-btn" aria-label="Notifications">
-            <span>🔔</span><span class="dot"></span>
+            <span></span><span class="dot"></span>
           </button>
           <div class="sidebar-avatar" data-user-initial
             style="width: 42px; height: 42px; box-shadow: var(--shadow-sm);">B</div>
@@ -88,7 +88,7 @@
 
       <!-- NOTICE BANNER -->
       <div class="notice-banner mb-24">
-        <span class="ic">🌐</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .9 1.6h6.2c.1-.6.4-1.2.9-1.6A7 7 0 0 0 12 2Z"/></svg></span>
         <span>Live overview of national agroindustry export readiness — approve certifications, financing, and update
           shipment statuses.</span>
       </div>
@@ -264,13 +264,13 @@
           </div>
           <div class="flex gap-12 items-center">
             <div class="input-icon">
-              <span class="ic"></span>
+              <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
               <input class="form-control" type="text" placeholder="Search MSMEs..."
                 style="width: 200px; padding: 8px 12px 8px 36px; font-size: 13px;"
                 oninput="filterMSMEsmRegistry(this.value)">
             </div>
             <button class="btn btn-primary btn-sm"
-              onclick="ExporE.showToast('Export registry as CSV (demo).', 'success');">⬇ Export</button>
+              onclick="ExporE.showToast('Export registry as CSV (demo).', 'success');"> Export</button>
           </div>
         </div>
         <div class="table-wrap">
@@ -381,7 +381,7 @@
               <option>This year</option>
             </select>
             <button class="btn btn-primary btn-sm"
-              onclick="ExporE.showToast('Report generated & downloaded (demo).', 'success');">⬇ Generate Report</button>
+              onclick="ExporE.showToast('Report generated & downloaded (demo).', 'success');"> Generate Report</button>
           </div>
         </div>
 
@@ -472,35 +472,35 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cell-strong">🇯🇵 Japan</td>
+                <td class="cell-strong">JP  Japan</td>
                 <td>87</td>
                 <td>$1.4M</td>
                 <td><strong class="text-emerald">72%</strong></td>
                 <td><span class="badge badge-success">+8.6%</span></td>
               </tr>
               <tr>
-                <td class="cell-strong">🇩🇪 Germany</td>
+                <td class="cell-strong">DE  Germany</td>
                 <td>64</td>
                 <td>$980K</td>
                 <td><strong>68%</strong></td>
                 <td><span class="badge badge-success">+4.9%</span></td>
               </tr>
               <tr>
-                <td class="cell-strong">🇮🇳 India</td>
+                <td class="cell-strong">IN  India</td>
                 <td>52</td>
                 <td>$720K</td>
                 <td><strong>65%</strong></td>
                 <td><span class="badge badge-success">+6.3%</span></td>
               </tr>
               <tr>
-                <td class="cell-strong">🇳🇱 Netherlands</td>
+                <td class="cell-strong">NL  Netherlands</td>
                 <td>48</td>
                 <td>$560K</td>
                 <td><strong class="text-emerald">71%</strong></td>
                 <td><span class="badge badge-success">+5.7%</span></td>
               </tr>
               <tr>
-                <td class="cell-strong">🇺🇸 United States</td>
+                <td class="cell-strong">US  United States</td>
                 <td>41</td>
                 <td>$340K</td>
                 <td><strong>63%</strong></td>

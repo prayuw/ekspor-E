@@ -57,7 +57,7 @@
 
       <div class="sidebar-footer">
         <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          <span class="ic">🚪</span><span class="lbl">Logout</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span><span class="lbl">Logout</span>
         </a>
       </div>
     </aside>
@@ -75,7 +75,7 @@
         </div>
         <div class="app-header-actions">
           <button class="bell-btn" aria-label="Notifications">
-            <span>🔔</span><span class="dot"></span>
+            <span></span><span class="dot"></span>
           </button>
           <button class="btn btn-primary" onclick="ExporE.openModal('new-shipment-modal')">
             + New Shipment
@@ -83,28 +83,28 @@
         </div>
       </header>
 
-      <!-- KPI GRID -->
+      <div class="app-content"><!-- KPI GRID -->
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-icon blue">📦</div>
+          <div class="kpi-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
           <div class="kpi-num">12</div>
           <div class="kpi-lbl">Total Shipments</div>
           <div class="kpi-trend up">↗ +3 this month</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-icon gold">🚚</div>
+          <div class="kpi-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div class="kpi-num">5</div>
           <div class="kpi-lbl">In Transit</div>
           <div class="kpi-trend up">↗ Live now</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-icon green">✅</div>
+          <div class="kpi-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <div class="kpi-num">6</div>
           <div class="kpi-lbl">Delivered</div>
           <div class="kpi-trend up">↗ 100% on-time</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-icon red">⚠️</div>
+          <div class="kpi-icon red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div class="kpi-num">1</div>
           <div class="kpi-lbl">Delayed</div>
           <div class="kpi-trend down">↘ Needs attention</div>
@@ -147,7 +147,7 @@
               </table>
             </div>
             <div class="notice-banner mt-24">
-              <span class="ic">💡</span>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .9 1.6h6.2c.1-.6.4-1.2.9-1.6A7 7 0 0 0 12 2Z"/></svg></span>
               <span>Need to add a new shipment? Click <strong>+ New Shipment</strong> in the header to open the form.</span>
             </div>
           </div>
@@ -225,33 +225,33 @@
             </p>
 
             <div class="notice-banner mb-24">
-              <span class="ic">💡</span>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .9 1.6h6.2c.1-.6.4-1.2.9-1.6A7 7 0 0 0 12 2Z"/></svg></span>
               <span>Documents must be ready before shipment pickup. Incomplete docs may cause customs delays.</span>
             </div>
 
             <div class="grid grid-3">
               <div class="card card-pad-sm">
-                <div class="card-icon emerald" style="width: 48px; height: 48px; font-size: 22px;">📄</div>
+                <div class="card-icon emerald" style="width: 48px; height: 48px; font-size: 22px;"></div>
                 <h4 style="margin-top: 14px;">Commercial Invoice</h4>
                 <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Required for all exports</p>
                 <div class="mt-16 mb-16">
-                  <span class="badge badge-success">✓ Ready</span>
+                  <span class="badge badge-success"> Ready</span>
                 </div>
-                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Commercial Invoice downloaded.', 'success')">⬇ Download</button>
+                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Commercial Invoice downloaded.', 'success')"> Download</button>
               </div>
 
               <div class="card card-pad-sm">
-                <div class="card-icon gold" style="width: 48px; height: 48px; font-size: 22px;">📦</div>
+                <div class="card-icon gold" style="width: 48px; height: 48px; font-size: 22px;"></div>
                 <h4 style="margin-top: 14px;">Packing List</h4>
                 <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Itemized cargo details</p>
                 <div class="mt-16 mb-16">
-                  <span class="badge badge-success">✓ Ready</span>
+                  <span class="badge badge-success"> Ready</span>
                 </div>
-                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Packing List downloaded.', 'success')">⬇ Download</button>
+                <button class="btn btn-ghost btn-sm btn-block" onclick="ExporE.showToast('Packing List downloaded.', 'success')"> Download</button>
               </div>
 
               <div class="card card-pad-sm">
-                <div class="card-icon" style="width: 48px; height: 48px; font-size: 22px;">🏛️</div>
+                <div class="card-icon" style="width: 48px; height: 48px; font-size: 22px;"></div>
                 <h4 style="margin-top: 14px;">Certificate of Origin</h4>
                 <p class="text-muted" style="font-size: 13px; margin-top: 6px;">Issued by Chamber of Commerce</p>
                 <div class="mt-16 mb-16">
@@ -272,19 +272,19 @@
             </p>
             <div class="grid grid-3">
               <div class="kpi-card">
-                <div class="kpi-icon green">💰</div>
+                <div class="kpi-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                 <div class="kpi-num" data-perf-value="totalValue">$245,680</div>
                 <div class="kpi-lbl">Total Export Value</div>
                 <div class="kpi-trend up">↗ +18% YoY</div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-icon blue">⏱️</div>
+                <div class="kpi-icon blue">⏱</div>
                 <div class="kpi-num"><span data-perf-value="onTime">83</span>%</div>
                 <div class="kpi-lbl">On-Time Delivery</div>
                 <div class="kpi-trend up">↗ Above benchmark</div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-icon gold">⭐</div>
+                <div class="kpi-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg></div>
                 <div class="kpi-num"><span data-perf-value="satisfaction">4.8</span>/5</div>
                 <div class="kpi-lbl">Customer Satisfaction</div>
                 <div class="kpi-trend up">↗ 24 reviews</div>
@@ -352,7 +352,7 @@
               <div class="flex-col gap-16">
                 <div>
                   <div class="progress-row">
-                    <span class="lbl">🇮🇳 India — Mumbai Foods</span>
+                    <span class="lbl">IN  India — Mumbai Foods</span>
                     <span class="val">$142,000</span>
                   </div>
                   <div class="progress"><div class="progress-bar gold" style="width: 92%;"></div></div>
@@ -360,7 +360,7 @@
                 </div>
                 <div>
                   <div class="progress-row">
-                    <span class="lbl">🇯🇵 Japan — Tokyo Specialty</span>
+                    <span class="lbl">JP  Japan — Tokyo Specialty</span>
                     <span class="val">$48,200</span>
                   </div>
                   <div class="progress"><div class="progress-bar" style="width: 60%;"></div></div>
@@ -368,7 +368,7 @@
                 </div>
                 <div>
                   <div class="progress-row">
-                    <span class="lbl">🇩🇪 Germany — Berlin Roasters</span>
+                    <span class="lbl">DE  Germany — Berlin Roasters</span>
                     <span class="val">$36,500</span>
                   </div>
                   <div class="progress"><div class="progress-bar info" style="width: 45%;"></div></div>
@@ -376,7 +376,7 @@
                 </div>
                 <div>
                   <div class="progress-row">
-                    <span class="lbl">🇳🇱 Netherlands — Amsterdam</span>
+                    <span class="lbl">NL  Netherlands — Amsterdam</span>
                     <span class="val">$18,900</span>
                   </div>
                   <div class="progress"><div class="progress-bar info" style="width: 25%;"></div></div>
@@ -387,7 +387,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div></main>
   </div>
 
   <!-- ============ NEW SHIPMENT MODAL ============ -->
@@ -451,7 +451,7 @@
           </div>
 
           <div class="notice-banner">
-            <span class="ic">ℹ️</span>
+            <span class="ic">ℹ</span>
             <span>New shipments start with status <strong>"Picked Up"</strong> and progress automatically as logistics updates come in.</span>
           </div>
         </form>
