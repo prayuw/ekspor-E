@@ -13,11 +13,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <div class="brand-logo">E</div>
-        <div>
-          <div class="brand-name">Expor-E</div>
-          <div class="brand-tag">3E Framework</div>
-        </div>
+        <div class="brand-name">Ekspor-E</div>
       </a>
       <button class="mobile-nav-toggle" onclick="ExporE.toggleNav()" aria-label="Open menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -30,10 +26,6 @@
         <a class="nav-link" href="#footer">Contact</a>
       </div>
       <div class="nav-actions">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="en" onclick="ExporE.switchLang('en')">EN</button>
-          <button class="lang-btn" data-lang="id" onclick="ExporE.switchLang('id')">ID</button>
-        </div>
         <a href="auth.html" class="btn btn-ghost btn-sm mobile-show">Log in</a>
         <a href="auth.html?mode=register" class="btn btn-primary btn-sm mobile-show">Get Started</a>
       </div>
@@ -43,7 +35,12 @@
 
   <!-- ============= HERO ============= -->
   <section class="hero" id="home">
-    <div class="hero-bg"></div>
+    <div class="hero-video-bg">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
     <div class="hero-inner">
       <div>
         <span class="hero-badge"><span class="hero-badge-dot"></span>Local Products, Global Impact</span>
@@ -55,15 +52,15 @@
         </div>
         <div class="hero-stats">
           <div>
-            <div class="hero-stat-num">1,200+</div>
+            <div class="hero-stat-num" data-counter="1200" data-suffix="+">1,200+</div>
             <div class="hero-stat-label">MSMEs onboarded</div>
           </div>
           <div>
-            <div class="hero-stat-num">47</div>
+            <div class="hero-stat-num" data-counter="47">47</div>
             <div class="hero-stat-label">Countries reached</div>
           </div>
           <div>
-            <div class="hero-stat-num">$4.2M</div>
+            <div class="hero-stat-num" data-counter="4.2" data-decimals="1" data-prefix="$" data-suffix="M">$4.2M</div>
             <div class="hero-stat-label">Export facilitated</div>
           </div>
         </div>
@@ -188,25 +185,25 @@
         <div class="stats-grid">
           <div class="stat-card">
             <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-            <div class="stat-num">$4.8B</div>
+            <div class="stat-num" data-counter="4.8" data-decimals="1" data-prefix="$" data-suffix="B">$4.8B</div>
             <div class="stat-lbl">Coffee export 2024</div>
             <div class="stat-trend">+ 6.2% YoY</div>
           </div>
           <div class="stat-card">
             <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 0-9 9c0 4 3 7 6 9 3-2 6-5 6-9a9 9 0 0 0-9-9z"/><path d="M12 2v18"/></svg></div>
-            <div class="stat-num">$28.4B</div>
+            <div class="stat-num" data-counter="28.4" data-decimals="1" data-prefix="$" data-suffix="B">$28.4B</div>
             <div class="stat-lbl">Palm oil export 2024</div>
             <div class="stat-trend">+ 3.1% YoY</div>
           </div>
           <div class="stat-card">
             <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96a1 1 0 0 1 1.6.8c0 10.36-4.7 16.24-9.8 16.24Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/><circle cx="9" cy="10" r="0.8" fill="currentColor"/><circle cx="13" cy="13" r="0.8" fill="currentColor"/></svg></div>
-            <div class="stat-num">$240M</div>
+            <div class="stat-num" data-counter="240" data-decimals="0" data-prefix="$" data-suffix="M">$240M</div>
             <div class="stat-lbl">Pepper export 2024</div>
             <div class="stat-trend">+ 4.5% YoY</div>
           </div>
           <div class="stat-card">
             <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
-            <div class="stat-num">$180M</div>
+            <div class="stat-num" data-counter="180" data-decimals="0" data-prefix="$" data-suffix="M">$180M</div>
             <div class="stat-lbl">Coconut sugar export</div>
             <div class="stat-trend">+ 12.8% YoY</div>
           </div>
@@ -308,15 +305,27 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="brand">
-            <div class="brand-logo">E</div>
-            <div class="brand-name">Expor-E</div>
+            <div class="brand-name">Ekspor-E</div>
           </div>
           <p>The 3E Digital Trade Framework for Indonesian agroindustry MSMEs. Better data, bigger opportunities — from local potential to global market.</p>
           <div class="footer-social" style="margin-top:18px;">
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="Twitter">x</a>
-            <a href="#" aria-label="YouTube">yt</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+              </svg>
+            </a>
           </div>
         </div>
         <div class="footer-col">

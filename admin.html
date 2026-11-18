@@ -7,7 +7,7 @@
   <title>Expor-E — Admin Dashboard</title>
   <meta name="description"
     content="Ecosystem partner dashboard for Expor-E — verify certifications, approve financing, manage logistics, and oversee 1,248 MSMEs nationwide.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 
 <body>
@@ -15,48 +15,46 @@
     <!-- ============ SIDEBAR ============ -->
     <aside class="app-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-logo">E</div>
-        <div>
-          <div class="brand-name">Expor-E</div>
-          <div class="brand-tag">Ecosystem Console</div>
-        </div>
+        <a href="admin.html" class="brand">
+          <div class="brand-name">Ekspor-E</div>
+        </a>
       </div>
 
       <div class="sidebar-user">
-        <div class="sidebar-avatar" data-user-initial>B</div>
         <div class="sidebar-user-info">
           <div class="sidebar-user-name" data-user-name>Budi Ekosistem</div>
           <div class="sidebar-user-role" data-user-role>Ecosystem Partner</div>
         </div>
       </div>
 
-      <div class="sidebar-nav-section">Main</div>
-      <a href="admin.html" class="sidebar-link active">
-        </span><span class="lbl">Admin Dashboard</span>
+      <div class="sidebar-nav-section">Main Menu</div>
+      <a href="admin.html" class="sidebar-link active" data-nav-target="overview">
+        <span class="lbl">Admin Dashboard</span>
       </a>
 
       <div class="sidebar-nav-section">Verifications</div>
-      <a href="#certifications" class="sidebar-link">
-        </span><span class="lbl">Verifications</span>
+      <a href="#certifications" class="sidebar-link" data-nav-target="certifications">
+        <span class="lbl">Certifications</span>
       </a>
-      <a href="#certifications" class="sidebar-sublink">Certifications</a>
-      <a href="#financing" class="sidebar-sublink">Financing Requests</a>
+      <a href="#financing" class="sidebar-link" data-nav-target="financing">
+        <span class="lbl">Financing Requests</span>
+      </a>
 
       <div class="sidebar-nav-section">Operations</div>
-      <a href="#logistics" class="sidebar-link">
-        </span><span class="lbl">Logistics Control</span>
+      <a href="#logistics" class="sidebar-link" data-nav-target="logistics">
+        <span class="lbl">Logistics Control</span>
       </a>
-      <a href="#registry" class="sidebar-link">
-        </span><span class="lbl">MSMEs Registry</span>
+      <a href="#registry" class="sidebar-link" data-nav-target="registry">
+        <span class="lbl">MSMEs Registry</span>
       </a>
-      <a href="#reports" class="sidebar-link">
-        </span><span class="lbl">Reports</span>
+      <a href="#reports" class="sidebar-link" data-nav-target="reports">
+        <span class="lbl">Reports</span>
       </a>
 
       <div class="sidebar-footer">
-        <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          </span><span class="lbl">Logout</span>
-        </a>
+        <button type="button" class="sidebar-link" onclick="ExporE.logout()" style="width: 100%; border: none; background: transparent; cursor: pointer; text-align: left;">
+          <span class="lbl">Logout</span>
+        </button>
       </div>
     </aside>
     <div class="sidebar-overlay" onclick="ExporE.closeSidebar()"></div>
@@ -78,13 +76,14 @@
             nationwide.</div>
         </div>
         <div class="app-header-actions">
-          <button class="bell-btn" aria-label="Notifications">
-            <span></span><span class="dot"></span>
+          <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have pending verification alerts.', 'info')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="dot"></span>
           </button>
-          <div class="sidebar-avatar" data-user-initial
-            style="width: 42px; height: 42px; box-shadow: var(--shadow-sm);">B</div>
         </div>
       </header>
+
+      <div class="app-content">
 
       <!-- NOTICE BANNER -->
       <div class="notice-banner mb-24">
@@ -579,10 +578,11 @@
           </div>
         </div>
       </div>
+      </div> <!-- /.app-content -->
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2.4"></script>
   <script>
     ExporE.requireAuth(['admin']);
     ExporE.pageInit('admin');
@@ -597,22 +597,54 @@
     }
     window.filterMSMEsRegistry = filterMSMEsRegistry;
 
-    // Smooth-scroll for sidebar anchor links (#certifications, #financing, #logistics, #registry, #reports)
-    document.querySelectorAll('.sidebar-link[href^="#"], .sidebar-sublink[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var href = this.getAttribute('href');
-        if (href && href.length > 1) {
+    // Smooth-scroll & persistent active state for sidebar links
+    var sidebarLinks = document.querySelectorAll('.app-sidebar .sidebar-link');
+    function setActiveNavLink(activeEl) {
+      sidebarLinks.forEach(function (l) { l.classList.remove('active'); });
+      if (activeEl) activeEl.classList.add('active');
+    }
+
+    sidebarLinks.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('#') && href.length > 1) {
+        link.addEventListener('click', function (e) {
           var target = document.querySelector(href);
           if (target) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Briefly highlight the target card
-            target.style.transition = 'box-shadow 0.4s';
-            target.style.boxShadow = '0 0 0 3px var(--emerald), var(--shadow-lg)';
+            setActiveNavLink(link);
+
+            var header = document.querySelector('.app-header');
+            var headerOffset = (header ? header.offsetHeight : 80) + 16;
+            var elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            var offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: 'smooth'
+            });
+
+            // Card highlight animation
+            target.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease';
+            target.style.boxShadow = '0 0 0 3px var(--mint-deep), var(--shadow-md)';
             setTimeout(function () { target.style.boxShadow = ''; }, 1200);
+
+            if (window.innerWidth <= 880 && typeof ExporE !== 'undefined' && ExporE.closeSidebar) {
+              setTimeout(ExporE.closeSidebar, 200);
+            }
           }
-        }
-      });
+        });
+      } else if (href === 'admin.html') {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          setActiveNavLink(link);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (window.innerWidth <= 880 && typeof ExporE !== 'undefined' && ExporE.closeSidebar) {
+            setTimeout(ExporE.closeSidebar, 200);
+          }
+        });
+      }
     });
   </script>
 </body>

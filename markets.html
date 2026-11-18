@@ -12,15 +12,12 @@
     <!-- =================== SIDEBAR =================== -->
     <aside class="app-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-logo">E</div>
-        <div>
-          <div class="brand-name">Expor-E</div>
-          <div class="brand-tag">3E Digital Trade</div>
-        </div>
+        <a href="dashboard.html" class="brand">
+          <div class="brand-name">Ekspor-E</div>
+        </a>
       </div>
 
       <div class="sidebar-user">
-        <div class="sidebar-avatar" data-user-initial>D</div>
         <div class="sidebar-user-info">
           <div class="sidebar-user-name" data-user-name>Dewi</div>
           <div class="sidebar-user-role" data-user-role>MSMEs / Exporter</div>
@@ -29,35 +26,40 @@
 
       <div class="sidebar-nav-section">Main</div>
       <a href="dashboard.html" class="sidebar-link">
-        </span><span class="lbl">Dashboard</span>
+        <span class="lbl">Dashboard</span>
       </a>
-      <a href="readiness.html" class="sidebar-link">
-        </span><span class="lbl">My Readiness</span>
-      </a>
+      <div class="sidebar-dropdown">
+        <button type="button" class="sidebar-link sidebar-dropdown-toggle" onclick="ExporE.toggleSidebarDropdown(this)">
+          <span class="lbl">My Readiness</span>
+          <svg class="sidebar-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar-dropdown-menu">
+          <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+          <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+        </div>
+      </div>
       <a href="education.html" class="sidebar-link">
-        </span><span class="lbl">Education</span>
+        <span class="lbl">Education</span>
       </a>
       <a href="markets.html" class="sidebar-link active">
-        </span><span class="lbl">Explore Markets</span>
+        <span class="lbl">Explore Markets</span>
       </a>
       <a href="ecosystem.html" class="sidebar-link">
-        </span><span class="lbl">Ecosystem</span>
-        <span class="pill active-tag">Active</span>
+        <span class="lbl">Ecosystem</span>
       </a>
       <a href="my-export.html" class="sidebar-link">
-        </span><span class="lbl">My Export</span>
-        <span class="pill active-tag">Active</span>
+        <span class="lbl">My Export</span>
       </a>
       <a href="sustainability.html" class="sidebar-link">
-        </span><span class="lbl">Sustainability</span>
+        <span class="lbl">Sustainability</span>
       </a>
       <a href="my-business.html" class="sidebar-link">
-        </span><span class="lbl">My Business</span>
+        <span class="lbl">My Business</span>
       </a>
 
       <div class="sidebar-footer">
         <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          </span><span class="lbl">Logout</span>
+          <span class="lbl">Logout</span>
         </a>
       </div>
     </aside>
@@ -73,169 +75,332 @@
           <div class="sub">Discover data-driven opportunities for Arabica Coffee across 47 countries.</div>
         </div>
         <div class="app-header-actions">
-          <button class="bell-btn" aria-label="Notifications"><span></span><span class="dot"></span></button>
+          <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 2 new notifications.', 'info')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="dot"></span>
+          </button>
         </div>
       </header>
+
+      <div class="app-content">
 
       <!-- Search -->
       <div class="input-icon mb-16">
         <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-        <input class="form-control" type="text" placeholder="Search markets, commodities, buyers..." oninput="ExporE.searchMarkets(this.value)">
+        <input class="form-control" type="text" data-market-search placeholder="Search markets, commodities, buyers..." oninput="ExporE.searchMarkets(this.value)">
       </div>
 
-      <!-- Filter chips -->
-      <div class="flex gap-12 mb-24" style="flex-wrap: wrap;">
-        <button class="chip active" data-filter-btn="all" onclick="ExporE.filterMarkets('all')">All Markets</button>
-        <button class="chip" data-filter-btn="agriculture" onclick="ExporE.filterMarkets('agriculture')">Agriculture</button>
-        <button class="chip" data-filter-btn="food" onclick="ExporE.filterMarkets('food')">Food &amp; Beverage</button>
-        <button class="chip" data-filter-btn="textile" onclick="ExporE.filterMarkets('textile')">Textile &amp; Fashion</button>
-        <button class="chip" data-filter-btn="handicraft" onclick="ExporE.filterMarkets('handicraft')">Handicraft</button>
-        <button class="chip" data-filter-btn="other" onclick="ExporE.filterMarkets('other')">Other</button>
+      <!-- Filter tabs -->
+      <div class="tabs mb-24" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="tab-btn active" data-market-filter="all" onclick="ExporE.filterMarkets('all')">All Markets</button>
+        <button class="tab-btn" data-market-filter="agriculture" onclick="ExporE.filterMarkets('agriculture')">Agriculture</button>
+        <button class="tab-btn" data-market-filter="food" onclick="ExporE.filterMarkets('food')">Food &amp; Beverage</button>
+        <button class="tab-btn" data-market-filter="textile" onclick="ExporE.filterMarkets('textile')">Textile &amp; Fashion</button>
+        <button class="tab-btn" data-market-filter="handicraft" onclick="ExporE.filterMarkets('handicraft')">Handicraft</button>
+        <button class="tab-btn" data-market-filter="other" onclick="ExporE.filterMarkets('other')">Other</button>
       </div>
 
       <!-- Main grid: content + right sidebar -->
       <div class="grid" style="grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start;">
 
         <!-- ===== MAIN COLUMN ===== -->
-        <section>
-          <h2 class="fs-24 mb-8">Featured Markets</h2>
-          <p class="text-muted mb-24">Curated high-demand destinations for Indonesian agroindustry products.</p>
+        <section id="markets-main-content">
 
-          <div class="grid grid-2">
-
-            <!-- Japan -->
-            <article class="market-card" data-market-card data-category="food" data-search="japan organic coffee specialty arabica tokyo food beverage asia">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">JP</span></div>
+          <!-- 1. Agriculture Category -->
+          <div class="category-group mb-32" data-market-group="agriculture">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-success">Agriculture</span>
+                <h2 class="fs-22">Agriculture &amp; Raw Commodities</h2>
               </div>
-              <div class="market-card-body">
-                <div class="market-card-title">Japan</div>
-                <div class="market-card-cat">Organic Coffee · Food &amp; Beverage</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$2.4B</div>
-                    <div class="lbl">Import Value</div>
-                  </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+8.6%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
+              <p class="text-muted fs-14">High-demand global destinations for Indonesian palm oil, spices, cocoa, and sustainable agricultural produce.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- India -->
+              <article class="market-card" data-market-card data-category="agriculture" data-search="india palm oil mumbai agriculture edible oil asia crude">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">IN</span></div>
                 </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-japan')">View Details →</button>
-              </div>
-            </article>
-
-            <!-- India -->
-            <article class="market-card" data-market-card data-category="agriculture" data-search="india palm oil mumbai agriculture edible oil asia">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">IN</span></div>
-              </div>
-              <div class="market-card-body">
-                <div class="market-card-title">India</div>
-                <div class="market-card-cat">Palm Oil · Agriculture</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$1.8B</div>
-                    <div class="lbl">Import Value</div>
+                <div class="market-card-body">
+                  <div class="market-card-title">India</div>
+                  <div class="market-card-cat">Palm Oil · Agriculture</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$1.8B</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+6.3%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
                   </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+6.3%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-india')">View Details →</button>
                 </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-india')">View Details →</button>
-              </div>
-            </article>
+              </article>
 
-            <!-- Netherlands -->
-            <article class="market-card" data-market-card data-category="food" data-search="netherlands coconut sugar amsterdam organic sweetener food europe eu">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96c5017?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">NL</span></div>
-              </div>
-              <div class="market-card-body">
-                <div class="market-card-title">Netherlands</div>
-                <div class="market-card-cat">Coconut Sugar · Food &amp; Beverage</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$980M</div>
-                    <div class="lbl">Import Value</div>
-                  </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+5.7%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
+              <!-- Vietnam -->
+              <article class="market-card" data-market-card data-category="agriculture" data-search="vietnam spices pepper cassia cinnamon agriculture agro hanoi hcmc">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">VN</span></div>
                 </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-netherlands')">View Details →</button>
-              </div>
-            </article>
-
-            <!-- Germany -->
-            <article class="market-card" data-market-card data-category="food" data-search="germany robusta coffee berlin espresso food beverage europe eu">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">DE</span></div>
-              </div>
-              <div class="market-card-body">
-                <div class="market-card-title">Germany</div>
-                <div class="market-card-cat">Robusta Coffee · Food &amp; Beverage</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$1.2B</div>
-                    <div class="lbl">Import Value</div>
+                <div class="market-card-body">
+                  <div class="market-card-title">Vietnam</div>
+                  <div class="market-card-cat">Spices &amp; Raw Produce · Agriculture</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$890M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+7.4%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
                   </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+4.9%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-vietnam')">View Details →</button>
                 </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-germany')">View Details →</button>
-              </div>
-            </article>
-
-            <!-- United States -->
-            <article class="market-card" data-market-card data-category="handicraft" data-search="united states usa handicraft artisan handmade craft americas">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">US</span></div>
-              </div>
-              <div class="market-card-body">
-                <div class="market-card-title">United States</div>
-                <div class="market-card-cat">Handicraft · Artisan Goods</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$720M</div>
-                    <div class="lbl">Import Value</div>
-                  </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+7.2%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
-                </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-usa')">View Details →</button>
-              </div>
-            </article>
-
-            <!-- United Kingdom -->
-            <article class="market-card" data-market-card data-category="textile" data-search="united kingdom uk organic textiles london fashion sustainable apparel europe">
-              <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac9ad?auto=format&fit=crop&w=600&q=80');">
-                <div class="market-card-flag"><span class="country-code">GB</span></div>
-              </div>
-              <div class="market-card-body">
-                <div class="market-card-title">United Kingdom</div>
-                <div class="market-card-cat">Organic Textiles · Fashion</div>
-                <div class="market-card-stats">
-                  <div class="market-card-stat">
-                    <div class="num">$640M</div>
-                    <div class="lbl">Import Value</div>
-                  </div>
-                  <div class="market-card-stat">
-                    <div class="num market-card-trend">+6.1%</div>
-                    <div class="lbl">YoY Trend</div>
-                  </div>
-                </div>
-                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-uk')">View Details →</button>
-              </div>
-            </article>
-
+              </article>
+            </div>
           </div>
+
+          <!-- 2. Food & Beverage Category -->
+          <div class="category-group mb-32" data-market-group="food">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-primary">Food &amp; Beverage</span>
+                <h2 class="fs-22">Food &amp; Beverage Markets</h2>
+              </div>
+              <p class="text-muted fs-14">Premium export destinations for Indonesian specialty coffee, organic coconut sugar, cocoa, and processed foods.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- Japan -->
+              <article class="market-card" data-market-card data-category="food" data-search="japan organic coffee specialty arabica tokyo food beverage asia">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">JP</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">Japan</div>
+                  <div class="market-card-cat">Organic Coffee · Food &amp; Beverage</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$2.4B</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+8.6%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-japan')">View Details →</button>
+                </div>
+              </article>
+
+              <!-- Netherlands -->
+              <article class="market-card" data-market-card data-category="food" data-search="netherlands coconut sugar amsterdam organic sweetener food europe eu">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">NL</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">Netherlands</div>
+                  <div class="market-card-cat">Coconut Sugar · Food &amp; Beverage</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$980M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+5.7%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-netherlands')">View Details →</button>
+                </div>
+              </article>
+
+              <!-- Germany -->
+              <article class="market-card" data-market-card data-category="food" data-search="germany robusta coffee berlin espresso food beverage europe eu cocoa">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">DE</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">Germany</div>
+                  <div class="market-card-cat">Robusta Coffee · Food &amp; Beverage</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$1.2B</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+4.9%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-germany')">View Details →</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- 3. Textile & Fashion Category -->
+          <div class="category-group mb-32" data-market-group="textile">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-info">Textile &amp; Fashion</span>
+                <h2 class="fs-22">Textile &amp; Fashion Markets</h2>
+              </div>
+              <p class="text-muted fs-14">Key international buyers for Indonesian sustainable textiles, organic cotton garments, and artisanal apparel.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- United Kingdom -->
+              <article class="market-card" data-market-card data-category="textile" data-search="united kingdom uk organic textiles london fashion sustainable apparel europe">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">GB</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">United Kingdom</div>
+                  <div class="market-card-cat">Organic Textiles · Fashion</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$640M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+6.1%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-uk')">View Details →</button>
+                </div>
+              </article>
+
+              <!-- France -->
+              <article class="market-card" data-market-card data-category="textile" data-search="france paris ethical fashion silk batik sustainable textile europe">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">FR</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">France</div>
+                  <div class="market-card-cat">Batik &amp; Ethical Fashion · Textile</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$530M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+5.4%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-france')">View Details →</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- 4. Handicraft Category -->
+          <div class="category-group mb-32" data-market-group="handicraft">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-warning">Handicraft</span>
+                <h2 class="fs-22">Handicraft &amp; Artisan Goods</h2>
+              </div>
+              <p class="text-muted fs-14">Top destination markets seeking eco-friendly rattan furniture, hand-carved home décor, and Indonesian lifestyle crafts.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- United States -->
+              <article class="market-card" data-market-card data-category="handicraft" data-search="united states usa handicraft artisan handmade craft americas rattan decor">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">US</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">United States</div>
+                  <div class="market-card-cat">Handicraft · Artisan Goods</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$720M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+7.2%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-usa')">View Details →</button>
+                </div>
+              </article>
+
+              <!-- Australia -->
+              <article class="market-card" data-market-card data-category="handicraft" data-search="australia sydney eco rattan homeware handicraft artisan pacific">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">AU</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">Australia</div>
+                  <div class="market-card-cat">Eco Homeware &amp; Crafts · Handicraft</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$410M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+6.8%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-australia')">View Details →</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- 5. Other Category -->
+          <div class="category-group mb-32" data-market-group="other">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-muted">Other</span>
+                <h2 class="fs-22">Renewable Biomass &amp; Eco Products</h2>
+              </div>
+              <p class="text-muted fs-14">Emerging markets importing Indonesian biomass pellets, palm kernel shells (PKS), and green industrial commodities.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- South Korea -->
+              <article class="market-card" data-market-card data-category="other" data-search="south korea seoul biomass pks palm kernel shell green energy east asia other">
+                <div class="market-card-img" style="background-image: url('https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=600&q=80');">
+                  <div class="market-card-flag"><span class="country-code">KR</span></div>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-card-title">South Korea</div>
+                  <div class="market-card-cat">Biomass &amp; PKS · Renewable Energy</div>
+                  <div class="market-card-stats">
+                    <div class="market-card-stat">
+                      <div class="num">$650M</div>
+                      <div class="lbl">Import Value</div>
+                    </div>
+                    <div class="market-card-stat">
+                      <div class="num market-card-trend">+11.2%</div>
+                      <div class="lbl">YoY Trend</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('market-korea')">View Details →</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Empty State for Search / Filter -->
+          <div id="markets-empty-state" class="card card-pad text-center" style="display:none; padding:48px 24px; margin-bottom:32px;">
+            <div style="width:54px; height:54px; border-radius:50%; background:var(--mint-soft); color:var(--emerald); display:inline-flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="fs-18 mb-8">No markets found</h3>
+            <p class="text-muted fs-14 mb-16">No export destinations match the current category or keyword. You can clear the search or browse all markets.</p>
+            <button class="btn btn-outline btn-sm" onclick="ExporE.filterMarkets('all')">View All Markets</button>
+          </div>
+
         </section>
 
         <!-- ===== RIGHT SIDEBAR ===== -->
@@ -300,6 +465,7 @@
 
         </aside>
       </div>
+      </div> <!-- /.app-content -->
     </main>
   </div>
 
@@ -803,8 +969,340 @@
     </div>
   </div>
 
+  <!-- Vietnam Modal -->
+  <div class="modal-overlay" id="market-vietnam">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">VN  Vietnam · Hanoi &amp; Ho Chi Minh City</div>
+          <div class="modal-subtitle">Spices &amp; Raw Produce — ASEAN trade partner</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-vietnam')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$480M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+8.2%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">HCMC · Da Nang</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">Under ATIGA (ASEAN Trade in Goods Agreement)</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">Phytosanitary Certificate</span>
+            <span class="chip">Form D (ATIGA COO)</span>
+            <span class="chip">HACCP / GAP</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">Plant Protection Department (MARD) conducts phytosanitary quarantine and pesticide residue inspection upon arrival at Cat Lai and Hai Phong ports.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">VinaSpices Trading Corp</div>
+              <div class="fs-12 text-muted">Bulk pepper &amp; spices processing aggregator</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Saigon Food Distribution Co.</div>
+              <div class="fs-12 text-muted">Regional agricultural commodities distributor</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Mekong Agri Importers</div>
+              <div class="fs-12 text-muted">Wholesale tropical produce buyer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Apply for Certificate of Origin Form D to enjoy 0% ATIGA preferential tariff.</li>
+          <li class="fs-13">Issue SPS Phytosanitary Certificate from Indonesian Quarantine Agency (Barantin).</li>
+          <li class="fs-13">Comply with Vietnamese packaging regulations (Decree 43/2017/ND-CP) with Vietnamese sub-labels.</li>
+          <li class="fs-13">Contract an ASEAN-experienced freight forwarder for direct sea route to Cat Lai Port.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-vietnam')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Vietnam saved to your market watchlist.', 'success'); ExporE.closeModal('market-vietnam');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- France Modal -->
+  <div class="modal-overlay" id="market-france">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">FR  France · Paris &amp; Lyon</div>
+          <div class="modal-subtitle">Batik &amp; Ethical Fashion — High-end European sustainable apparel</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-france')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$530M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+5.4%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Paris · Lyon · Marseille</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-info">6.5–8.0% Tariff</span>
+            <span class="fs-14">EU GSP rate applies to woven and hand-crafted apparel</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">OEKO-TEX Standard 100</span>
+            <span class="chip">GOTS Organic</span>
+            <span class="chip">EU REACH Compliance</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">French Customs (DGDDI) rigorously inspects chemical residue (REACH azo dyes, formaldehyde) and verified fiber composition labels in French.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Galeries Lafayette Ethical Section</div>
+              <div class="fs-12 text-muted">High-end sustainable department store buyer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Maison Ethique Paris</div>
+              <div class="fs-12 text-muted">Curated ethical fashion &amp; batik boutique chain</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">French Ethical Fashion Alliance</div>
+              <div class="fs-12 text-muted">Eco-apparel distributor &amp; B2B agent</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Test azo-free dyes and certify compliance with EU REACH Regulation.</li>
+          <li class="fs-13">Obtain REX (Registered Exporter System) identification for EU GSP tariff preferences.</li>
+          <li class="fs-13">Affix bilingual French/English wash-care and composition labels.</li>
+          <li class="fs-13">Prepare digital lookbook and heritage story explaining Indonesian craftsmanship.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-france')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('France saved to your market watchlist.', 'success'); ExporE.closeModal('market-france');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Australia Modal -->
+  <div class="modal-overlay" id="market-australia">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">AU  Australia · Sydney &amp; Melbourne</div>
+          <div class="modal-subtitle">Eco Homeware &amp; Rattan Crafts — Pacific sustainable living market</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-australia')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$410M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+6.8%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Sydney · Melbourne · Brisbane</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">Under IA-CEPA (Indonesia-Australia CEPA)</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">IA-CEPA Form COO</span>
+            <span class="chip">AFAS Fumigation (BMSB / ISPM-15)</span>
+            <span class="chip">SVLK / V-Legal</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">Department of Agriculture, Fisheries and Forestry (DAFF) biosecurity inspection for all timber, bamboo, and rattan homeware to prevent pests and fungus introduction.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Bunnings Living &amp; Craft</div>
+              <div class="fs-12 text-muted">Major Australasian homeware &amp; lifestyle chain</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">EcoNest Home Sydney</div>
+              <div class="fs-12 text-muted">Boutique sustainable furniture &amp; rattan importer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Artisan Pacific Trading</div>
+              <div class="fs-12 text-muted">Australasia handmade lifestyle distributor</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Secure Indonesian V-Legal / SVLK timber legality verification for all rattan and wood components.</li>
+          <li class="fs-13">Conduct DAFF-approved Methyl Bromide fumigation with certified treatment certificate.</li>
+          <li class="fs-13">Apply for IA-CEPA Certificate of Origin to guarantee 0% customs duty entrance.</li>
+          <li class="fs-13">Pack with moisture absorbers and ensure container sealing meets Australian biosecurity standards.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-australia')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Australia saved to your market watchlist.', 'success'); ExporE.closeModal('market-australia');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- South Korea Modal -->
+  <div class="modal-overlay" id="market-korea">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">KR  South Korea · Seoul &amp; Busan</div>
+          <div class="modal-subtitle">Biomass &amp; PKS Pellets — East Asian renewable energy transition</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('market-korea')">×</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-16">Market Overview</h4>
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Market Size</div>
+            <div class="fs-24 fw-700 text-emerald">$650M</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Annual Growth</div>
+            <div class="fs-24 fw-700 text-emerald">+11.2%</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Top Demand Region</div>
+            <div class="fs-18 fw-700">Busan · Gwangyang · Incheon</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Tariff &amp; Regulations</h4>
+        <div class="card card-mint card-pad-sm mb-24">
+          <div class="flex items-center gap-12 mb-16">
+            <span class="badge badge-success">0% Tariff</span>
+            <span class="fs-14">Under IK-CEPA (Indonesia-Korea Comprehensive Economic Partnership)</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">Required Certifications:</div>
+          <div class="tag-list mb-16">
+            <span class="chip">IK-CEPA COO</span>
+            <span class="chip">Green Gold Label (GGL)</span>
+            <span class="chip">RSPO Supply Chain</span>
+          </div>
+          <div class="fs-13 text-muted mb-8">SPS Inspection:</div>
+          <p class="fs-13">Korea Forest Service (KFS) conducts standard quality inspections verifying calorific value (>4,000 kcal/kg), moisture content (<15%), and chlorine levels under the Korean RPS policy.</p>
+        </div>
+
+        <h4 class="mb-16">Top Buyers</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;" class="mb-24">
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Korea South-East Power (KOEN)</div>
+              <div class="fs-12 text-muted">State thermal power utility co-firing biomass</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Posco Energy Bio-Division</div>
+              <div class="fs-12 text-muted">Industrial renewable power producer</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+          <div class="flex items-center justify-between" style="padding: 12px 14px; background: var(--mint-bg); border-radius: 8px;">
+            <div>
+              <div class="fw-700 fs-14">Hanwha Green Logistics</div>
+              <div class="fs-12 text-muted">Renewable biomass trade &amp; bunkering division</div>
+            </div>
+            <button class="btn btn-sm btn-ghost" onclick="ExporE.showToast('Buyer introduction request sent.', 'success')">Contact</button>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Recommended Next Steps</h4>
+        <ol style="display: flex; flex-direction: column; gap: 8px; padding-left: 20px; list-style: decimal;">
+          <li class="fs-13">Commission Sucofindo/SGS independent certificate of sampling and analysis (COA).</li>
+          <li class="fs-13">Issue IK-CEPA Certificate of Origin for 0% duty entry.</li>
+          <li class="fs-13">Provide Green Gold Label (GGL) or RSPO sustainability traceability documentation.</li>
+          <li class="fs-13">Secure chartered bulk vessel or breakbulk transport to Busan / Gwangyang Port.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('market-korea')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('South Korea saved to your market watchlist.', 'success'); ExporE.closeModal('market-korea');">Save Market</button>
+      </div>
+    </div>
+  </div>
+
   <!-- =================== SCRIPTS =================== -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.0"></script>
   <script>
     ExporE.requireAuth(['MSMEs']);
     ExporE.pageInit('markets');

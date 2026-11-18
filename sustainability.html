@@ -12,15 +12,12 @@
     <!-- =================== SIDEBAR =================== -->
     <aside class="app-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-logo">E</div>
-        <div>
-          <div class="brand-name">Expor-E</div>
-          <div class="brand-tag">3E Digital Trade</div>
-        </div>
+        <a href="dashboard.html" class="brand">
+          <div class="brand-name">Ekspor-E</div>
+        </a>
       </div>
 
       <div class="sidebar-user">
-       
         <div class="sidebar-user-info">
           <div class="sidebar-user-name" data-user-name>Dewi</div>
           <div class="sidebar-user-role" data-user-role>MSMEs / Exporter</div>
@@ -29,35 +26,40 @@
 
       <div class="sidebar-nav-section">Main</div>
       <a href="dashboard.html" class="sidebar-link">
-        </span><span class="lbl">Dashboard</span>
+        <span class="lbl">Dashboard</span>
       </a>
-      <a href="readiness.html" class="sidebar-link">
-        </span><span class="lbl">My Readiness</span>
-      </a>
+      <div class="sidebar-dropdown">
+        <button type="button" class="sidebar-link sidebar-dropdown-toggle" onclick="ExporE.toggleSidebarDropdown(this)">
+          <span class="lbl">My Readiness</span>
+          <svg class="sidebar-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar-dropdown-menu">
+          <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+          <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+        </div>
+      </div>
       <a href="education.html" class="sidebar-link">
-        </span><span class="lbl">Education</span>
+        <span class="lbl">Education</span>
       </a>
       <a href="markets.html" class="sidebar-link">
-        </span><span class="lbl">Explore Markets</span>
+        <span class="lbl">Explore Markets</span>
       </a>
       <a href="ecosystem.html" class="sidebar-link">
-        </span><span class="lbl">Ecosystem</span>
-        <span class="pill active-tag">Active</span>
+        <span class="lbl">Ecosystem</span>
       </a>
       <a href="my-export.html" class="sidebar-link">
-        </span><span class="lbl">My Export</span>
-        <span class="pill active-tag">Active</span>
+        <span class="lbl">My Export</span>
       </a>
       <a href="sustainability.html" class="sidebar-link active">
-        </span><span class="lbl">Sustainability</span>
+        <span class="lbl">Sustainability</span>
       </a>
       <a href="my-business.html" class="sidebar-link">
-        </span><span class="lbl">My Business</span>
+        <span class="lbl">My Business</span>
       </a>
 
       <div class="sidebar-footer">
         <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span><span class="lbl">Logout</span>
+          <span class="lbl">Logout</span>
         </a>
       </div>
     </aside>
@@ -73,9 +75,14 @@
           <div class="sub">Track your environmental, social, and governance readiness for premium markets.</div>
         </div>
         <div class="app-header-actions">
-          <button class="bell-btn" aria-label="Notifications"><span></span><span class="dot"></span></button>
+          <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 1 new notification.', 'info')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="dot"></span>
+          </button>
         </div>
       </header>
+
+      <div class="app-content">
 
       <!-- Notice banner -->
       <div class="notice-banner mb-24">
@@ -313,6 +320,7 @@
           </div>
         </aside>
       </div>
+      </div> <!-- /.app-content -->
     </main>
   </div>
 

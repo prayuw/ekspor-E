@@ -12,15 +12,12 @@
     <!-- =================== SIDEBAR =================== -->
     <aside class="app-sidebar" id="appSidebar">
       <div class="sidebar-brand">
-        <div class="brand-logo">E</div>
-        <div>
-          <div class="brand-name">Expor-E</div>
-          <div class="brand-tag">3E Digital Trade</div>
-        </div>
+        <a href="dashboard.html" class="brand">
+          <div class="brand-name">Ekspor-E</div>
+        </a>
       </div>
 
       <div class="sidebar-user">
-        <div class="sidebar-avatar" data-user-initial>D</div>
         <div class="sidebar-user-info">
           <div class="sidebar-user-name" data-user-name>Dewi</div>
           <div class="sidebar-user-role" data-user-role>MSMEs / Exporter</div>
@@ -29,42 +26,39 @@
 
       <div class="sidebar-nav-section">Main</div>
       <a href="dashboard.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
         <span class="lbl">Dashboard</span>
       </a>
-      <a href="readiness.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-        <span class="lbl">My Readiness</span>
-      </a>
+      <div class="sidebar-dropdown">
+        <button type="button" class="sidebar-link sidebar-dropdown-toggle" onclick="ExporE.toggleSidebarDropdown(this)">
+          <span class="lbl">My Readiness</span>
+          <svg class="sidebar-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar-dropdown-menu">
+          <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+          <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+        </div>
+      </div>
       <a href="education.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         <span class="lbl">Education</span>
       </a>
       <a href="markets.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <span class="lbl">Explore Markets</span>
       </a>
       <a href="ecosystem.html" class="sidebar-link active">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         <span class="lbl">Ecosystem</span>
-        <span class="pill active-tag">Active</span>
       </a>
       <a href="my-export.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         <span class="lbl">My Export</span>
       </a>
       <a href="sustainability.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0c-3.31 0-6 2.69-6 6 0 1.66.67 3.16 1.76 4.24M12 8c3.31 0 6 2.69 6 6 0 1.66-.67 3.16-1.76 4.24M12 22v-6"/><circle cx="12" cy="12" r="10"/></svg>
         <span class="lbl">Sustainability</span>
       </a>
       <a href="my-business.html" class="sidebar-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
         <span class="lbl">My Business</span>
       </a>
 
       <div class="sidebar-footer">
         <a href="#" onclick="ExporE.logout(); return false;" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           <span class="lbl">Logout</span>
         </a>
       </div>
@@ -86,7 +80,6 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             <span class="dot"></span>
           </button>
-          <div class="sidebar-avatar" data-user-initial>D</div>
         </div>
       </header>
 
@@ -97,309 +90,485 @@
         <span class="ic">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </span>
-        <input class="form-control" type="text" placeholder="Search partners, services, certifications..." oninput="ExporE.searchPartners(this.value)">
+        <input class="form-control" type="text" data-partner-search placeholder="Search partners, services, certifications..." oninput="ExporE.searchPartners(this.value)">
       </div>
 
       <!-- Filter tabs -->
-      <div class="tabs mb-24" style="display:flex;gap:6px;flex-wrap:wrap;">
-        <button class="tab-btn btn btn-sm btn-ghost active" data-partner-filter="all" onclick="ExporE.filterPartners('all')">All</button>
-        <button class="tab-btn btn btn-sm btn-ghost" data-partner-filter="government" onclick="ExporE.filterPartners('government')">Government</button>
-        <button class="tab-btn btn btn-sm btn-ghost" data-partner-filter="partners" onclick="ExporE.filterPartners('partners')">Partners</button>
-        <button class="tab-btn btn btn-sm btn-ghost" data-partner-filter="logistics" onclick="ExporE.filterPartners('logistics')">Logistics</button>
-        <button class="tab-btn btn btn-sm btn-ghost" data-partner-filter="finance" onclick="ExporE.filterPartners('finance')">Finance</button>
-        <button class="tab-btn btn btn-sm btn-ghost" data-partner-filter="technology" onclick="ExporE.filterPartners('technology')">Technology</button>
+      <div class="tabs mb-24" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="tab-btn active" data-partner-filter="all" onclick="ExporE.filterPartners('all')">All</button>
+        <button class="tab-btn" data-partner-filter="government" onclick="ExporE.filterPartners('government')">Government</button>
+        <button class="tab-btn" data-partner-filter="partners" onclick="ExporE.filterPartners('partners')">Partners</button>
+        <button class="tab-btn" data-partner-filter="logistics" onclick="ExporE.filterPartners('logistics')">Logistics</button>
+        <button class="tab-btn" data-partner-filter="finance" onclick="ExporE.filterPartners('finance')">Finance</button>
+        <button class="tab-btn" data-partner-filter="technology" onclick="ExporE.filterPartners('technology')">Technology</button>
       </div>
 
       <!-- Main grid: content + right sidebar -->
       <div class="grid" style="grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start;">
 
         <!-- ===== MAIN COLUMN ===== -->
-        <section>
+        <section id="partners-main-content">
 
-          <!-- Government Partners (NEW) -->
-          <h2 class="fs-24 mb-8">Government &amp; Regulatory Bodies</h2>
-          <p class="text-muted mb-24">Official Indonesian ministries and customs authorities supporting agroindustry exports.</p>
+          <!-- 1. Government & Regulatory Bodies -->
+          <div class="category-group mb-32" data-category-group="government">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-primary">Government</span>
+                <h2 class="fs-22">Government &amp; Regulatory Bodies</h2>
+              </div>
+              <p class="text-muted fs-14">Official Indonesian ministries, customs authorities, and state bodies supporting agroindustry exports.</p>
+            </div>
 
-          <div class="grid grid-2 mb-32">
-
-            <article class="partner-card" data-partner-card data-category="government" data-search="kementerian perdagangan kemendag trade ministry export registration">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo gov">KMD</div>
-                <div>
-                  <div class="partner-name">Kementerian Perdagangan RI</div>
-                  <div class="partner-type">Ministry of Trade</div>
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- 1. Kemendag -->
+              <article class="partner-card" data-partner-card data-category="government" data-search="kementerian perdagangan kemendag trade ministry export registration etpi itpc jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo gov">KMD</div>
+                  <div>
+                    <div class="partner-name">Kementerian Perdagangan RI</div>
+                    <div class="partner-type">Ministry of Trade</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Export registration (ETPI), trade facilitation, market access negotiations, and Indonesian Trade Promotion Centers (ITPC) worldwide.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-kemendag')">View Profile</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="government" data-search="bea cukai customs directorate duty tariff peb ceisa">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo gov">BC</div>
-                <div>
-                  <div class="partner-name">Direktorat Jenderal Bea dan Cukai</div>
-                  <div class="partner-type">Customs Authority</div>
+                <p class="fs-13 text-muted">Export registration (ETPI), trade facilitation, market access negotiations, and Indonesian Trade Promotion Centers (ITPC) worldwide.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Export declaration (PEB) via CEISA, tariff book, export duty, and customs clearance for all outbound shipments.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-beacukai')">View Profile</button>
-            </article>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-kemendag')">View Profile</button>
+              </article>
 
-            <article class="partner-card" data-partner-card data-category="government" data-search="kementerian perindustrian kemendperin industry ministry processing standard">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo gov">KPI</div>
-                <div>
-                  <div class="partner-name">Kementerian Perindustrian RI</div>
-                  <div class="partner-type">Ministry of Industry</div>
+              <!-- 2. Bea Cukai -->
+              <article class="partner-card" data-partner-card data-category="government" data-search="bea cukai customs directorate duty tariff peb ceisa export declaration jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo gov">BC</div>
+                  <div>
+                    <div class="partner-name">Direktorat Jenderal Bea dan Cukai</div>
+                    <div class="partner-type">Customs Authority</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Industry standards, SNI certification roadmap, downstream processing support, and agro-industry cluster development.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-kemendperin')">View Profile</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="government" data-search="halal center indonesia certification official 50 countries bpjph mui">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo gov">HCI</div>
-                <div>
-                  <div class="partner-name">BPJPH / Halal Center Indonesia</div>
-                  <div class="partner-type">Halal Certification</div>
+                <p class="fs-13 text-muted">Export declaration (PEB) via CEISA, tariff book, export duty, and customs clearance for all outbound shipments.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Official halal certification body (BPJPH) recognized in 50+ countries, with MUI Fatwa backing.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-halal')">View Profile</button>
-            </article>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-beacukai')">View Profile</button>
+              </article>
 
+              <!-- 3. Kemenperin -->
+              <article class="partner-card" data-partner-card data-category="government" data-search="kementerian perindustrian kemendperin industry ministry processing standard sni roadmap jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo gov">KPI</div>
+                  <div>
+                    <div class="partner-name">Kementerian Perindustrian RI</div>
+                    <div class="partner-type">Ministry of Industry</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Industry standards, SNI certification roadmap, downstream processing support, and agro-industry cluster development.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-kemendperin')">View Profile</button>
+              </article>
+
+              <!-- 4. BPJPH Halal -->
+              <article class="partner-card" data-partner-card data-category="government" data-search="halal center indonesia certification official bpjph mui fatwa agro food jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo gov">HCI</div>
+                  <div>
+                    <div class="partner-name">BPJPH / Halal Center Indonesia</div>
+                    <div class="partner-type">Halal Certification</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Official halal certification body (BPJPH) recognized in 50+ countries, with MUI Fatwa backing for agro-food commodities.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-halal')">View Profile</button>
+              </article>
+
+              <!-- 5. SGS Indonesia -->
+              <article class="partner-card" data-partner-card data-category="government" data-search="sgs inspection verification testing certification quality lab safety jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo gov">SGS</div>
+                  <div>
+                    <div class="partner-name">SGS Indonesia</div>
+                    <div class="partner-type">Inspection &amp; Certification</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Accredited international inspection, lab testing, phytosanitary checks, and pre-shipment compliance audits.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-sgs')">View Profile</button>
+              </article>
+            </div>
           </div>
 
-          <!-- Featured Partners -->
-          <h2 class="fs-24 mb-8">Featured Partners</h2>
-          <p class="text-muted mb-24">Vetted ecosystem partners with proven track records in Indonesian agro exports.</p>
+          <!-- 2. Export Partners & Aggregators -->
+          <div class="category-group mb-32" data-category-group="partners">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-success">Partners</span>
+                <h2 class="fs-22">Export Partners &amp; Aggregators</h2>
+              </div>
+              <p class="text-muted fs-14">Vetted export facilitators, commercial aggregators, and trading houses with verified global distribution networks.</p>
+            </div>
 
-          <div class="grid grid-2 mb-32">
-
-            <article class="partner-card" data-partner-card data-category="partners" data-search="global agro nusantara export partner asia pacific">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">GA</div>
-                <div>
-                  <div class="partner-name">PT. Global Agro Nusantara</div>
-                  <div class="partner-type">Agro Export Partner</div>
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- 1. Global Agro Nusantara -->
+              <article class="partner-card" data-partner-card data-category="partners" data-search="global agro nusantara export partner asia pacific trading coffee spices jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo partner">GA</div>
+                  <div>
+                    <div class="partner-name">PT. Global Agro Nusantara</div>
+                    <div class="partner-type">Agro Export Partner</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">End-to-end agro export facilitation across Asia-Pacific.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-global')">View Profile</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="logistics" data-search="oceanlink logistics freight forwarder sea air japan eu">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">OL</div>
-                <div>
-                  <div class="partner-name">OceanLink Logistics</div>
-                  <div class="partner-type">Freight Forwarder</div>
+                <p class="fs-13 text-muted">End-to-end agro export facilitation across Asia-Pacific, connecting local producers to verified global buyers.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Sea &amp; air freight specialists for Indonesia–Japan and EU routes.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Surabaya</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-ocean')">View Profile</button>
-            </article>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-global')">View Profile</button>
+              </article>
 
-            <article class="partner-card" data-partner-card data-category="finance" data-search="bca export finance trade bank working capital lc">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">BCA</div>
-                <div>
-                  <div class="partner-name">BCA Export Finance</div>
-                  <div class="partner-type">Trade Finance Bank</div>
+              <!-- 2. Nusantara Export Hub -->
+              <article class="partner-card" data-partner-card data-category="partners" data-search="nusantara export hub aggregator consignment warehousing logistics trading surabaya">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo partner">NEH</div>
+                  <div>
+                    <div class="partner-name">Nusantara Export Hub</div>
+                    <div class="partner-type">Export Aggregator &amp; Consignment</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Export working capital, LC confirmation, and trade finance solutions.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-bca')">View Profile</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="technology" data-search="tradetech digital platform export traceability blockchain">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">TT</div>
-                <div>
-                  <div class="partner-name">TradeTech Indonesia</div>
-                  <div class="partner-type">Digital Trade Platform</div>
+                <p class="fs-13 text-muted">Shared container consolidation (LCL to FCL), overseas fulfillment hubs in Singapore &amp; Dubai, and joint marketing for Indonesian MSMEs.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Surabaya</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Digital documentation &amp; blockchain traceability.</p>
-              <div class="flex gap-8">
-                <span class="badge badge-success">Verified</span>
-                <span class="badge badge-muted">Jakarta</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to TradeTech.', 'success')">Contact</button>
-            </article>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Partnership request sent to Nusantara Export Hub.', 'success')">Connect Partner</button>
+              </article>
 
+              <!-- 3. IndoTrade Alliance -->
+              <article class="partner-card" data-partner-card data-category="partners" data-search="indotrade alliance trading house distributor network japan middle east europe bandung">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo partner">ITA</div>
+                  <div>
+                    <div class="partner-name">IndoTrade Alliance</div>
+                    <div class="partner-type">Global Trading House</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Direct distributor access across Japan, South Korea, and the EU, managing buyer contracting and trade dispute guarantees.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Bandung</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contract request sent to IndoTrade Alliance.', 'success')">Connect Partner</button>
+              </article>
+            </div>
           </div>
 
-          <!-- Recommended for You -->
-          <h2 class="fs-24 mb-8">Recommended for You</h2>
-          <p class="text-muted mb-24">Curated services to accelerate your export journey.</p>
-
-          <div class="grid grid-2 mb-32">
-
-            <div class="card card-pad">
-              <div class="icon-tile mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <!-- 3. Logistics & Freight Forwarders -->
+          <div class="category-group mb-32" data-category-group="logistics">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-info">Logistics</span>
+                <h2 class="fs-22">Logistics &amp; Freight Forwarders</h2>
               </div>
-              <div class="fw-700 fs-16">HS Code &amp; Customs Procedure</div>
-              <p class="fs-13 text-muted mt-8 mb-16">Get verified HS codes and customs clearance guidance.</p>
-              <button class="btn btn-ghost btn-sm" onclick="ExporE.showToast('HS Code tool opening soon.', 'success')">Learn More</button>
+              <p class="text-muted fs-14">International shipping lines, air cargo carriers, reefer container providers, and customs brokerage partners.</p>
             </div>
 
-            <div class="card card-pad">
-              <div class="icon-tile emerald mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-              </div>
-              <div class="fw-700 fs-16">Trade Finance Solutions</div>
-              <p class="fs-13 text-muted mt-8 mb-16">Digital Credit Scoring — simulate your export financing eligibility.</p>
-              <button class="btn btn-primary btn-sm" onclick="ExporE.openModal('credit-sim')">Simulate Financing</button>
-            </div>
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- 1. OceanLink Logistics -->
+              <article class="partner-card" data-partner-card data-category="logistics" data-search="oceanlink logistics freight forwarder sea air japan eu shipping reefer surabaya">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo logistics">OL</div>
+                  <div>
+                    <div class="partner-name">OceanLink Logistics</div>
+                    <div class="partner-type">Freight Forwarder</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Sea &amp; air freight specialists for Indonesia–Japan and EU routes, offering bonded warehouse and cold storage transit.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Surabaya</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-ocean')">View Profile</button>
+              </article>
 
-            <div class="card card-pad">
-              <div class="icon-tile info mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-              </div>
-              <div class="fw-700 fs-16">Export Readiness Check</div>
-              <p class="fs-13 text-muted mt-8 mb-16">Quick assessment of your export readiness gaps.</p>
-              <a href="readiness.html" class="btn btn-ghost btn-sm">Check Now</a>
-            </div>
+              <!-- 2. DHL Express -->
+              <article class="partner-card" data-partner-card data-category="logistics" data-search="dhl express international shipping courier air cargo sample trade jakarta global">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo logistics">DH</div>
+                  <div>
+                    <div class="partner-name">DHL Express</div>
+                    <div class="partner-type">Express Shipping &amp; Courier</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Fast global door-to-door express dispatch for product samples, commercial export documents, and urgent air cargo shipments.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Global</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Rate inquiry sent to DHL Express.', 'success')">Get Quote</button>
+              </article>
 
-            <div class="card card-pad">
-              <div class="icon-tile gold mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              </div>
-              <div class="fw-700 fs-16">Learning &amp; Training</div>
-              <p class="fs-13 text-muted mt-8 mb-16">Industry workshops and certification prep modules.</p>
-              <a href="education.html" class="btn btn-ghost btn-sm">Browse Modules</a>
-            </div>
+              <!-- 3. Maersk Line -->
+              <article class="partner-card" data-partner-card data-category="logistics" data-search="maersk container shipping global ocean freight reefer vessel global">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo logistics">MK</div>
+                  <div>
+                    <div class="partner-name">Maersk Line</div>
+                    <div class="partner-type">Container Shipping Carrier</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">World's leading ocean container line with specialized atmosphere-controlled reefer containers for Indonesian agro commodities.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Global</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Container booking request sent to Maersk.', 'success')">Book Container</button>
+              </article>
 
-            <div class="card card-pad">
-              <div class="icon-tile warning mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div class="fw-700 fs-16">Product Traceability</div>
-              <p class="fs-13 text-muted mt-8 mb-16">QR-code based farm-to-buyer traceability system.</p>
-              <button class="btn btn-ghost btn-sm" onclick="ExporE.showToast('Traceability onboarding started.', 'success')">Setup Traceability</button>
+              <!-- 4. Samudera Indonesia -->
+              <article class="partner-card" data-partner-card data-category="logistics" data-search="samudera indonesia maritime logistics cold chain port handling shipping jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo logistics">SI</div>
+                  <div>
+                    <div class="partner-name">Samudera Indonesia</div>
+                    <div class="partner-type">Integrated Maritime Logistics</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Premier domestic feeder and regional ocean carrier with comprehensive cold chain facilities across Tanjung Priok &amp; Tanjung Perak.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Logistics inquiry sent to Samudera Indonesia.', 'success')">Contact Carrier</button>
+              </article>
             </div>
-
-            <div class="card card-pad">
-              <div class="icon-tile danger mb-12">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <div class="fw-700 fs-16">SNI Certification Path</div>
-              <p class="fs-13 text-muted mt-8 mb-16">Apply for Standar Nasional Indonesia with vetted certifiers.</p>
-              <button class="btn btn-ghost btn-sm" onclick="ExporE.showToast('SNI application started.', 'success')">Apply</button>
-            </div>
-
           </div>
 
-          <!-- Top Service Providers -->
-          <h2 class="fs-24 mb-8">Top Service Providers</h2>
-          <p class="text-muted mb-24">Industry-leading providers across logistics, finance, and certification.</p>
-
-          <div class="grid grid-3">
-
-            <article class="partner-card" data-partner-card data-category="logistics" data-search="dhl express international shipping courier">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">DH</div>
-                <div>
-                  <div class="partner-name">DHL Express</div>
-                  <div class="partner-type">Express Shipping</div>
-                </div>
+          <!-- 4. Trade Finance & Banking -->
+          <div class="category-group mb-32" data-category-group="finance">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-warning">Finance</span>
+                <h2 class="fs-22">Trade Finance &amp; Banking</h2>
               </div>
-              <p class="fs-13 text-muted">International express shipping &amp; parcel delivery.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to DHL Express.', 'success')">Contact</button>
-            </article>
+              <p class="text-muted fs-14">Export working capital, letter of credit (LC) confirmation, invoice factoring, and sovereign export credit facilities.</p>
+            </div>
 
-            <article class="partner-card" data-partner-card data-category="logistics" data-search="maersk container shipping global ocean">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">MK</div>
-                <div>
-                  <div class="partner-name">Maersk</div>
-                  <div class="partner-type">Container Shipping</div>
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- 1. BCA Export Finance -->
+              <article class="partner-card" data-partner-card data-category="finance" data-search="bca export finance trade bank working capital lc confirmation foreign exchange jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo finance">BCA</div>
+                  <div>
+                    <div class="partner-name">BCA Export Finance</div>
+                    <div class="partner-type">Trade Finance Bank</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Global container shipping leader.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to Maersk.', 'success')">Contact</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="finance" data-search="indoex finance factoring trade credit insurance">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">IX</div>
-                <div>
-                  <div class="partner-name">IndoEx Finance</div>
-                  <div class="partner-type">Factoring &amp; Insurance</div>
+                <p class="fs-13 text-muted">Pre-shipment financing, Letter of Credit (LC) confirmation, competitive FX hedging, and export transaction advisory.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Export factoring and trade credit insurance.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to IndoEx Finance.', 'success')">Contact</button>
-            </article>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.openModal('partner-bca')">View Profile</button>
+              </article>
 
-            <article class="partner-card" data-partner-card data-category="government" data-search="sgs inspection verification testing certification">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo gov">SGS</div>
-                <div>
-                  <div class="partner-name">SGS Indonesia</div>
-                  <div class="partner-type">Inspection &amp; Certification</div>
+              <!-- 2. BNI Xpora -->
+              <article class="partner-card" data-partner-card data-category="finance" data-search="bni xpora bank negara indonesia state export credit kur sme banking jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo finance">BNI</div>
+                  <div>
+                    <div class="partner-name">BNI Xpora</div>
+                    <div class="partner-type">State Export Credit Bank</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Inspection, verification, testing &amp; certification.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to SGS Indonesia.', 'success')">Contact</button>
-            </article>
-
-            <article class="partner-card" data-partner-card data-category="finance" data-search="bni bank negara indonesia state export credit">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">BNI</div>
-                <div>
-                  <div class="partner-name">BNI</div>
-                  <div class="partner-type">Export Credit Bank</div>
+                <p class="fs-13 text-muted">Specialized SME export center with subsidized KUR Ekspor loans, business matching, and branches across Tokyo, London, and New York.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">State bank export credit programs.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to BNI.', 'success')">Contact</button>
-            </article>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Financing application sent to BNI Xpora.', 'success')">Apply Finance</button>
+              </article>
 
-            <article class="partner-card" data-partner-card data-category="technology" data-search="blockverify blockchain supply chain verification">
-              <div class="flex items-center gap-12">
-                <div class="partner-logo">BV</div>
-                <div>
-                  <div class="partner-name">BlockVerify</div>
-                  <div class="partner-type">Blockchain Verification</div>
+              <!-- 3. IndoEx Finance -->
+              <article class="partner-card" data-partner-card data-category="finance" data-search="indoex finance factoring invoice trade credit insurance non payment jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo finance">IX</div>
+                  <div>
+                    <div class="partner-name">IndoEx Finance</div>
+                    <div class="partner-type">Factoring &amp; Credit Insurance</div>
+                  </div>
                 </div>
-              </div>
-              <p class="fs-13 text-muted">Immutable supply chain verification.</p>
-              <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Contact request sent to BlockVerify.', 'success')">Contact</button>
-            </article>
+                <p class="fs-13 text-muted">Immediate liquidity via invoice factoring (up to 85% cash advance on export invoices) plus buyer non-payment default insurance.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Factoring quote request sent to IndoEx.', 'success')">Get Factoring</button>
+              </article>
 
+              <!-- 4. LPEI / Indonesia Eximbank -->
+              <article class="partner-card" data-partner-card data-category="finance" data-search="lpei indonesia eximbank sovereign export financing guarantee national coach jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo finance">LPEI</div>
+                  <div>
+                    <div class="partner-name">LPEI / Indonesia Eximbank</div>
+                    <div class="partner-type">Sovereign Export Institution</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Government-backed export financing, buyer guarantee schemes, and CPNE (Coaching Program for New Exporters) for agro producers.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Consultation request sent to LPEI Eximbank.', 'success')">Request Consult</button>
+              </article>
+            </div>
+          </div>
+
+          <!-- 5. Technology & Traceability -->
+          <div class="category-group mb-32" data-category-group="technology">
+            <div class="mb-16">
+              <div class="flex items-center gap-8 mb-4">
+                <span class="badge badge-muted">Technology</span>
+                <h2 class="fs-22">Technology &amp; Traceability</h2>
+              </div>
+              <p class="text-muted fs-14">Digital export documentation, farm-to-port blockchain verification, smart contracts, and IoT cold chain telemetry.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <!-- 1. TradeTech Indonesia -->
+              <article class="partner-card" data-partner-card data-category="technology" data-search="tradetech digital platform export traceability blockchain e-spo documentation jakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo tech">TT</div>
+                  <div>
+                    <div class="partner-name">TradeTech Indonesia</div>
+                    <div class="partner-type">Digital Trade Platform</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Paperless trade workflow platform, generating electronic Bills of Lading, smart contracts, and multi-party cryptographic sign-offs.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Jakarta</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Integration request sent to TradeTech.', 'success')">Connect Platform</button>
+              </article>
+
+              <!-- 2. BlockVerify ID -->
+              <article class="partner-card" data-partner-card data-category="technology" data-search="blockverify blockchain supply chain verification origin proof agro organic bandung">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo tech">BV</div>
+                  <div>
+                    <div class="partner-name">BlockVerify ID</div>
+                    <div class="partner-type">Blockchain Verification</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Decentralized origin verification ensuring EU Deforestation Regulation (EUDR) compliance and anti-counterfeiting seals.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Bandung</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Trial request sent to BlockVerify ID.', 'success')">Request Trial</button>
+              </article>
+
+              <!-- 3. AgroTrace Telemetry -->
+              <article class="partner-card" data-partner-card data-category="technology" data-search="agrotrace smart farm to port iot container temperature humidity telemetry yogyakarta">
+                <div class="flex items-center gap-12">
+                  <div class="partner-logo tech">AT</div>
+                  <div>
+                    <div class="partner-name">AgroTrace Telemetry</div>
+                    <div class="partner-type">Smart IoT &amp; Telemetry</div>
+                  </div>
+                </div>
+                <p class="fs-13 text-muted">Battery-powered smart sensor beacons for container temperature, relative humidity, and transit shock logs demanded by premium buyers.</p>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Verified</span>
+                  <span class="badge badge-muted">Yogyakarta</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-top: auto;" onclick="ExporE.showToast('Sensor kit requested from AgroTrace.', 'success')">Order IoT Kit</button>
+              </article>
+            </div>
+          </div>
+
+          <!-- Empty State for Search / Filter -->
+          <div id="partners-empty-state" class="card card-pad text-center" style="display:none; padding:48px 24px; margin-bottom:32px;">
+            <div style="width:54px; height:54px; border-radius:50%; background:var(--mint-soft); color:var(--emerald); display:inline-flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="fs-18 mb-8">No partners found</h3>
+            <p class="text-muted fs-14 mb-16">No ecosystem partners match the current category or keyword. You can clear the search or browse all categories.</p>
+            <button class="btn btn-outline btn-sm" onclick="ExporE.filterPartners('all')">View All Categories</button>
+          </div>
+
+          <!-- Recommended Export Tools (Shown on All) -->
+          <div class="category-group mb-32" data-recommended-section>
+            <div class="mb-16">
+              <h2 class="fs-22 mb-4">Recommended Export Tools</h2>
+              <p class="text-muted fs-14">Curated services and tools integrated into Expor-E to accelerate your export operations.</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 16px;">
+              <div class="card card-pad">
+                <div class="icon-tile mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="fw-700 fs-16">HS Code &amp; Customs Procedure</div>
+                <p class="fs-13 text-muted mt-8 mb-16">Get verified HS codes and customs clearance guidance for Indonesian commodities.</p>
+                <a href="education.html" class="btn btn-ghost btn-sm">Explore Guide</a>
+              </div>
+
+              <div class="card card-pad">
+                <div class="icon-tile emerald mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="fw-700 fs-16">Trade Finance Solutions</div>
+                <p class="fs-13 text-muted mt-8 mb-16">Digital Credit Scoring — simulate your export financing eligibility in seconds.</p>
+                <button class="btn btn-primary btn-sm" onclick="ExporE.openModal('credit-sim')">Simulate Financing</button>
+              </div>
+
+              <div class="card card-pad">
+                <div class="icon-tile info mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                </div>
+                <div class="fw-700 fs-16">Export Readiness Check</div>
+                <p class="fs-13 text-muted mt-8 mb-16">Quick assessment of your export readiness gaps and compliance steps.</p>
+                <a href="readiness.html" class="btn btn-ghost btn-sm">Check Now</a>
+              </div>
+
+              <div class="card card-pad">
+                <div class="icon-tile gold mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="fw-700 fs-16">Learning &amp; Training</div>
+                <p class="fs-13 text-muted mt-8 mb-16">Interactive export curriculum and certification preparation modules.</p>
+                <a href="education.html" class="btn btn-ghost btn-sm">Browse Modules</a>
+              </div>
+
+              <div class="card card-pad">
+                <div class="icon-tile warning mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="fw-700 fs-16">Product Traceability</div>
+                <p class="fs-13 text-muted mt-8 mb-16">QR-code based farm-to-buyer origin and batch traceability system.</p>
+                <button class="btn btn-ghost btn-sm" onclick="ExporE.showToast('Traceability onboarding started.', 'success')">Setup Traceability</button>
+              </div>
+
+              <div class="card card-pad">
+                <div class="icon-tile danger mb-12">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="fw-700 fs-16">SNI Certification Path</div>
+                <p class="fs-13 text-muted mt-8 mb-16">Apply for Standar Nasional Indonesia with accredited inspection partners.</p>
+                <button class="btn btn-ghost btn-sm" onclick="ExporE.showToast('SNI application started.', 'success')">Apply</button>
+              </div>
+            </div>
           </div>
 
         </section>
@@ -411,25 +580,25 @@
           <div class="card card-pad mb-24">
             <h3 class="mb-16">Partner Categories</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.filterPartners('government')">
+              <div class="flex items-center justify-between" data-sidebar-cat="government" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s ease;" onclick="ExporE.filterPartners('government')">
                 <span class="fs-14 fw-600">Government</span>
-                <span class="badge badge-emerald">4</span>
+                <span class="badge badge-emerald">5</span>
               </div>
-              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.filterPartners('partners')">
+              <div class="flex items-center justify-between" data-sidebar-cat="partners" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s ease;" onclick="ExporE.filterPartners('partners')">
                 <span class="fs-14 fw-600">Export Partners</span>
-                <span class="badge badge-emerald">1</span>
+                <span class="badge badge-emerald">3</span>
               </div>
-              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.filterPartners('logistics')">
+              <div class="flex items-center justify-between" data-sidebar-cat="logistics" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s ease;" onclick="ExporE.filterPartners('logistics')">
                 <span class="fs-14 fw-600">Logistics</span>
                 <span class="badge badge-emerald">4</span>
               </div>
-              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.filterPartners('finance')">
+              <div class="flex items-center justify-between" data-sidebar-cat="finance" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s ease;" onclick="ExporE.filterPartners('finance')">
                 <span class="fs-14 fw-600">Finance</span>
-                <span class="badge badge-emerald">3</span>
+                <span class="badge badge-emerald">4</span>
               </div>
-              <div class="flex items-center justify-between" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer;" onclick="ExporE.filterPartners('technology')">
+              <div class="flex items-center justify-between" data-sidebar-cat="technology" style="padding: 10px 12px; background: var(--mint-bg); border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s ease;" onclick="ExporE.filterPartners('technology')">
                 <span class="fs-14 fw-600">Technology</span>
-                <span class="badge badge-emerald">2</span>
+                <span class="badge badge-emerald">3</span>
               </div>
             </div>
           </div>
@@ -578,3 +747,355 @@
       </div>
     </div>
   </div>
+
+  <!-- Kementerian Perindustrian -->
+  <div class="modal-overlay" id="partner-kemendperin">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo gov">KPI</div>
+          <div>
+            <div class="modal-title">Kementerian Perindustrian RI</div>
+            <div class="modal-subtitle">Ministry of Industry · Jakarta, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-kemendperin')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Target Sector</div>
+            <div class="fs-20 fw-700">Agroindustry</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">SNI Schemes</div>
+            <div class="fs-20 fw-700">80+</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Machinery Subsidy</div>
+            <div class="fs-20 fw-700 text-emerald">Up to 40%</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Services &amp; Programs</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">SNI Technical Compliance</span>
+          <span class="chip">Downstream Processing Support</span>
+          <span class="chip">Agro Cluster Facilities</span>
+          <span class="chip">Packaging Standardization</span>
+          <span class="chip">Export Readiness Clinic</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Expor-E tracks your production line milestones against Kemenperin's agroindustrial standards, streamlining accreditation for export-grade downstream goods.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-kemendperin')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Consultation request sent to Kemenperin (demo).', 'success'); ExporE.closeModal('partner-kemendperin');">Request Consultation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BPJPH / Halal Center Indonesia -->
+  <div class="modal-overlay" id="partner-halal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo gov">HCI</div>
+          <div>
+            <div class="modal-title">BPJPH / Halal Center Indonesia</div>
+            <div class="modal-subtitle">Official Halal Certification Authority · Jakarta, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-halal')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Recognition</div>
+            <div class="fs-20 fw-700">50+ Countries</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Portal</div>
+            <div class="fs-20 fw-700">Sihalal Integrated</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Avg. Audit</div>
+            <div class="fs-20 fw-700 text-emerald">14 Working Days</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Services &amp; Scope</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">Sihalal Registration</span>
+          <span class="chip">LPH Laboratory Assignment</span>
+          <span class="chip">MUI Fatwa Verification</span>
+          <span class="chip">Global Mutual Recognition (MRA)</span>
+          <span class="chip">Halal Supervisor Training</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Expor-E synchronizes ingredient traceability logs and raw material sourcing records directly with the Sihalal portal to expedite international certificate issuance.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-halal')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Halal certification process initiated (demo).', 'success'); ExporE.closeModal('partner-halal');">Start Halal Certification</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SGS Indonesia -->
+  <div class="modal-overlay" id="partner-sgs">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo gov">SGS</div>
+          <div>
+            <div class="modal-title">SGS Indonesia</div>
+            <div class="modal-subtitle">Inspection, Testing &amp; Verification · Jakarta, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-sgs')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Testing Labs</div>
+            <div class="fs-20 fw-700">12 Accredited</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Global Presence</div>
+            <div class="fs-20 fw-700">140+ Countries</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Turnaround</div>
+            <div class="fs-20 fw-700 text-emerald">3-5 Days</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Services &amp; Audits</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">Phytosanitary Testing</span>
+          <span class="chip">Pesticide Residue Analysis</span>
+          <span class="chip">HACCP &amp; ISO 22000 Audits</span>
+          <span class="chip">Pre-Shipment Inspection (PSI)</span>
+          <span class="chip">Container Seal Inspection</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Directly book pre-shipment inspections and lab tests through Expor-E; inspection certificates (COA) are automatically linked to your shipment record.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-sgs')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Audit booking requested with SGS (demo).', 'success'); ExporE.closeModal('partner-sgs');">Book Inspection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PT Global Agro Nusantara -->
+  <div class="modal-overlay" id="partner-global">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo partner">GA</div>
+          <div>
+            <div class="modal-title">PT. Global Agro Nusantara</div>
+            <div class="modal-subtitle">Agro Export Partner &amp; Facilitator · Jakarta, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-global')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Export Markets</div>
+            <div class="fs-20 fw-700">18 Countries</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Specialty</div>
+            <div class="fs-20 fw-700">Coffee &amp; Spices</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">MSME Volume</div>
+            <div class="fs-20 fw-700 text-emerald">12,000+ Tons/yr</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Services</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">Buyer Matchmaking</span>
+          <span class="chip">Sales Contract Negotiation</span>
+          <span class="chip">Export Aggregation</span>
+          <span class="chip">Quality Grading</span>
+          <span class="chip">Off-taker Guarantees</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Syncs your commodity profile with Global Agro's buyer request pipeline, automatically matching lots that meet pre-agreed cupping and moisture benchmarks.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-global')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Partnership agreement requested with Global Agro (demo).', 'success'); ExporE.closeModal('partner-global');">Connect Partner</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OceanLink Logistics -->
+  <div class="modal-overlay" id="partner-ocean">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo logistics">OL</div>
+          <div>
+            <div class="modal-title">OceanLink Logistics</div>
+            <div class="modal-subtitle">Freight Forwarder &amp; Cold Chain · Surabaya, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-ocean')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Fleet / Capacity</div>
+            <div class="fs-20 fw-700">500+ TEU/mo</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Specialist Routes</div>
+            <div class="fs-20 fw-700">Japan &amp; EU</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Tracking</div>
+            <div class="fs-20 fw-700 text-emerald">Real-time GPS</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Services</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">FCL &amp; LCL Sea Freight</span>
+          <span class="chip">Reefer Container Monitoring</span>
+          <span class="chip">Customs Clearance (PPJK)</span>
+          <span class="chip">Bonded Warehousing</span>
+          <span class="chip">Marine Cargo Insurance</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Generate instant shipping instructions (SI), retrieve Bills of Lading, and stream container status directly into your Expor-E My Export dashboard.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-ocean')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Freight quote requested from OceanLink (demo).', 'success'); ExporE.closeModal('partner-ocean');">Request Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BCA Export Finance -->
+  <div class="modal-overlay" id="partner-bca">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div class="flex items-center gap-12">
+          <div class="partner-logo finance">BCA</div>
+          <div>
+            <div class="modal-title">BCA Export Finance</div>
+            <div class="modal-subtitle">Trade Finance &amp; Commercial Banking · Jakarta, Indonesia</div>
+          </div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('partner-bca')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-3 mb-24">
+          <div>
+            <div class="fs-12 text-muted">Facility Cap</div>
+            <div class="fs-20 fw-700">Up to $2M USD</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Correspondents</div>
+            <div class="fs-20 fw-700">2,000+ Banks</div>
+          </div>
+          <div>
+            <div class="fs-12 text-muted">Approval SLA</div>
+            <div class="fs-20 fw-700 text-emerald">48 Hours</div>
+          </div>
+        </div>
+
+        <h4 class="mb-16">Products &amp; Facilities</h4>
+        <div class="tag-list mb-24">
+          <span class="chip">Pre-Shipment Financing</span>
+          <span class="chip">Post-Shipment Factoring</span>
+          <span class="chip">Letter of Credit (LC) Confirmation</span>
+          <span class="chip">FX Hedging &amp; Forwards</span>
+          <span class="chip">Bank Guarantees</span>
+        </div>
+
+        <h4 class="mb-16">How Expor-E connects</h4>
+        <p class="fs-13">Expor-E submits your verified purchase orders and export readiness score to BCA's digital credit assessment engine for rapid credit approval.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('partner-bca')">Close</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Credit application submitted to BCA (demo).', 'success'); ExporE.closeModal('partner-bca');">Apply for Facility</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Trade Finance Simulator Modal -->
+  <div class="modal-overlay" id="credit-sim">
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Digital Trade Finance Simulator</div>
+          <div class="modal-subtitle">Instant export working capital estimation</div>
+        </div>
+        <button class="modal-close" onclick="ExporE.closeModal('credit-sim')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group mb-16">
+          <label class="form-label">Estimated Export Contract Value (USD)</label>
+          <input type="number" class="form-control" id="sim-contract-val" value="50000" oninput="simCalcFinance()">
+        </div>
+        <div class="form-group mb-16">
+          <label class="form-label">Financing Facility Type</label>
+          <select class="form-control" id="sim-type" onchange="simCalcFinance()">
+            <option value="0.80">Pre-Shipment Working Capital (up to 80%)</option>
+            <option value="0.85">Post-Shipment Invoice Factoring (up to 85%)</option>
+            <option value="0.75">Letter of Credit (LC) Discounting (up to 75%)</option>
+          </select>
+        </div>
+        <div class="form-group mb-24">
+          <label class="form-label">Financing Tenure</label>
+          <select class="form-control" id="sim-tenure" onchange="simCalcFinance()">
+            <option value="60">60 Days (Standard Agro Sea Transit)</option>
+            <option value="90">90 Days (Extended Buyer Terms)</option>
+            <option value="120">120 Days</option>
+          </select>
+        </div>
+        <div class="card card-mint card-pad-sm mb-16">
+          <div class="flex justify-between items-center mb-8">
+            <span class="fs-13 text-muted">Estimated Advance Facility:</span>
+            <span class="fs-18 fw-700 text-emerald" id="sim-advance-res">$40,000 USD</span>
+          </div>
+          <div class="flex justify-between items-center mb-8">
+            <span class="fs-13 text-muted">Estimated Annual Rate:</span>
+            <span class="fs-14 fw-600">6.5% p.a. (Preferential MSME)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="fs-13 text-muted">Digital Approval Time:</span>
+            <span class="fs-14 fw-600">Under 48 Hours</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="ExporE.closeModal('credit-sim')">Cancel</button>
+        <button class="btn btn-primary" onclick="ExporE.showToast('Financing pre-approval submitted to BCA and BNI!', 'success'); ExporE.closeModal('credit-sim');">Submit Application</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== SCRIPTS =================== -->
+  <script src="script.js?v=2.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ExporE.requireAuth(['MSMEs']);
+      ExporE.pageInit('ecosystem');
+    });
+  </script>
+</body>
+</html>

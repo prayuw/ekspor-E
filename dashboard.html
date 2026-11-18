@@ -14,15 +14,12 @@
   <!-- ============== SIDEBAR ============== -->
   <aside class="app-sidebar">
     <div class="sidebar-brand">
-      <div class="brand-logo">E</div>
-      <div>
-        <div class="brand-name">Expor-E</div>
-        <div class="brand-tag">3E Digital Trade</div>
-      </div>
+      <a href="dashboard.html" class="brand">
+        <div class="brand-name">Ekspor-E</div>
+      </a>
     </div>
 
     <div class="sidebar-user">
-      <div class="sidebar-avatar" data-user-initial>D</div>
       <div class="sidebar-user-info">
         <div class="sidebar-user-name" data-user-name>Dewi</div>
         <div class="sidebar-user-role" data-user-role>MSMEs / Exporter</div>
@@ -31,45 +28,39 @@
 
     <div class="sidebar-nav-section">Main Menu</div>
     <a href="dashboard.html" class="sidebar-link active">
-      
       <span class="lbl">Dashboard</span>
     </a>
-    <a href="readiness.html" class="sidebar-link">
-     
-      <span class="lbl">My Readiness</span>
-    </a>
-    <a href="readiness.html" class="sidebar-sublink">Assessment</a>
-    <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+    <div class="sidebar-dropdown">
+      <button type="button" class="sidebar-link sidebar-dropdown-toggle" onclick="ExporE.toggleSidebarDropdown(this)">
+        <span class="lbl">My Readiness</span>
+        <svg class="sidebar-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="sidebar-dropdown-menu">
+        <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+        <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+      </div>
+    </div>
     <a href="education.html" class="sidebar-link">
-     
       <span class="lbl">Education</span>
     </a>
     <a href="markets.html" class="sidebar-link">
-      
       <span class="lbl">Explore Markets</span>
     </a>
     <a href="ecosystem.html" class="sidebar-link">
-      
       <span class="lbl">Ecosystem</span>
-      <span class="pill active-tag">Active</span>
     </a>
     <a href="my-export.html" class="sidebar-link">
-     
       <span class="lbl">My Export</span>
-      <span class="pill active-tag">Active</span>
     </a>
     <a href="sustainability.html" class="sidebar-link">
-     
       <span class="lbl">Sustainability</span>
     </a>
     <a href="my-business.html" class="sidebar-link">
-   
       <span class="lbl">My Business</span>
     </a>
 
     <div class="sidebar-footer">
       <button class="sidebar-link" onclick="ExporE.logout()" style="width:100%">
-      
         <span class="lbl">Logout</span>
       </button>
     </div>
@@ -88,13 +79,17 @@
         <p class="sub">Here's what's happening with <span data-business-name>Sari Kopi Nusantara</span> today.</p>
       </div>
       <div class="app-header-actions">
-        <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 3 new notifications.', 'info')"><span class="dot"></span></button>
-        <div class="sidebar-avatar" data-user-initial>D</div>
+        <button class="bell-btn" aria-label="Notifications" onclick="ExporE.showToast('You have 3 new notifications.', 'info')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="dot"></span>
+        </button>
       </div>
     </header>
 
+    <div class="app-content">
+
     <!-- KPI Grid -->
-    <div class="kpi-grid">
+    <div class="kpi-grid mb-24">
       <div class="kpi-card">
         
         <div class="kpi-num">12</div>
@@ -134,17 +129,17 @@
               <h3>Your Next Steps</h3>
               <p class="text-muted fs-13" style="margin-top:4px;">Complete these to boost your readiness</p>
             </div>
-            <span class="badge badge-muted">3 pending</span>
+            <span class="badge badge-muted" data-dash-pending-badge>3 pending</span>
           </div>
 
-          <div class="next-step-card" onclick="window.location='sustainability.html'">
+          <div class="next-step-card" onclick="window.location='readiness.html#plan'">
             <div class="next-step-num">01</div>
             <div class="next-step-info">
               <div class="next-step-title">Complete HACCP requirement</div>
-              <div class="next-step-sub">60% complete · 2 tasks left</div>
+              <div class="next-step-sub" data-dash-haccp-sub>67% complete · 1 task left</div>
             </div>
             <div class="next-step-progress">
-              <div class="progress progress-sm"><div class="progress-bar" style="width:60%"></div></div>
+              <div class="progress progress-sm"><div class="progress-bar warning" data-dash-haccp-bar style="width:67%"></div></div>
             </div>
             <div class="next-step-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
           </div>
@@ -153,10 +148,10 @@
             <div class="next-step-num">02</div>
             <div class="next-step-info">
               <div class="next-step-title">Learn about SPS requirements</div>
-              <div class="next-step-sub">15 min · Education module</div>
+              <div class="next-step-sub" data-dash-sps-sub>15 min · Education module</div>
             </div>
             <div class="next-step-progress">
-              <div class="progress progress-sm"><div class="progress-bar warning" style="width:15%"></div></div>
+              <div class="progress progress-sm"><div class="progress-bar warning" data-dash-sps-bar style="width:15%"></div></div>
             </div>
             <div class="next-step-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
           </div>
@@ -165,10 +160,10 @@
             <div class="next-step-num">03</div>
             <div class="next-step-info">
               <div class="next-step-title">Explore potential markets</div>
-              <div class="next-step-sub">3 markets found for Arabica Coffee</div>
+              <div class="next-step-sub" data-dash-market-sub>3 markets found for Arabica Coffee</div>
             </div>
             <div class="next-step-progress">
-              <div class="progress progress-sm"><div class="progress-bar" style="width:0%"></div></div>
+              <div class="progress progress-sm"><div class="progress-bar" data-dash-market-bar style="width:0%"></div></div>
             </div>
             <div class="next-step-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
           </div>
@@ -181,41 +176,41 @@
             <p class="text-muted fs-13" style="margin-top:4px;">From assessment to your first export shipment</p>
           </div>
 
-          <div class="stepper">
-            <div class="step done">
-              <div class="step-circle done"></div>
+          <div class="stepper" data-journey-stepper>
+            <div class="step done" data-journey-step="1" onclick="window.location='readiness.html'" style="cursor: pointer;" title="Step 1: Assessment (Completed) - Click to view">
+              <div class="step-circle done">1</div>
               <div class="step-label">Assessment</div>
               <div class="step-line done"></div>
             </div>
-            <div class="step active">
+            <div class="step active" data-journey-step="2" onclick="window.location='education.html'" style="cursor: pointer;" title="Step 2: Education (In Progress) - Click to continue">
               <div class="step-circle active">2</div>
               <div class="step-label">Education</div>
               <div class="step-line"></div>
             </div>
-            <div class="step">
+            <div class="step" data-journey-step="3" onclick="window.location='readiness.html#plan'" style="cursor: pointer;" title="Step 3: Certification (Pending)">
               <div class="step-circle">3</div>
               <div class="step-label">Certification</div>
               <div class="step-line"></div>
             </div>
-            <div class="step">
+            <div class="step" data-journey-step="4" onclick="window.location='markets.html'" style="cursor: pointer;" title="Step 4: Market (Pending)">
               <div class="step-circle">4</div>
               <div class="step-label">Market</div>
               <div class="step-line"></div>
             </div>
-            <div class="step">
+            <div class="step" data-journey-step="5" onclick="window.location='ecosystem.html'" style="cursor: pointer;" title="Step 5: Buyer (Pending)">
               <div class="step-circle">5</div>
               <div class="step-label">Buyer</div>
               <div class="step-line"></div>
             </div>
-            <div class="step">
+            <div class="step" data-journey-step="6" onclick="window.location='my-export.html'" style="cursor: pointer;" title="Step 6: Export (Pending)">
               <div class="step-circle">6</div>
               <div class="step-label">Export</div>
             </div>
           </div>
 
-          <div class="notice-banner mt-24">
+          <div class="notice-banner mt-24" data-journey-banner>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .9 1.6h6.2c.1-.6.4-1.2.9-1.6A7 7 0 0 0 12 2Z"/></svg></span>
-            <span>You're <strong>2 of 6 steps</strong> into your export journey. Keep going to unlock premium markets like Japan and Germany.</span>
+            <span data-journey-banner-text>You're <strong>2 of 6 steps</strong> into your export journey. Keep going to unlock premium markets like Japan and Germany.</span>
           </div>
         </div>
 
@@ -304,10 +299,11 @@
 
     </div>
 
+    </div> <!-- /.app-content -->
   </main>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=2.0"></script>
 <script>
 ExporE.requireAuth(['MSMEs']);
 ExporE.pageInit('dashboard');

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Expor-E — Education</title>
 <meta name="description" content="Master export standards and skills with guided article modules tailored to Indonesian agroindustry — Pilar 1: Education.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
@@ -14,15 +14,12 @@
   <!-- ============== SIDEBAR ============== -->
   <aside class="app-sidebar" id="appSidebar">
     <div class="sidebar-brand">
-      <div class="brand-logo">E</div>
-      <div>
-        <div class="brand-name">Expor-E</div>
-        <div class="brand-tag">3E Digital Trade</div>
-      </div>
+      <a href="dashboard.html" class="brand">
+        <div class="brand-name">Ekspor-E</div>
+      </a>
     </div>
 
     <div class="sidebar-user">
-      <div class="sidebar-avatar" data-user-initial>D</div>
       <div class="sidebar-user-info">
         <div class="sidebar-user-name" data-user-name>Dewi</div>
         <div class="sidebar-user-role" data-user-role>MSMEs / Exporter</div>
@@ -31,41 +28,39 @@
 
     <div class="sidebar-nav-section">Main Menu</div>
     <a href="dashboard.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
       <span class="lbl">Dashboard</span>
     </a>
-    <a href="readiness.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-      <span class="lbl">My Readiness</span>
-    </a>
+    <div class="sidebar-dropdown">
+      <button type="button" class="sidebar-link sidebar-dropdown-toggle" onclick="ExporE.toggleSidebarDropdown(this)">
+        <span class="lbl">My Readiness</span>
+        <svg class="sidebar-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="sidebar-dropdown-menu">
+        <a href="readiness.html" class="sidebar-sublink">Assessment</a>
+        <a href="readiness.html#plan" class="sidebar-sublink">Improvement Plan</a>
+      </div>
+    </div>
     <a href="education.html" class="sidebar-link active">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       <span class="lbl">Education</span>
     </a>
     <a href="markets.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <span class="lbl">Explore Markets</span>
     </a>
     <a href="ecosystem.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       <span class="lbl">Ecosystem</span>
     </a>
     <a href="my-export.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
       <span class="lbl">My Export</span>
     </a>
     <a href="sustainability.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0c-3.31 0-6 2.69-6 6 0 1.66.67 3.16 1.76 4.24M12 8c3.31 0 6 2.69 6 6 0 1.66-.67 3.16-1.76 4.24M12 22v-6"/><circle cx="12" cy="12" r="10"/></svg>
       <span class="lbl">Sustainability</span>
     </a>
     <a href="my-business.html" class="sidebar-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
       <span class="lbl">My Business</span>
     </a>
 
     <div class="sidebar-footer">
       <button class="sidebar-link" onclick="ExporE.logout()" style="width:100%">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         <span class="lbl">Logout</span>
       </button>
     </div>
@@ -89,7 +84,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <span class="dot"></span>
         </button>
-        <div class="sidebar-avatar" data-user-initial>D</div>
       </div>
     </header>
 
@@ -138,11 +132,12 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
             <div class="next-step-info">
-              <div class="next-step-title">Memahami HS Code</div>
+              <div class="next-step-title">Understanding HS Codes</div>
               <div class="next-step-sub">A guidance module on the Harmonized System used to classify traded products.</div>
-              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
                 <span class="chip">Trade Basics</span>
                 <span class="badge badge-muted">2h 30m</span>
+                <span data-article-badge="hs"></span>
               </div>
             </div>
             <div class="next-step-arrow">
@@ -158,9 +153,10 @@
             <div class="next-step-info">
               <div class="next-step-title">SPS Requirements for Food Products</div>
               <div class="next-step-sub">Sanitary and Phytosanitary measures for exporting food to major markets.</div>
-              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
                 <span class="chip">Compliance</span>
                 <span class="badge badge-muted">1h 45m</span>
+                <span data-article-badge="sps"></span>
               </div>
             </div>
             <div class="next-step-arrow">
@@ -176,9 +172,10 @@
             <div class="next-step-info">
               <div class="next-step-title">Mastering Incoterms 2020</div>
               <div class="next-step-sub">Understand the 11 international trade terms that define buyer-seller responsibilities.</div>
-              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
                 <span class="chip">Logistics</span>
                 <span class="badge badge-muted">2h 00m</span>
+                <span data-article-badge="incoterms"></span>
               </div>
             </div>
             <div class="next-step-arrow">
@@ -194,9 +191,10 @@
             <div class="next-step-info">
               <div class="next-step-title">Export Documentation Checklist</div>
               <div class="next-step-sub">The essential paperwork — Commercial Invoice, Packing List, Certificate of Origin, and more.</div>
-              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
                 <span class="chip">Documentation</span>
                 <span class="badge badge-muted">1h 30m</span>
+                <span data-article-badge="docs"></span>
               </div>
             </div>
             <div class="next-step-arrow">
@@ -209,12 +207,12 @@
         <div class="card card-pad">
           <div class="flex justify-between items-center mb-16" style="flex-wrap:wrap; gap:12px;">
             <div>
-              <h3>Continue Learning: Import Basics</h3>
-              <p class="text-muted fs-13" style="margin-top:4px;">4 of 5 lessons completed</p>
+              <h3>Continue Learning: <span data-edu-active-title>Customs</span></h3>
+              <p class="text-muted fs-13" style="margin-top:4px;" data-edu-lessons-summary>4 of 5 lessons completed</p>
             </div>
-            <span class="badge badge-info">In Progress</span>
+            <span class="badge badge-info" data-edu-lessons-badge>In Progress</span>
           </div>
-          <div class="progress progress-lg mb-24"><div class="progress-bar" style="width:80%"></div></div>
+          <div class="progress progress-lg mb-24" data-edu-lessons-bar><div class="progress-bar" style="width:80%"></div></div>
           <div data-edu-lessons></div>
         </div>
 
@@ -268,8 +266,8 @@
             </div>
             <div class="tracking-event">
               <div class="time">Oct 25 · All day</div>
-              <div class="title">Quiz: Export Documentation</div>
-              <div class="place">15 questions · 30 min</div>
+              <div class="title">Review: Export Documentation</div>
+              <div class="place">Practical exercises · 30 min</div>
             </div>
           </div>
         </div>
@@ -291,26 +289,34 @@
         <div class="card card-pad">
           <h3 class="mb-16">Popular Modules</h3>
 
-          <div class="next-step-card" style="margin-bottom:10px;" onclick="ExporE.openModal('article-catalog')">
+          <div class="next-step-card" style="margin-bottom:10px; align-items:flex-start;" onclick="ExporE.openModal('article-catalog')">
             <div class="next-step-num">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="next-step-info">
               <div class="next-step-title">Digital Catalog 101</div>
               <div class="next-step-sub">45 min · Digital Readiness</div>
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+                <span class="chip">Digital Readiness</span>
+                <span data-article-badge="catalog"></span>
+              </div>
             </div>
             <div class="next-step-arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             </div>
           </div>
 
-          <div class="next-step-card" style="margin-bottom:10px;" onclick="ExporE.openModal('article-esg')">
+          <div class="next-step-card" style="margin-bottom:10px; align-items:flex-start;" onclick="ExporE.openModal('article-esg')">
             <div class="next-step-num">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0c-3.31 0-6 2.69-6 6 0 1.66.67 3.16 1.76 4.24M12 8c3.31 0 6 2.69 6 6 0 1.66-.67 3.16-1.76 4.24M12 22v-6"/><circle cx="12" cy="12" r="10"/></svg>
             </div>
             <div class="next-step-info">
               <div class="next-step-title">CBAM & ESG Reporting</div>
               <div class="next-step-sub">1h 20m · Sustainability</div>
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+                <span class="chip">Sustainability</span>
+                <span data-article-badge="esg"></span>
+              </div>
             </div>
             <div class="next-step-arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -358,7 +364,7 @@
     <div class="modal-header">
       <div>
         <div class="modal-title">Memahami HS Code</div>
-        <div class="modal-subtitle">Trade Basics · 2h 30m · Guidance article & quick quiz</div>
+        <div class="modal-subtitle">Trade Basics · 2h 30m · Guidance article</div>
       </div>
       <button class="modal-close" onclick="ExporE.closeModal('article-hs')" aria-label="Close">×</button>
     </div>
@@ -387,56 +393,10 @@
         <span><strong>Tips:</strong> Always verify the HS Code with your destination country's customs tariff schedule — small classification differences can change tariffs by 5–15%.</span>
       </div>
 
-      <h4 class="mb-16">Quick Quiz (3 questions)</h4>
-      <div class="form-check">
-        <input type="radio" name="q1" value="a">
-        <div>
-          <div class="form-check-label">1. How many digits are in the base international HS Code?</div>
-          <div class="form-check-sub">A. 4 · B. 6 · C. 8 · D. 10</div>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="radio" name="q1" value="b">
-        <div>
-          <div class="form-check-label">B. 6</div>
-          <div class="form-check-sub">The WCO HS is a 6-digit base code.</div>
-        </div>
-      </div>
-
-      <div class="form-check mt-16">
-        <input type="radio" name="q2" value="a">
-        <div>
-          <div class="form-check-label">2. Which chapter covers Coffee, Tea and Spices?</div>
-          <div class="form-check-sub">A. 09 · B. 17 · C. 22 · D. 04</div>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="radio" name="q2" value="b">
-        <div>
-          <div class="form-check-label">A. 09</div>
-          <div class="form-check-sub">Chapter 09 covers coffee, tea, maté and spices.</div>
-        </div>
-      </div>
-
-      <div class="form-check mt-16">
-        <input type="radio" name="q3" value="a">
-        <div>
-          <div class="form-check-label">3. What is the HS Code for roasted, non-decaffeinated coffee?</div>
-          <div class="form-check-sub">A. 0901.21 · B. 0901.22 · C. 2101.11 · D. 0902.10</div>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="radio" name="q3" value="b">
-        <div>
-          <div class="form-check-label">A. 0901.21</div>
-          <div class="form-check-sub">0901.21 = roasted, not decaffeinated coffee.</div>
-        </div>
-      </div>
-
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="hs">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-hs')">Cancel</button>
-      <button class="btn btn-primary" onclick="ExporE.completeModule('hs'); ExporE.closeModal('article-hs');">Submit Quiz & Complete Module</button>
+      <button class="btn btn-primary" onclick="ExporE.completeModule('hs'); ExporE.closeModal('article-hs');">Complete Module</button>
     </div>
   </div>
 </div>
@@ -447,7 +407,7 @@
     <div class="modal-header">
       <div>
         <div class="modal-title">SPS Requirements for Food Products</div>
-        <div class="modal-subtitle">Compliance · 1h 45m · Guidance article & quick quiz</div>
+        <div class="modal-subtitle">Compliance · 1h 45m · Guidance article</div>
       </div>
       <button class="modal-close" onclick="ExporE.closeModal('article-sps')" aria-label="Close">×</button>
     </div>
@@ -480,41 +440,10 @@
         <span><strong>Pre-export checklist:</strong> Phytosanitary cert · MRL lab test · Aflatoxin test · Japan-language label · HACCP docs.</span>
       </div>
 
-      <h4 class="mb-16">Quick Quiz (2 questions)</h4>
-      <div class="form-check">
-        <input type="radio" name="s1" value="a">
-        <div>
-          <div class="form-check-label">1. Which WTO agreement covers SPS measures?</div>
-          <div class="form-check-sub">A. GATT · B. SPS Agreement · C. TBT Agreement · D. TRIPS</div>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="radio" name="s1" value="b">
-        <div>
-          <div class="form-check-label">B. SPS Agreement</div>
-          <div class="form-check-sub">The WTO SPS Agreement (1995) governs food safety and plant/animal health standards.</div>
-        </div>
-      </div>
-
-      <div class="form-check mt-16">
-        <input type="radio" name="s2" value="a">
-        <div>
-          <div class="form-check-label">2. Which document is mandatory when exporting Arabica Coffee to Japan?</div>
-          <div class="form-check-sub">A. Phytosanitary Certificate · B. ISO 9001 · C. Halal Cert · D. Patent</div>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="radio" name="s2" value="b">
-        <div>
-          <div class="form-check-label">A. Phytosanitary Certificate</div>
-          <div class="form-check-sub">Issued by the Indonesian quarantine authority — required for plant-based exports to Japan.</div>
-        </div>
-      </div>
-
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="sps">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-sps')">Cancel</button>
-      <button class="btn btn-primary" onclick="ExporE.completeModule('sps'); ExporE.closeModal('article-sps');">Submit Quiz & Complete Module</button>
+      <button class="btn btn-primary" onclick="ExporE.completeModule('sps'); ExporE.closeModal('article-sps');">Complete Module</button>
     </div>
   </div>
 </div>
@@ -568,7 +497,7 @@
       </div>
 
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="incoterms">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-incoterms')">Close</button>
       <button class="btn btn-primary" onclick="ExporE.completeModule('incoterms'); ExporE.closeModal('article-incoterms');">Complete Module</button>
     </div>
@@ -619,7 +548,7 @@
       </div>
 
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="docs">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-docs')">Close</button>
       <button class="btn btn-primary" onclick="ExporE.completeModule('docs'); ExporE.closeModal('article-docs');">Complete Module</button>
     </div>
@@ -651,7 +580,7 @@
         </ul>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="catalog">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-catalog')">Close</button>
       <button class="btn btn-primary" onclick="ExporE.completeModule('catalog'); ExporE.closeModal('article-catalog');">Complete Module</button>
     </div>
@@ -681,14 +610,14 @@
         </ul>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" data-article-footer="esg">
       <button class="btn btn-ghost" onclick="ExporE.closeModal('article-esg')">Close</button>
       <button class="btn btn-primary" onclick="ExporE.completeModule('esg'); ExporE.closeModal('article-esg');">Complete Module</button>
     </div>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=2.0"></script>
 <script>
   ExporE.requireAuth(['MSMEs']);
   ExporE.pageInit('education');
